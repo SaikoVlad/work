@@ -112,7 +112,7 @@ public class BinaryTreeImpl {
     private void displayLeft(Node root, StringBuilder stringBuilder) {
         if (root != null) {
             displayLeft(root.getLeft(), stringBuilder);
-            stringBuilder.append(root.getData());
+            stringBuilder.append(root.getData()).append("\n");
             displayLeft(root.getRight(), stringBuilder);
         }
     }
@@ -126,11 +126,19 @@ public class BinaryTreeImpl {
     }
 
     public String getNotesWithLetter(char letter){
-        
+        String letStr = letter + "";
+        return "There are " + check(letStr) + " letters in tree";
     }
 
-    private int check(char letter, Node root, int count){
-
+    private int check(String letter){
+        String []mainString = this.toString().split("\n");
+        int count = 0;
+        for (String string : mainString){
+            if (string.startsWith(letter)){
+                count++;
+            }
+        }
+        return count;
     }
 
     @Override
