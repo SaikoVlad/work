@@ -85,25 +85,6 @@
     </div>
 </div>
 
-<script>
-    function submitForm(form) {
-        class Block extends React.Component{
-            render(){
-                return (<h6>This field can't be empty</h6>);
-            }
-        }
-        if (form.title.value === "" || form.title.value === " "){
-            ReactDOM.render(<Block/>, document.getElementById("mistake-title"));
-            return false;
-        }else if (form.content.value === "" || form.content.value === " "){
-            ReactDOM.render(<Block/>, document.getElementById("mistake-content"));
-            return false;
-        }
-        return true;
-    }
-
-
-</script>
 
 
 
