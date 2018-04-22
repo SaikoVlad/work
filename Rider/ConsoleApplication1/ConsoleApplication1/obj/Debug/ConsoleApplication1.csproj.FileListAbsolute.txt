@@ -1,0 +1,6 @@
+/home/prostrmk/Документы/Programms/Rider/ConsoleApplication1/ConsoleApplication1/bin/Debug/ConsoleApplication1.exe
+/home/prostrmk/Документы/Programms/Rider/ConsoleApplication1/ConsoleApplication1/bin/Debug/ConsoleApplication1.pdb
+/home/prostrmk/Документы/Programms/Rider/ConsoleApplication1/ConsoleApplication1/obj/Debug/ConsoleApplication1.csprojResolveAssemblyReference.cache
+/home/prostrmk/Документы/Programms/Rider/ConsoleApplication1/ConsoleApplication1/obj/Debug/ConsoleApplication1.csproj.CoreCompileInputs.cache
+/home/prostrmk/Документы/Programms/Rider/ConsoleApplication1/ConsoleApplication1/obj/Debug/ConsoleApplication1.exe
+/home/prostrmk/Документы/Programms/Rider/ConsoleApplication1/ConsoleApplication1/obj/Debug/ConsoleApplication1.pdb

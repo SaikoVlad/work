@@ -1,0 +1,745 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: scroll;
+    cursor: default;
+    background-color: #fefefe;
+    background-attachment: fixed;
+    text-align: center;
+    font-family: system-ui, -apple-system, ".SFNSText-Regular", "Segoe UI", Roboto, "Lucida Grande", Tahoma, Helvetica, Arial, Verdana, sans-serif;
+    font-size: 12px;
+    color: #333;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: 0
+}
+
+img, iframe {
+    border: 0
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+    margin: 0
+}
+
+h1 {
+    font-size: 1.3em
+}
+
+h2 {
+    font-size: 1.2em
+}
+
+h3 {
+    font-size: 1.1em
+}
+
+h4 {
+    font-size: 1em
+}
+
+hr {
+    border: 1px solid #ddd;
+    outline: 0
+}
+
+*:focus {
+    outline: 0
+}
+
+.nightMode *:focus {
+    outline: 0
+}
+
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    -webkit-touch-callout: default !important
+}
+
+a, a:active, a:visited {
+    color: #05a
+}
+
+a:hover, a:focus {
+    color: #c00;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.anchor {
+    display: inline-block;
+    position: absolute;
+    margin-top: -75px
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    font: inherit;
+    font-size: 100%;
+    color: inherit
+}
+
+th {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center
+}
+
+form {
+    margin: 0;
+    padding: 0;
+    clear: none
+}
+
+.cardBox {
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #fefefe;
+    border-radius: 2px;
+    box-shadow: 1px 1px 8px rgba(80, 80, 80, .25);
+    text-align: left
+}
+
+div.drop_links {
+    display: none
+}
+
+textarea, input, select {
+    font-family: system-ui, -apple-system, ".SFNSText-Regular", "Segoe UI", Roboto, "Lucida Grande", Tahoma, Helvetica, Arial, Verdana, sans-serif;
+    font-size: 12px;
+    padding: 3px;
+    background-color: #fff;
+    color: #222;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: box-shadow .2s, color .2s, background-color .2s
+}
+
+textarea, input {
+    -webkit-appearance: none
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    cursor: pointer;
+    margin: 2px;
+    padding: 0
+}
+
+input[type="radio"] {
+    -webkit-appearance: radio;
+    cursor: pointer
+}
+
+label[for] {
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none
+}
+
+.navHeaderContainer {
+    position: absolute;
+    position: fixed;
+    top: 55px;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 50px;
+    background-color: #868fa0;
+    background-color: rgba(134, 143, 160, 0.93);
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 2px 9px rgba(30, 30, 30, 0.4);
+    -webkit-transition: background-color .15s, transform .25s, opacity .15s;
+    margin-top: .25px;
+    transition: background-color .15s, transform .25s, opacity .15s, margin-top .25s
+}
+
+body.nightMode .navHeaderContainer, body.nightMode .navHeaderContainer * {
+    background-color: #333 !important
+}
+
+@media screen and (min-width: 800px) {
+    .navHeaderContainer {
+        font-size: 1.4em
+    }
+}
+
+.navHeader {
+    text-align: left
+}
+
+.navHeader a {
+    color: inherit !important
+}
+
+img.navHeaderBack, img.navHeaderMore {
+    position: absolute;
+    top: 0;
+    height: 25px;
+    width: 25px;
+    max-width: none !important;
+    margin: 12px;
+    cursor: pointer
+}
+
+.navHeaderBtn {
+    float: right
+}
+
+.navHeaderBtn > * {
+    position: absolute;
+    margin-left: -38px
+}
+
+body.nightMode img.navHeaderBack, body.nightMode img.navHeaderMore, body.nightMode .navHeaderBtn, body.nightMode .navHeaderBtn * {
+    background-color: transparent !important
+}
+
+div.navHeader .navHeaderOpt {
+    position: relative;
+    float: right;
+    width: 50px;
+    cursor: pointer
+}
+
+div.navHeader .navHeaderOpt .drop_links {
+    margin-top: 6px;
+    margin-left: -88px
+}
+
+body.nightMode div.navHeader, div.navHeader > * {
+    background-color: transparent !important
+}
+
+div.navHeader div.navHeaderTitle {
+    max-width: 60% !important;
+    margin: auto;
+    padding-top: 14px;
+    padding-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    background-color: transparent !important
+}
+
+div.navHeader div.navHeaderTitle.navHeaderHasSubtitle {
+    padding-top: 8px;
+    font-size: .9em
+}
+
+div.navHeaderTitle div.navHeaderSubtitle {
+    font-size: .9em;
+    opacity: .8
+}
+
+div.navHeaderContainer.navHeaderTrans {
+    background-color: transparent !important;
+    box-shadow: none;
+    opacity: 1
+}
+
+div.navHeaderTrans .noTrans, div.navHeader .navHeaderTop, div.navHeader .navHeaderTrans {
+    display: none
+}
+
+div.navHeaderTrans .navHeaderTrans, div.navHeaderTop .navHeaderTop {
+    display: block
+}
+
+div.navHeaderTitle::-webkit-scrollbar, div.navHeaderTitle *::-webkit-scrollbar {
+    display: none;
+    width: 0 !important
+}
+
+#container {
+    margin: 0 auto;
+    text-align: left;
+    padding-top: 105px;
+    background-color: transparent !important;
+    transition: opacity .1s, transform .15s
+}
+
+#containerFrame, iframe.containerFrame {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    transition: opacity .1s, transform .15s
+}
+
+#wcontent, #wcontentTop {
+    background-color: transparent !important
+}
+
+#wcontentTop, #contentStart, .hiddenElement {
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    outline: none !important
+}
+
+#footerPadding:focus, .hidefocus:focus, #rescontent:focus {
+    outline: 0
+}
+
+.qbutton, .qbutton:visited, .qbutton:hover, .qbutton:focus, .qbutton_small, .qbutton_small:visited, .qbutton_small:hover, .qbutton_small:focus {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #74829d;
+    padding: 4px 10px;
+    display: inline-block;
+    font-family: system-ui, -apple-system, ".SFNSText-Regular", "Segoe UI", Roboto, "Lucida Grande", Tahoma, Helvetica, Arial, Verdana, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .18px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(60, 60, 60, 0.4);
+    -webkit-font-smoothing: antialiased;
+    border: 0;
+    outline: 0;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none
+}
+
+.qbutton, .qbutton:visited, .qbutton:hover, .qbutton:focus {
+    font-size: 1.3em;
+    padding: 6px 15px
+}
+
+#quizHeaderBgContainer {
+    height: 400px;
+    overflow: hidden;
+    width: 100%;
+    max-width: none !important;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    margin-top: -10px;
+    background-color: #fefefe;
+    -webkit-transition: opacity .4s;
+    -moz-transition: opacity .3s;
+    transition: opacity .4s
+}
+
+#quizHeaderBgContainer > div {
+    background-color: transparent !important;
+    background-position: 50%;
+    margin: 0 -335px;
+    width: 155%;
+    height: 320px;
+    max-width: none !important;
+    background-size: 100%;
+    -webkit-filter: blur(8px) grayscale(20%);
+    filter: blur(8px) grayscale(20%)
+}
+
+@media screen and (max-width: 1100px) {
+    #quizHeaderBgContainer > div {
+        margin: 0 -280px
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #quizHeaderBgContainer > div {
+        margin: 0 -200px
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #quizHeaderBgContainer > div {
+        width: 160%;
+        margin: 0 -175px
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #quizHeaderBgContainer > div {
+        width: 160%;
+        margin: 0 -120px
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #quizHeaderBgContainer > div {
+        width: 160%;
+        margin: 0 -100px
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    #quizHeaderBgContainer > div {
+        margin: 0 -370px
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    #quizHeaderBgContainer > div {
+        margin: 0 -390px
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    #quizHeaderBgContainer > div {
+        margin: 0 -430px
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    #quizHeaderBgContainer > div {
+        margin: 0 -480px
+    }
+}
+
+@media screen and (min-width: 1850px) {
+    #quizHeaderBgContainer > div {
+        margin: 0 -510px
+    }
+}
+
+body.nightMode, body.nightMode *, body.nightMode .drop_links *, body.nightMode .qbutton, body.nightMode .qbutton_small {
+    color: #ccc !important;
+    background-color: #222 !important;
+    border-color: #333 !important;
+    -webkit-font-smoothing: antialiased
+}
+
+body.nightMode * a, body.nightMode #rescontent a, body.nightMode #p_groups div.post_text a {
+    color: #9ba7bd !important
+}
+
+body.nightMode * a:hover, body.nightMode #rescontent a:hover, body.nightMode #p_groups div.post_text a:hover, body.nightMode .qbutton_small:hover, body.nightMode .qbutton_small:focus, body.nightMode .drop_links *:hover, body.nightMode .drop_links *:focus {
+    color: #e5e6e6 !important
+}
+
+body.nightMode .ch_wt, body.nightMode input, body.nightMode textarea, body.nightMode .select, body.nightMode select, body.nightMode .qbutton, body.nightMode .qbutton_small, body.nightMode .qbutton *, body.nightMode .qbutton_small *, body.nightMode div.dlg_pop div.title, body.nightMode div.dlg_pop_inner > a, body.nightMode .graphBar {
+    background-color: #333 !important
+}
+
+body.nightMode .cke * {
+    background-color: #666 !important;
+    color: #222 !important
+}
+
+body.nightMode iframe {
+    background-color: transparent !important
+}
+
+body.nightMode ins, body.nightMode #_a_1, body.nightMode #_a_2, body.nightMode #_a_3, body.nightMode #_a_4, body.nightMode #_a_5 {
+    background-color: transparent !important
+}
+
+#mainbar, #mainbarBackLayer {
+    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%
+}
+
+#mainbar {
+    height: 55px;
+    z-index: 400000;
+    margin: 0;
+    background-color: #222;
+    text-align: left;
+    border-color: #2a2a2a !important;
+    box-shadow: 0 2px 9px rgba(30, 30, 30, 0.4);
+    -webkit-transition: transform .2s;
+    transition: transform .2s
+}
+
+#mainbarBackLayer {
+    height: 65px;
+    z-index: 39999;
+    background-color: transparent;
+    background-color: rgba(200, 200, 200, 0.01);
+    opacity: .01
+}
+
+#mainMenuBtn {
+    z-index: 40000;
+    float: left;
+    position: relative;
+    padding: 12px 0;
+    padding-bottom: 13px;
+    padding-right: 14px;
+    transition: background-color .4s;
+    cursor: pointer
+}
+
+#mainMenuBtn * {
+    background: transparent !important;
+    border-color: #eee !important
+}
+
+#mainMenuBtn > div {
+    margin-left: 8px;
+    width: 18px;
+    padding: 8px;
+    border-radius: 2px
+}
+
+#mainMenuBtn > div > div {
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+    height: 10px
+}
+
+#mainMenuBtn > div > div > div {
+    height: 4px;
+    border-bottom: 2px solid #eee
+}
+
+#mainMenuBtn a {
+    font-size: 1px;
+    color: transparent !important;
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    display: inline-block
+}
+
+div.mainbar .qbutton_small {
+    margin-top: 13px;
+    padding: 6px 8px;
+    background: #555;
+    border-radius: 2px
+}
+
+div.mainbar .qbutton_small:hover, div.mainbar .qbutton_small:focus {
+    background-color: #666 !important
+}
+
+.slideScrollbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #333 !important;
+    background-color: rgba(120, 120, 120, 0.3) !important;
+    border-radius: 3px;
+    width: 10px !important;
+    z-index: 2
+}
+
+div.fixedMenu {
+    position: absolute;
+    position: fixed;
+    display: none;
+    left: 0;
+    top: 54px;
+    width: 140px;
+    background: #222;
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 18px;
+    line-height: 2.5em;
+    text-align: left;
+    z-index: 40000;
+    color: #555;
+    box-shadow: 2px 4px 15px rgba(80, 80, 80, .3);
+    -webkit-font-smoothing: antialiased
+}
+
+div.fixedMenu a {
+    font-size: 1.2em;
+    display: block;
+    padding: 8px 5px;
+    color: #fff
+}
+
+div.fixedMenu a.active {
+    font-weight: bold
+}
+
+div.fixedMenu a:active, div.fixedMenu a:focus, div.fixedMenu a:hover, div.fixedMenu div.sub a:hover, div.fixedMenu div.sub a:focus {
+    background-color: #eee;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(116, 130, 157, 0.6)
+}
+
+div.fixedMenu div.sub {
+    overflow: hidden;
+    -moz-transition: height .2s;
+    -webkit-transition: height .2s;
+    transition: height .2s ease-in;
+    background-color: #262626
+}
+
+div.fixedMenu div.sub a {
+    padding-left: 16px;
+    border-left: 5px solid #333
+}
+
+div.fixedMenu .btn {
+    padding: 1px;
+    background: #444;
+    font-size: .8em
+}
+
+#mainMenuRecent a::before {
+    content: '.';
+    position: absolute;
+    margin-left: -10px;
+    margin-top: -4px;
+    display: block;
+    opacity: .2;
+    font-weight: bold
+}
+
+#mainMenuRecent a:last-child::before {
+    content: ''
+}
+
+#mainMenuFooter {
+    padding-top: 16px;
+    padding-bottom: 6px;
+    text-align: center;
+    line-height: 1.9em;
+    color: #555;
+    background-color: transparent !important
+}
+
+#mainMenuFooter * {
+    background-color: transparent !important
+}
+
+#mainMenuFooter a {
+    display: inline;
+    padding: 0;
+    padding-left: 7px;
+    background: 0;
+    border: 0;
+    font-size: .9em !important;
+    color: #555;
+    box-shadow: none !important
+}
+
+#mainMenuFooter a:hover {
+    color: #ccc !important
+}
+
+#mainMenuFooter div a:first-child {
+    padding-left: 0
+}
+
+#mainMenuCopyLink {
+    display: none
+}
+
+#homeIcon, #activityIcon, #quizIcon, #storyIcon, #createIcon, #recentIcon, #profileIcon, #settingsIcon, #logoutIcon {
+    width: 16px;
+    height: 16px;
+    margin-bottom: -3px;
+    margin-right: 8px;
+    margin-left: 4px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    -webkit-background-size: 16px;
+    background-size: 16px;
+    background-color: transparent !important
+}
+
+@media screen and (max-width: 829px) {
+    textarea {
+        width: 97%
+    }
+
+    textarea, input {
+        max-width: 100%
+    }
+}
+
+body.nightMode::-webkit-scrollbar, body.nightMode *::-webkit-scrollbar {
+    width: 10px;
+    -webkit-box-shadow: inset 0 0 10px #111;
+    box-shadow: inset 0 0 10px #111
+}
+
+#mainMenu::-webkit-scrollbar-track, body.nightMode::-webkit-scrollbar-track, body.nightMode *::-webkit-scrollbar-track {
+    background: transparent !important
+}
+
+#mainMenu::-webkit-scrollbar-thumb, body.nightMode::-webkit-scrollbar-thumb, body.nightMode *::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 10px #666;
+    box-shadow: inset 0 0 10px #666;
+    border-radius: 2px
+}
+
+#mainMenu, body.nightMode, body.nightMode * {
+    scrollbar-base-color: #444;
+    scrollbar-3dlight-color: #999;
+    scrollbar-highlight-color: #aaa;
+    scrollbar-track-color: #333;
+    scrollbar-arrow-color: #888;
+    scrollbar-shadow-color: #444;
+    scrollbar-dark-shadow-color: #333
+}
+
+#mainbar {
+    z-index: 63002
+}
+
+#mainMenu::-webkit-scrollbar {
+    width: 10px
+}
+
+#mainMenuFooter {
+    margin-left: -10px
+}
+
+.navHeaderTitle, .navHeaderTitle * {
+    overflow: hidden !important
+}
+
+#wcontent {
+    max-width: 980px;
+    margin: auto;
+    position: relative;
+    padding-top: 1px;
+    margin-bottom: 15px;
+    margin-top: 5px
+}
+
+@media screen and (min-width: 1485px) {
+    #wcontent {
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto
+    }
+}
+
+@media screen and (min-width: 1660px) {
+    #wcontent {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto
+    }
+}
+
+#footerPadding {
+    height: 50px;
+    background: transparent !important
+}
+
+#quizHeaderBgContainer {
+    background-color: transparent !important
+}

@@ -1,0 +1,5 @@
+/home/prostrmk/Документы/Programms/Csharp/Learn/Learn/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/prostrmk/Документы/Programms/Csharp/Learn/Learn/bin/Debug/Learn.pdb
+/home/prostrmk/Документы/Programms/Csharp/Learn/Learn/bin/Debug/Learn.exe
+/home/prostrmk/Документы/Programms/Csharp/Learn/Learn/obj/x86/Debug/Learn.exe
+/home/prostrmk/Документы/Programms/Csharp/Learn/Learn/obj/x86/Debug/Learn.pdb

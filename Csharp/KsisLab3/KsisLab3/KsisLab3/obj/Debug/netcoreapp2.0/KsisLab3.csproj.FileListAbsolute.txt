@@ -1,0 +1,10 @@
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/bin/Debug/netcoreapp2.0/KsisLab3.deps.json
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/bin/Debug/netcoreapp2.0/KsisLab3.runtimeconfig.json
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/bin/Debug/netcoreapp2.0/KsisLab3.runtimeconfig.dev.json
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/bin/Debug/netcoreapp2.0/KsisLab3.dll
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/bin/Debug/netcoreapp2.0/KsisLab3.pdb
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/obj/Debug/netcoreapp2.0/KsisLab3.csproj.CoreCompileInputs.cache
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/obj/Debug/netcoreapp2.0/KsisLab3.AssemblyInfoInputs.cache
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/obj/Debug/netcoreapp2.0/KsisLab3.AssemblyInfo.cs
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/obj/Debug/netcoreapp2.0/KsisLab3.dll
+/home/prostrmk/Documents/Programms/Csharp/KsisLab3/KsisLab3/KsisLab3/obj/Debug/netcoreapp2.0/KsisLab3.pdb

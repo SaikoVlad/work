@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+1cd761cd0e4fa4a2c7a9152da574400c CMakeFiles/SwiftCheck

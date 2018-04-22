@@ -1,0 +1,5 @@
+/home/prostrmk/Документы/Programms/Csharp/EvmExam/EvmExam/EvmExam/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/prostrmk/Документы/Programms/Csharp/EvmExam/EvmExam/EvmExam/bin/Debug/EvmExam.pdb
+/home/prostrmk/Документы/Programms/Csharp/EvmExam/EvmExam/EvmExam/bin/Debug/EvmExam.exe
+/home/prostrmk/Документы/Programms/Csharp/EvmExam/EvmExam/EvmExam/obj/x86/Debug/EvmExam.exe
+/home/prostrmk/Документы/Programms/Csharp/EvmExam/EvmExam/EvmExam/obj/x86/Debug/EvmExam.pdb

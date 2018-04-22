@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/prostrmk/Documents/Programms/C/Saod/Lab2/main.cpp
+iostream
+-
+cstring
+-
+fstream
+-
+iomanip
+-
+

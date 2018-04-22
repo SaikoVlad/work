@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/itemNews"
+        android:title="News"
+        android:icon="@drawable/ic_event_note_black_24dp"
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/itemProgramming"
+        android:title="Programming"
+        android:icon="@drawable/ic_code_black_24dp"
+        app:showAsAction="always"
+        />
+
+
+
+</menu>

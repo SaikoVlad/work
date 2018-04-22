@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="Laba7/Laba7.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Laba7/Controller/Menu.cs">
+    <Files>
+      <File FileName="Laba7/Controller/MainClass.cs" Line="1" Column="1" />
+      <File FileName="Laba7/Model/Init.cs" Line="1" Column="1" />
+      <File FileName="Laba7/View/Output.cs" Line="1" Column="1" />
+      <File FileName="Laba7/Controller/Treatment.cs" Line="1" Column="1" />
+      <File FileName="Laba7/Controller/Menu.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

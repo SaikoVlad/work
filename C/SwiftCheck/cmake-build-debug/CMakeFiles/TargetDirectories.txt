@@ -1,0 +1,3 @@
+/home/prostrmk/Documents/Programms/C/SwiftCheck/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/prostrmk/Documents/Programms/C/SwiftCheck/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/prostrmk/Documents/Programms/C/SwiftCheck/cmake-build-debug/CMakeFiles/SwiftCheck.dir

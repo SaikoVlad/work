@@ -1,0 +1,28 @@
+{
+  "name": "belitnews",
+  "version": "1.0.0",
+  "description": "Telegram-bot for itnews website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node app --presets=env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prostfk/work.git"
+  },
+  "author": "prostrmk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prostfk/work/issues"
+  },
+  "homepage": "https://github.com/prostfk/work#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "latest",
+    "config": "latest"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0"
+  }
+}

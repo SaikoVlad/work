@@ -1,0 +1,6 @@
+/home/prostrmk/Документы/Programms/Rider/Lab8/Laba8sharp/bin/Debug/Laba8sharp.exe
+/home/prostrmk/Документы/Programms/Rider/Lab8/Laba8sharp/bin/Debug/Laba8sharp.pdb
+/home/prostrmk/Документы/Programms/Rider/Lab8/Laba8sharp/obj/Debug/Laba8sharp.csprojResolveAssemblyReference.cache
+/home/prostrmk/Документы/Programms/Rider/Lab8/Laba8sharp/obj/Debug/Laba8sharp.csproj.CoreCompileInputs.cache
+/home/prostrmk/Документы/Programms/Rider/Lab8/Laba8sharp/obj/Debug/Laba8sharp.exe
+/home/prostrmk/Документы/Programms/Rider/Lab8/Laba8sharp/obj/Debug/Laba8sharp.pdb

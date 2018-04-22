@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Sergei.dir/main.cpp.o  -o Sergei 

@@ -1,0 +1,6 @@
+/home/prostrmk/Документы/Programms/Csharp/StoneScissorsPaper/StoneScissorsPaper/bin/Debug/StoneScissorsPaper.exe
+/home/prostrmk/Документы/Programms/Csharp/StoneScissorsPaper/StoneScissorsPaper/bin/Debug/StoneScissorsPaper.pdb
+/home/prostrmk/Документы/Programms/Csharp/StoneScissorsPaper/StoneScissorsPaper/obj/Debug/StoneScissorsPaper.csprojResolveAssemblyReference.cache
+/home/prostrmk/Документы/Programms/Csharp/StoneScissorsPaper/StoneScissorsPaper/obj/Debug/StoneScissorsPaper.csproj.CoreCompileInputs.cache
+/home/prostrmk/Документы/Programms/Csharp/StoneScissorsPaper/StoneScissorsPaper/obj/Debug/StoneScissorsPaper.exe
+/home/prostrmk/Документы/Programms/Csharp/StoneScissorsPaper/StoneScissorsPaper/obj/Debug/StoneScissorsPaper.pdb

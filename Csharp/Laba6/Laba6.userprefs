@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="Laba6/Laba6.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Laba6/TestFolder/MaxValueTest.cs">
+    <Files>
+      <File FileName="Laba6/Controller/Program.cs" Line="1" Column="1" />
+      <File FileName="Laba6/Model/MaxValue.cs" Line="1" Column="1" />
+      <File FileName="Laba6/Model/NodAndNokFinder.cs" Line="1" Column="1" />
+      <File FileName="Laba6/TestFolder/NodAndNokFinderTest.cs" Line="1" Column="1" />
+      <File FileName="Laba6/TestFolder/MaxValueTest.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

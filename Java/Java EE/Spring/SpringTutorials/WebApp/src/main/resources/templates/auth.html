@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Auth</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+
+
+<body>
+<br/>
+
+<div class="form-group" style="width: 40%; margin: 0 auto;" align="center">
+    <form class="regform" th:action="@{/checkUser}" th:object="${user}" method="post">
+        <label>Email:</label><br/>
+        <input type="text" class="form-control" th:field="*{mail}"  placeholder="Input your mail, please."/>
+        <label>Password:</label><br/>
+        <input type="password" class="form-control" th:field="*{password}" placeholder="Input your pass, please."/>
+        <input class="btn btn-primary" type="submit" />
+    </form>
+</div>
+
+</body>
+</html>

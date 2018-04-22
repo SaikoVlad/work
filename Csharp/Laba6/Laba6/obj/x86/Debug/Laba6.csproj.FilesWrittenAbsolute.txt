@@ -1,0 +1,12 @@
+/home/prostrmk/Programs/MonoDevelopProjects/pop/Laba6/Laba6/Laba6/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/prostrmk/Programs/MonoDevelopProjects/pop/Laba6/Laba6/Laba6/bin/Debug/Laba6.exe.mdb
+/home/prostrmk/Programs/MonoDevelopProjects/pop/Laba6/Laba6/Laba6/bin/Debug/Laba6.exe
+/home/prostrmk/Programs/MonoDevelopProjects/pop/Laba6/Laba6/Laba6/obj/x86/Debug/Laba6.exe
+/home/prostrmk/Programs/MonoDevelopProjects/pop/Laba6/Laba6/Laba6/obj/x86/Debug/Laba6.exe.mdb
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/bin/Debug/Laba6.exe.mdb
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/bin/Debug/Laba6.pdb
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/bin/Debug/Laba6.exe
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/obj/x86/Debug/Laba6.exe
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/obj/x86/Debug/Laba6.exe.mdb
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/obj/x86/Debug/Laba6.pdb

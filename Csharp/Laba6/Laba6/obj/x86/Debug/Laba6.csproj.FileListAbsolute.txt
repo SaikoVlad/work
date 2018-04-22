@@ -1,0 +1,6 @@
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/bin/Debug/Laba6.exe
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/bin/Debug/Laba6.pdb
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/obj/x86/Debug/Laba6.csprojResolveAssemblyReference.cache
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/obj/x86/Debug/Laba6.csproj.CoreCompileInputs.cache
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/obj/x86/Debug/Laba6.exe
+/home/prostrmk/Документы/Programms/Csharp/Laba6/Laba6/obj/x86/Debug/Laba6.pdb

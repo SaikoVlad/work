@@ -15,6 +15,6 @@ public class Main {
         tree.insert("heh");
         System.out.println(tree.getNotesWithLetter('l'));
         System.out.println(tree);
-        
+
     }
 }

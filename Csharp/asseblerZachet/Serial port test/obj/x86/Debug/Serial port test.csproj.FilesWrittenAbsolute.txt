@@ -1,0 +1,7 @@
+/home/prostrmk/Документы/Programms/Csharp/asseblerZachet/Serial port test/obj/x86/Debug/.NETFramework,Version=v4.0,Profile=Client.AssemblyAttribute.cs
+/home/prostrmk/Документы/Programms/Csharp/asseblerZachet/Serial port test/obj/x86/Debug/Serial_port_test.Form1.resources
+/home/prostrmk/Документы/Programms/Csharp/asseblerZachet/Serial port test/obj/x86/Debug/Serial_port_test.Properties.Resources.resources
+/home/prostrmk/Документы/Programms/Csharp/asseblerZachet/Serial port test/bin/Debug/Serial port test.pdb
+/home/prostrmk/Документы/Programms/Csharp/asseblerZachet/Serial port test/bin/Debug/Serial port test.exe
+/home/prostrmk/Документы/Programms/Csharp/asseblerZachet/Serial port test/obj/x86/Debug/Serial port test.exe
+/home/prostrmk/Документы/Programms/Csharp/asseblerZachet/Serial port test/obj/x86/Debug/Serial port test.pdb

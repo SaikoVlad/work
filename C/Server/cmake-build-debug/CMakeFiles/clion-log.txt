@@ -1,0 +1,4 @@
+/home/prostrmk/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/173.4674.29/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/prostrmk/Documents/Programms/C/Server
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/prostrmk/Documents/Programms/C/Server/cmake-build-debug

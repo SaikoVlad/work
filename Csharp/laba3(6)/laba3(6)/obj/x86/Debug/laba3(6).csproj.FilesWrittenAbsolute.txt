@@ -1,0 +1,5 @@
+/home/prostrmk/Документы/csharp/laba3(6)/laba3(6)/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/prostrmk/Документы/csharp/laba3(6)/laba3(6)/bin/Debug/laba3(6).exe.mdb
+/home/prostrmk/Документы/csharp/laba3(6)/laba3(6)/bin/Debug/laba3(6).exe
+/home/prostrmk/Документы/csharp/laba3(6)/laba3(6)/obj/x86/Debug/laba3(6).exe
+/home/prostrmk/Документы/csharp/laba3(6)/laba3(6)/obj/x86/Debug/laba3(6).exe.mdb

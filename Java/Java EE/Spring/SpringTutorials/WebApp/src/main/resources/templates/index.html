@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Form</title>
+</head>
+<body>
+
+<div align="center"><br/><br/>
+    <form name="regForm" th:action="@{/submit}" th:object="${newUser}" method="post">
+        <input name="mail" th:field="*{mail}" onchange="checkInput()" type="text" placeholder="mail"/><br/>
+        <input name="password" th:field="*{password}" type="password" placeholder="password"/><br/>
+        <input name="againPassword" th:field="*{passwordAgain}" type="password" placeholder="again password"/><br/>
+        <input type="submit"/>
+    </form>
+</div>
+
+</body>
+</html>

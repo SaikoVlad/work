@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title th:text="${article.title}"></title>
+    <style>
+        body {
+            background-color: #5a5a5a;
+        }
+    </style>
+</head>
+<body>
+
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Belarus It News</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/programming">Programming</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/startup">StartUps</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/science">Science</a>
+            </li>
+        </ul>
+
+        <!--<label th:text="${user.username}"></label>-->
+        <!--th:with="searchString=${T(java.lang.String).create()}" th:object="${searchString}"-->
+        <!--<form method="post" th:action="@{/articles/search}" th:object="${searchArticle}" >-->
+        <input class="form-control mr-sm-2" type="search" style="background-color: #aeaeae" placeholder="Search"
+               aria-label="Search"/>
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        <!--</form>-->
+    </div>
+    <br/><br/>
+</nav>
+<!--NAVBAR-->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 column ui-sortable" th:object="${article}"
+             style="width: 25% ;border-radius: 10px;color: whitesmoke;box-shadow: 2px 2px 5px lightgray;">
+            <h2 align="center" class="fadeInDown" th:text="${article.title}"></h2>
+            <h6 align="center" th:text="${article.type}"></h6>
+            <img th:src="@{${article.pathToFile}}"/>
+            <div class="form-group">
+                <label th:text="${article.content}"></label>
+            </div>
+            <form th:action="@{/}" method="get">
+                <button class="btn btn-default" type="submit">Return</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br/>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var body = $("body");
+        body.fadeIn(400);
+        $(document).on("click", "a:not([href^='#']):not([href^='tel']):not([href^='mailto'])", function(e) {
+            e.preventDefault();
+            $("body").fadeOut(400);
+            var self = this;
+            setTimeout(function () {
+                window.location.href = $(self).attr("href");
+            }, 400);
+        });
+    });
+</script>
+
+</body>
+</html>

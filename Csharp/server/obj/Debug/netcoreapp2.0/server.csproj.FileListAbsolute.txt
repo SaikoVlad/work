@@ -1,0 +1,10 @@
+/home/prostrmk/Documents/Programms/Csharp/server/bin/Debug/netcoreapp2.0/server.deps.json
+/home/prostrmk/Documents/Programms/Csharp/server/bin/Debug/netcoreapp2.0/server.runtimeconfig.json
+/home/prostrmk/Documents/Programms/Csharp/server/bin/Debug/netcoreapp2.0/server.runtimeconfig.dev.json
+/home/prostrmk/Documents/Programms/Csharp/server/bin/Debug/netcoreapp2.0/server.dll
+/home/prostrmk/Documents/Programms/Csharp/server/bin/Debug/netcoreapp2.0/server.pdb
+/home/prostrmk/Documents/Programms/Csharp/server/obj/Debug/netcoreapp2.0/server.csproj.CoreCompileInputs.cache
+/home/prostrmk/Documents/Programms/Csharp/server/obj/Debug/netcoreapp2.0/server.AssemblyInfoInputs.cache
+/home/prostrmk/Documents/Programms/Csharp/server/obj/Debug/netcoreapp2.0/server.AssemblyInfo.cs
+/home/prostrmk/Documents/Programms/Csharp/server/obj/Debug/netcoreapp2.0/server.dll
+/home/prostrmk/Documents/Programms/Csharp/server/obj/Debug/netcoreapp2.0/server.pdb

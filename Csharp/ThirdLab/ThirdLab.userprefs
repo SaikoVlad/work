@@ -1,0 +1,21 @@
+﻿<Properties StartupItem="ThirdLab/ThirdLab.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ThirdLab/UnitTests/DataTest.cs">
+    <Files>
+      <File FileName="ThirdLab/Controller/Program.cs" Line="121" Column="4" />
+      <File FileName="ThirdLab/Model/DataOfNextDay.cs" Line="27" Column="1" />
+      <File FileName="ThirdLab/UnitTests/DataTest.cs" Line="15" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="ThirdLab" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

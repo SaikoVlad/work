@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <!--IMPORTS-->
+    <import resource="loggers.xml"/>
+    <!--IMPORTS-->
+
+
+    <bean id="loggingAspect" class="by.bntu.fitr.povt.prostrmk.model.loggers.LoggingAspect"/>
+
+    <!--PROPERTIES-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:client.properties</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+    </bean>
+    <!--PROPERTIES-->
+
+
+    <!--CLIENT-BEAN-->
+    <bean id="client" class="by.bntu.fitr.povt.prostrmk.model.Client">
+        <constructor-arg value="${id}"/>
+        <constructor-arg value="${name}"/>
+    </bean>
+
+
+
+    <!--EVENT-Bean-->
+    <bean id="event" class="by.bntu.fitr.povt.prostrmk.model.Event" scope="prototype">
+
+        <constructor-arg index="0" value="some string from spring xml"/>
+        <constructor-arg index="1">
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+        <constructor-arg index="2">
+            <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateInstance"/>
+        </constructor-arg>
+    </bean>
+
+
+
+    <!--APP-BEAN-->
+    <bean id="app" class="by.bntu.fitr.povt.prostrmk.controller.App">
+        <constructor-arg index="0" ref="client"/>
+        <constructor-arg index="1" value="#{T(by.bntu.fitr.povt.prostrmk.model.Event).isDay() ? consoleEventLogger : fileEventLogger}"/>
+        <constructor-arg index="2" ref="event"/>
+    </bean>
+
+</beans>

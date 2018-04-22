@@ -1,0 +1,5 @@
+/home/prostrmk/Документы/csharp/ThirdLab/ThirdLab/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/prostrmk/Документы/csharp/ThirdLab/ThirdLab/bin/Debug/ThirdLab.pdb
+/home/prostrmk/Документы/csharp/ThirdLab/ThirdLab/bin/Debug/ThirdLab.exe
+/home/prostrmk/Документы/csharp/ThirdLab/ThirdLab/obj/x86/Debug/ThirdLab.exe
+/home/prostrmk/Документы/csharp/ThirdLab/ThirdLab/obj/x86/Debug/ThirdLab.pdb

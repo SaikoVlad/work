@@ -1,0 +1,6 @@
+/home/prostrmk/Документы/Programms/Csharp/ReadyToExam/ReadyToExam/bin/Debug/ReadyToExam.exe
+/home/prostrmk/Документы/Programms/Csharp/ReadyToExam/ReadyToExam/bin/Debug/ReadyToExam.pdb
+/home/prostrmk/Документы/Programms/Csharp/ReadyToExam/ReadyToExam/obj/Debug/ReadyToExam.csprojResolveAssemblyReference.cache
+/home/prostrmk/Документы/Programms/Csharp/ReadyToExam/ReadyToExam/obj/Debug/ReadyToExam.csproj.CoreCompileInputs.cache
+/home/prostrmk/Документы/Programms/Csharp/ReadyToExam/ReadyToExam/obj/Debug/ReadyToExam.exe
+/home/prostrmk/Документы/Programms/Csharp/ReadyToExam/ReadyToExam/obj/Debug/ReadyToExam.pdb

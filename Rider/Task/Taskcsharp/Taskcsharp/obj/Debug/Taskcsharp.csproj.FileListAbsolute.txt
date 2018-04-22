@@ -1,0 +1,6 @@
+/home/prostrmk/Документы/Programms/Rider/Task/Taskcsharp/Taskcsharp/bin/Debug/Taskcsharp.exe
+/home/prostrmk/Документы/Programms/Rider/Task/Taskcsharp/Taskcsharp/bin/Debug/Taskcsharp.pdb
+/home/prostrmk/Документы/Programms/Rider/Task/Taskcsharp/Taskcsharp/obj/Debug/Taskcsharp.csprojResolveAssemblyReference.cache
+/home/prostrmk/Документы/Programms/Rider/Task/Taskcsharp/Taskcsharp/obj/Debug/Taskcsharp.csproj.CoreCompileInputs.cache
+/home/prostrmk/Документы/Programms/Rider/Task/Taskcsharp/Taskcsharp/obj/Debug/Taskcsharp.exe
+/home/prostrmk/Документы/Programms/Rider/Task/Taskcsharp/Taskcsharp/obj/Debug/Taskcsharp.pdb

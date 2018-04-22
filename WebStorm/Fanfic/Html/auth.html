@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+
+<!--[if lt IE 7]>
+<html lang="ru" class="ie ie6 lte9 lte8 lte7 os-linux"> <![endif]-->
+<!--[if IE 7]>
+<html lang="ru" class="ie ie7 lte9 lte8 lte7 os-linux"> <![endif]-->
+<!--[if IE 8]>
+<html lang="ru" class="ie ie8 lte9 lte8 os-linux"> <![endif]-->
+<!--[if IE 9]>
+<html lang="ru" class="ie ie9 lte9 os-linux"> <![endif]-->
+<!--[if gt IE 9]>
+<html lang="ru" class="os-linux"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="ru" class="os-linux"> <!--<![endif]-->
+
+
+<head>
+    <meta charset="UTF-8"/>
+
+
+    <title>Auth</title>
+    <!--<link rel="stylesheet" href="https://static.licdn.com/sc/h/3k8bh19k8o5hi37sr17419xp"/>-->
+    <link href="../Css/newauth.css" type="text/css" rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+
+<div id="application-body">
+
+
+    <script data-page-js-type="lix">
+        (function (n, r, a) {
+            r = window[n] = window[n] || {};
+
+
+            r['jsecure_injectAlert'] = 'enabled';
+
+
+            r['jsecure_Dialog'] = 'control';
+
+
+        }('__li__lix_registry__'));
+    </script>
+
+
+    <main id="layout-main" role="main">
+        <div class="global-wrapper  artdeco-a"><code id="i18n_sign_in" style="display: none;"><!--"Войти"--></code><code
+                id="i18n_join_now" style="display: none;"><!--"Присоединиться"--></code>
+            <div class="main background lazy-load show-join" data-delayed-url="">
+                <form id="regForm" class="reg-form" action="checklolgag" method="POST" data-jsenabled="check" data-autologin="" data-smartlock-save-on-signup="false">
+                    <h2 class="title">Register new account</h2>
+                    <h3 class="subtitle">It's free</h3>
+                    <div class="reg-alert hidden" role="alert" tabindex="-1">
+                        <div class="wrapper"><p class="message"><span class="alert-content"></span></p>
+                            <button class="dismiss dismiss-alert">
+                                <li-icon type="cancel-icon" size="small" a11y-text="Dismiss"></li-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <label for="reg-firstname">Name</label><input type="text" name="firstName" id="reg-firstname" class="reg-firstname" aria-required="true" tabindex="1"/>
+                    <!--<label for="reg-lastname">Surname</label><input type="text" name="lastName" id="reg-lastname" class="reg-lastname" aria-required="true" tabindex="1"/>-->
+                    <label for="reg-email">Email</label><input type="text" name="session_key" class="reg-email" autocapitalize="off" tabindex="1" id="reg-email" autofocus="autofocus"><label
+                        for="reg-password">Password</label><input type="password" name="session_password" class="reg-password" id="reg-password" aria-required="true" tabindex="1" autocomplete="new-password"/>
+                    <br>
+                    <input tabindex="1" id="registration-submit" class="registration submit-button" type="submit" value="Join us!">
+
+                    <br><br>
+                    <div class="loginExternalButtons" align="center">
+                        <a class="qbutton_small loginBtn" title="Log in through your Facebook account"
+                           href="/user/login/facebook?next=fanfic"
+                           onclick="return userExternalLogin('facebook', '?next=fanfic')" rel="nofollow"
+                           data-qtvprocessed="1"><img src="https://i.quotev.com/img/n/f.png" alt=""
+                                                      style="height:16px;width:16px;margin:-2px 0"> Facebook</a>
+                        <a
+                            class="qbutton_small loginBtn" title="Log in through your Google account"
+                            href="/user/login/google?next=fanfic"
+                            onclick="return userExternalLogin('google', '?next=fanfic')" rel="nofollow"
+                            data-qtvprocessed="1"><img src="http://edrublevsky.ru/wp-content/uploads/2016/01/%D0%B2%D0%BA-%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png" alt=""
+                                                       style="height:16px;width:16px;margin:-2px 0"> Vk</a>
+                        <a
+                            class="qbutton_small loginBtn" title="Log in through your Twitter account"
+                            href="/user/login/twitter?next=fanfic"
+                            onclick="return userExternalLogin('twitter', '?next=fanfic')" rel="nofollow"
+                            data-qtvprocessed="1"><img src="https://i.quotev.com/img/n/t.png" alt=""
+                                                       style="width:16px;height:16px;margin:-2px 0"> Twitter</a></div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

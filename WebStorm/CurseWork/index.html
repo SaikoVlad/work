@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    body {
+      margin: 0;
+    }
+    #cnvs {
+      border: #000000 1px solid;
+    }
+  </style>
+ </head>
+
+ <body onload="initcnvs()" onmousedown="mDown(event)" onmousemove="mMove(event)" onmouseup="mUp(event)">
+   <!-- <canvas id="cnvs" width="800" height="500"></canvas> -->
+   <canvas id="cnvs" width="1910" height="900"></canvas>
+   <button onclick="cnvs.clearRect(0,0,1910,900);">Clean screen</button>
+   <input placeholder="Name of file"/><button type="submit">Save</button>
+
+
+  <script>
+    function clearCanvas(){
+      cnvs.clearRect(0,0,1910,900);
+    }
+  </script>
+  <script src="js/main.js"></script>
+ </body>
+</html>

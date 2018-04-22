@@ -1,0 +1,6 @@
+/home/prostrmk/Документы/Programms/Csharp/GUI/GUi/GUi/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/prostrmk/Документы/Programms/Csharp/GUI/GUi/GUi/obj/x86/Debug/GUi.gtk-gui.gui.stetic
+/home/prostrmk/Документы/Programms/Csharp/GUI/GUi/GUi/bin/Debug/GUi.pdb
+/home/prostrmk/Документы/Programms/Csharp/GUI/GUi/GUi/bin/Debug/GUi.exe
+/home/prostrmk/Документы/Programms/Csharp/GUI/GUi/GUi/obj/x86/Debug/GUi.exe
+/home/prostrmk/Документы/Programms/Csharp/GUI/GUi/GUi/obj/x86/Debug/GUi.pdb

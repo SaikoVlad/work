@@ -1,0 +1,6 @@
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/bin/Debug/Laba7.exe
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/bin/Debug/Laba7.pdb
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/obj/x86/Debug/Laba7.csprojResolveAssemblyReference.cache
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/obj/x86/Debug/Laba7.csproj.CoreCompileInputs.cache
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/obj/x86/Debug/Laba7.exe
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/obj/x86/Debug/Laba7.pdb

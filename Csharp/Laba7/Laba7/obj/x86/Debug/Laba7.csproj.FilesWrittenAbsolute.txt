@@ -1,0 +1,5 @@
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/bin/Debug/Laba7.pdb
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/bin/Debug/Laba7.exe
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/obj/x86/Debug/Laba7.exe
+/home/prostrmk/Документы/Programms/Csharp/Laba7/Laba7/obj/x86/Debug/Laba7.pdb

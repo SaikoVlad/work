@@ -1,0 +1,2607 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quotev</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="theme-color" content="#222222">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Quotev">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" property="og:description"
+          content="Read or write a story, book, quiz, survey, or poll. Follow others who share your interests.">
+    <meta property="og:site_name" content="Quotev">
+    <script>env = {r: {time: 1518015794}, ch: {}}</script>
+    <link rel="dns-prefetch" href="https://i.quotev.com">
+    <link rel="preconnect" href="https://i.quotev.com">
+    <link rel="manifest" href="/js/m12.json">
+    <link href="../Css/index.css" type="text/css" rel="stylesheet">
+
+    <link rel="search" type="application/opensearchdescription+xml" title="Quotev" href="/js/search.xml">
+    <link rel="shortcut icon" href="/favicon.ico?3">
+    <link rel="apple-touch-icon-precomposed" href="https://i.quotev.com/q/qe144.png">
+    <script>"use strict";
+    !function () {
+        var r = 0;
+        window.onerror = function (n, t, e, o, a) {
+            try {
+                var c = "Script error";
+                if (r >= 2 || a && a.sc || "string" == typeof n && (n == c || n == c + ".")) return !0;
+                r++;
+                var s = "";
+                a && a.name ? s += a.name + ": " + a.message + (a.stack ? "\n" + a.stack : "") : s = n, s = s.substr(0, 800);
+                var i = document.location, u = window.encodeURIComponent;
+                "function" == typeof u && (s = u(s),
+                    t = u(t), e = u(e), i = u(i));
+                var m = new Image;
+                m.src = "/_/je?m=" + s + "&u=" + t + "&l=" + e + "&p=" + i + "&r=" + (Math.random() + "").substr(2);
+            } catch (f) {
+            }
+            return !0
+        }
+    }();
+
+    function Array_from(e) {
+        if (!e) return [];
+        if ("undefined" != typeof e.toArray) return e.toArray();
+        for (var t = [], n = 0; n < e.length; n++) t.push(e[n]);
+        return t
+    }
+
+    function bindFunc() {
+        var e = Array_from(arguments), t = e.shift(), n = e.shift();
+        return function () {
+            return t.apply(n, e.concat(Array_from(arguments)))
+        }
+    }
+
+    function trimSpace(e) {
+        return e.replace(/^\s+/, "").replace(/\s+$/, "")
+    }
+
+    function getScrollXY() {
+        if (env.frame && parent && parent != window) {
+            var e = parent.getScrollXY();
+            if (e[0] || e[1] || env.ios < 15) return e
+        }
+        var t = 0, n = 0, r = document.documentElement, i = document.body;
+        return void 0 !== window.pageYOffset ? (t = window.pageXOffset, n = window.pageYOffset) : r && (r.scrollLeft || r.scrollTop) ? (t = r.scrollLeft,
+            n = r.scrollTop) : i.parentNode && (i.parentNode.scrollLeft || i.parentNode.scrollTop) ? (t = i.parentNode.scrollLeft,
+            n = i.parentNode.scrollTop) : (t = i.scrollLeft, n = i.scrollTop), [t, n]
+    }
+
+    function window_size() {
+        if (env.frame && parent && parent != window) {
+            var e = parent.window_size();
+            if (e[0] || e[1]) return e;
+        }
+        var t = 630, n = 460, r = document.documentElement, i = document.body;
+        return window.env && env.operaMini ? (t = window.screen.width,
+            n = window.screen.height) : window.innerWidth ? (t = window.innerWidth, n = window.innerHeight) : r && r.clientWidth ? (t = r.clientWidth,
+            n = r.clientHeight) : i.parentNode && i.parentNode.clientWidth ? (t = i.parentNode.clientWidth,
+            n = i.parentNode.clientHeight) : i.clientWidth && (t = i.clientWidth, n = i.clientHeight), [t, n];
+    }
+
+    function fireEvent(e, t) {
+        var n;
+        document.createEvent ? (n = document.createEvent("HTMLEvents"),
+            n.initEvent(t, !0, !0), e.dispatchEvent(n)) : (n = document.createEventObject(), n.eventType = t,
+            n.eventName = t, e.fireEvent("on" + n.eventType, n))
+    }
+
+    function submitForm(e) {
+        fireEvent(e, "submit"),
+            e.submit()
+    }
+
+    function getTouchEvent(e) {
+        return e.changedTouches ? e.changedTouches[0] : e.targetTouches ? e.targetTouches[0] : e.touches ? e.touches[0] : e.pageX || e.pageY ? e : void 0;
+    }
+
+    function _eventHandler(e) {
+        if (e) {
+            if (!e.target) try {
+                e.srcElement && (e.target = e.srcElement);
+            } catch (t) {
+            }
+            if ("undefined" == typeof e.pageX && ("mousemove" == e.type || "mousedown" == e.type || "mouseup" == e.type)) try {
+                var n = getScrollXY();
+                e.pageX = n[0], e.pageY = n[1], (e.clientX || e.clientY) && (e.pageX += e.clientX,
+                    e.pageY += e.clientY)
+            } catch (t) {
+            }
+            e.preventDefault || (e.preventDefault = function () {
+                window.event && (window.event.returnValue = !1);
+            }), e.stopPropagation || (e.stopPropagation = function () {
+                window.event && (window.event.cancelBubble = !0);
+            });
+            var r = this[1].call(this[0], e);
+            return r === !1 && e.preventDefault(), r
+        }
+    }
+
+    function addEventListenerX(e, t, n, r, i) {
+        if (e) {
+            i = i || {}, e.js_events || (e.js_events = {}), "object" != typeof r || eventSupportsOptions || (r = r.capture),
+                r = r || !1;
+            var o = null;
+            return e.addEventListener ? e.addEventListener(t, o = bindFunc(_eventHandler, [e, n, i]), r) : e.attachEvent && e.attachEvent("on" + t, o = bindFunc(_eventHandler, [e, n, i])),
+            e.js_events[t] || (e.js_events[t] = []), e.js_events[t].push([o, r]), o
+        }
+    }
+
+    function removeEventListenerX(e, t, n, r, i) {
+        if (e) {
+            var o = -1;
+            if ("undefined" == typeof r && e.js_events && e.js_events[t]) for (var s = 0, a = e.js_events[t].length; a > s; s++) {
+                var l = e.js_events[t][s];
+                if (l[0] == n) {
+                    r = l[1], o = s;
+                    break
+                }
+            }
+            if (e.removeEventListener ? e.removeEventListener(t, n, r || !1) : e.detachEvent && e.detachEvent("on" + t, n),
+                !i && e.js_events && e.js_events[t]) {
+                if (-1 == o) for (var s = 0, a = e.js_events[t].length; a > s; s++) {
+                    var l = e.js_events[t][s];
+                    if (l[0] == n) {
+                        o = s;
+                        break
+                    }
+                }
+                o >= 0 && e.js_events[t].splice(s, 1)
+            }
+        }
+    }
+
+    function purgeEventListeners(e, t) {
+        if ("undefined" != typeof e.js_events) {
+            if (e.js_events[t]) {
+                for (var n = 0, r = e.js_events[t].length; r > n; n++) {
+                    var i = e.js_events[t][n];
+                    removeEventListenerX(e, t, i[0], i[1], !0);
+                }
+                e.js_events[t] = []
+            }
+            e["on" + t] && (e["on" + t] = null)
+        }
+    }
+
+    function purgeAllEventListeners(e) {
+        if ("undefined" != typeof e.js_events) {
+            for (var t in e.js_events) for (var n = 0, r = e.js_events[t].length; r > n; n++) {
+                var i = e.js_events[t][n];
+                removeEventListenerX(e, t, i[0], i[1], !0)
+            }
+            e.js_events = {}
+        }
+    }
+
+    function $(e, t) {
+        return t = t || document, "string" != typeof e ? e : "." == e[0] ? t.getElementsByClassName ? t.getElementsByClassName(e.substr(1)) : t.querySelectorAll ? t.querySelectorAll(e) : window.getElementsByClassName ? getElementsByClassName(e.substr(1), "*", t) : [] : "[" == e[0] ? t.querySelectorAll ? t.querySelectorAll(e) : window.getElementsByAttribute ? getElementsByAttribute(e, "*", t) : [] : document.getElementById(e);
+    }
+
+    function $$(e) {
+        var t = env.fr;
+        if (!t) return $(e);
+        if ("undefined" != typeof t.contentWindow && t.contentWindow && "undefined" != typeof t.contentWindow.$) return t.contentWindow.$(e);
+    }
+
+    function createElement(e, t, n) {
+        var r = document.createElement(e);
+        if ("object" == typeof t) for (var i in t) setAttribute(r, i, t[i]);
+        if ("object" == typeof n) {
+            if (n.nodeType) r.appendChild(n); else if (n.length) for (var o = 0; o < n.length; o++) "string" == typeof n[o] ? r.appendChild(document.createTextNode(n[o])) : r.appendChild(n[o]);
+        } else "string" == typeof n && (r.innerHTML = n);
+        return r
+    }
+
+    function removeElement(e) {
+        e && e.parentNode && e.parentNode.removeChild(e);
+    }
+
+    function getAttribute(e, t) {
+        return e && t ? "function" == typeof e.getAttribute ? e.getAttribute(t) : "undefined" != typeof e[t] ? e[t] : e.attributes && e.attributes[t] ? e.attributes[t] : void 0 : void 0;
+    }
+
+    function setAttribute(e, t, n) {
+        if (e) {
+            if ("style" == t && env.msie < 9) return void(e.cssText = n);
+            "class" == t && (e.className = n), "value" != t && "function" == typeof e.setAttribute ? e.setAttribute(t, n) : e[t] = n;
+        }
+    }
+
+    function elementReverseChildren(e, t) {
+        if (t = t || 1, e && e.childNodes) for (var n = e.childNodes, r = 0; r < n.length; r++) {
+            var i = n[n.length - 1];
+            ("DIV" == i.tagName || "A" == i.tagName) && (e.insertBefore(i, n[r]), 2 > t && elementReverseChildren(i, t + 1));
+        }
+    }
+
+    function elementRemoveA() {
+        var e = $("_a_1");
+        e && (e.innerHTML = ""), e = $("_a_2"), e && (e.innerHTML = ""),
+            e = $("_a_3"), e && (e.innerHTML = "")
+    }
+
+    function getStyle(e, t) {
+        if (e && t && e.style) {
+            if (window.getComputedStyle) {
+                var n = window.getComputedStyle(e, "");
+                if (n) return n.getPropertyValue(t)
+            }
+            return e.currentStyle ? e.currentStyle[t] : e.style[t];
+        }
+    }
+
+    function cssStylesAdd(e, t) {
+        var n = crel("style", {type: "text/css"});
+        t && (removeElement($(t)),
+            n.id = t), n.styleSheet ? n.styleSheet.cssText = e : n.appendChild(document.createTextNode(e));
+        var r = document.body || document.getElementsByTagName("HEAD")[0];
+        return r.appendChild(n),
+            n
+    }
+
+    function setStyleProperty(e, t, n, r) {
+        e && t && e.style && (e.style[t] = n, r && e.style.setProperty && e.style.setProperty(t, n, r));
+    }
+
+    function cssTransition(e, t) {
+        if (e) {
+            var n = e.style;
+            n.mozTransition = t, n.webkitTransition = t,
+                n.transition = t
+        }
+    }
+
+    function cssTransform(e, t) {
+        if (e) {
+            var n = e.style;
+            n.mozTransform = t, n.webkitTransform = t,
+                n.transform = t
+        }
+    }
+
+    function hasClassName(e, t) {
+        return e && t ? new RegExp("\\b" + t + "\\b").test(e.className) : void 0;
+    }
+
+    function addClassName(e, t) {
+        return e && t && !hasClassName(e, t) ? void(e.className = e.className + " " + t) : !1;
+    }
+
+    function removeClassName(e, t) {
+        if (e && t && e.className) {
+            for (var n = "", r = e.className.split(" "), i = 0; i < r.length; i++) r[i] != t && (n += r[i] + " ");
+            e.className = n.slice(0, -1)
+        }
+    }
+
+    function toggle_display(e) {
+        e && ("none" == getStyle(e, "display") ? e.style.display = "block" : e.style.display = "none");
+    }
+
+    function userProfileNameUpdate(e) {
+        var t = (env.frame ? parent : window).$("mainbarUsernameLink");
+        t && (t.innerHTML = htmlspecialchars(e))
+    }
+
+    function settingsLocalGet(e) {
+        var t = cookieGet("sl");
+        if (!t) return 0;
+        t = t.split(":");
+        for (var n = t.length - t.length % 2, r = 0; n > r; r += 2) if (t[r] == e) return t[r + 1];
+        return 0
+    }
+
+    function settingsLocalSave(e, t) {
+        var n = cookieGet("sl"), r = {};
+        if (n) {
+            n = n.split(":");
+            for (var i = n.length - n.length % 2, o = 0; i > o; o += 2) r[n[o]] = n[o + 1]
+        }
+        r[e] = t;
+        var t = "";
+        for (var o in r) t && (t += ":"),
+            t += o + ":" + r[o];
+        var s = new Date;
+        s.setMonth(s.getMonth() + 6), document.cookie = "sl=" + t + "; path=/; secure; expires=" + s.toGMTString();
+    }
+
+    window.Qtv = function (e) {
+        return e = e || {m: {}, mF: {}}, e.moduleAdd = function (t, n) {
+            if (!e.m[t] && (e.m[t] = {},
+                n && n(), e.mF[t])) {
+                for (var r in e.mF[t]) e.mF[t][r]();
+                delete e.mF[t]
+            }
+        }, e.f = function (t, n) {
+            return e.m[t] ? (n(), !0) : (e.mF[t] || (e.mF[t] = []), e.mF[t].push(n), !1)
+        }, e
+    }(window.Qtv),
+    "undefined" == typeof console && (console = {
+        log: function () {
+        }
+    });
+    var eventSupportsOptions = !1;
+    !function () {
+        try {
+            var e = Object.defineProperty({}, "capture", {
+                get: function () {
+                    eventSupportsOptions = !0;
+                }
+            });
+            window.addEventListener("test", null, e)
+        } catch (t) {
+        }
+    }();
+    var crel = createElement, settingsLocalMenuHidden = 1, settingsLocalMenuVisible = 2, settingsLocalChatVisible = 4,
+        settingsLocalNightMode = 8, settingsLocalMainbarBottom = 32, settingsLocalMainbarTop = 64,
+        settingsLocalMainbarAutoHide = 128, settingsLocalNotifSound = 512, settingsLocalChatOverlayHide = 2048,
+        settingsLocalNotifOverlayHide = 4096, user_cmt_last = {}, user_cmt_first = {}, cmt_last = {}, cmt_first = {};
+
+    function userAgentStop() {
+        try {
+            window.stop ? window.stop() : document.execCommand && document.execCommand("Stop");
+        } catch (e) {
+        }
+    }
+
+    function cookiesGet() {
+        for (var e = document.cookie.split(/; ?/), n = {}, t = 0; t < e.length; t++) {
+            var a = e[t].match(/^([^=]+)=(.+)/);
+            a && (n[a[1]] = a[2])
+        }
+        return n
+    }
+
+    function cookieGet(e) {
+        e += "=";
+        for (var n = document.cookie.split(/; ?/), t = 0; t < n.length; t++) if (n[t].slice(0, e.length) == e) return n[t].slice(e.length);
+    }
+
+    function localStorageErrored() {
+        localStorageError = !0;
+        try {
+            localStorage.clear && localStorage.clear();
+        } catch (e) {
+        }
+    }
+
+    function elementSlideOpen(e, n) {
+        e && (e.style.display = "block", n && n())
+    }
+
+    function elementSlideClose(e, n, t) {
+        e && (e.style.display = "none", n && n())
+    }
+
+    function nightModeEnabled() {
+        return hasClassName(document.body, "nightMode");
+    }
+
+    function nightModeToggle(e, n) {
+        "undefined" == typeof n && (n = !hasClassName(document.body, "nightMode"));
+        var t = env.fr;
+        if (t) {
+            var a = t.contentWindow;
+            a && a.nightModeToggle(e, n)
+        }
+        var i = cssStylesAdd("*{transition:none!important}");
+        setTimeout(function () {
+            removeElement(i)
+        }, 500), n ? (addClassName(document.body, "nightMode"),
+        e || settingsLocalSave(1, settingsLocalGet(1) | settingsLocalNightMode)) : (removeClassName(document.body, "nightMode"),
+        e || settingsLocalSave(1, settingsLocalGet(1) & ~settingsLocalNightMode));
+        var o = $("nightModeStatus");
+        if (o && (o.innerHTML = n ? "On" : "Off"), window.CKEDITOR) for (var r in CKEDITOR.instances) nightModeHtmlEditor(CKEDITOR.instances[r], !0);
+    }
+
+    function pageNavAddStorage(e) {
+        try {
+            "undefined" != typeof window.localStorage && (window.localStorage.lu = pageFrameUrlFix(e, !0, !0, !0));
+        } catch (n) {
+            localStorageErrored()
+        }
+    }
+
+    function pageNavGetStorage() {
+        try {
+            if (window.localStorage && window.localStorage.lu) return window.localStorage.lu;
+        } catch (e) {
+        }
+    }
+
+    function standaloneInit() {
+        var e = $("mainMenuCopyLink");
+        e && (e.style.display = "block");
+        var n = null;
+        if (env.ios != env.BROWSER_NOT_FOUND && (env.ios < 9 || env.ios >= 9.2) && env.ios < 11 && (n = crel("div", {
+                id: "iosHeaderBar"
+            }), document.body.appendChild(n)), !cookieGet("safl")) {
+            if (document.cookie = "safl=1; path=/",
+                env.ios != env.BROWSER_NOT_FOUND) {
+                var t = cssStylesAdd("#chat_num{display:none!important}");
+                setTimeout(function () {
+                    removeElement(t)
+                }, 500)
+            }
+            var a = pageNavGetStorage();
+            if (a && a.replace(/[\?#].*$/, "") != pageFrameUrlFix(location.href, !0, !0, !0).replace(/[\?#].*$/, "")) return pageNavUnload(),
+                pageNavPrevLoad = !0, cssStylesAdd("#container{display:none!important}"), window.pageNavigate ? pageNavigate(a, {
+                noState: !0, noDialog: !0
+            }) : location.replace(a), void setTimeout(function () {
+                removeElement($("container"));
+            }, 100);
+            pageNavPrevLoad = !0, setTimeout(function () {
+                pageNavPrevLoad = !1
+            }, 300)
+        }
+        pageNavAddStorage(location.href);
+    }
+
+    function scInit() {
+        function e(e, t) {
+            ("*" == e || e && e.match(/iframe/i)) && n(t + " " + e, 1)
+        }
+
+        function n(e, n) {
+            if (i++, !(i > 10)) {
+                try {
+                    throw new Error(a + e.substr(0, 120))
+                } catch (t) {
+                    if (window.onerror("", "", 0, 0, t),
+                        n && !t.stack && t.stack.match(/culateNewProcess|finder-all-fra|r\/js\/adrn/)) return
+                }
+                var o = new Error;
+                throw o.sc = 1, o
+            }
+        }
+
+        function t(e, t) {
+            e.tagName && "script" == e.tagName.toLowerCase() && e.src && !d.test(e.src) && n(t + " " + e.src);
+        }
+
+        if (!(document._getElementsByTagName || env.operaMini || env.mobile && env.android == env.BROWSER_NOT_FOUND && env.ios == env.BROWSER_NOT_FOUND)) {
+            var a = "4e92a7e2 ", i = 0, o = document;
+            try {
+                o._getElementsByTagName = o.getElementsByTagName,
+                    o.getElementsByTagName = function (n) {
+                        return e(n, "n"), this._getElementsByTagName(n)
+                    },
+                o.querySelectorAll && !o._querySelectorAll && (o._querySelectorAll = o.querySelectorAll,
+                    o.querySelectorAll = function (n) {
+                        return e(n, "a"), this._querySelectorAll(n)
+                    })
+            } catch (r) {
+            }
+            var d = /^https?:\/\/([^\/]*\.|)(quotev\.com|google(apis|syndication|)\.(com|co\.uk|ca)|(doubleclick|2mdn)\.net)\//i,
+                l = function (e, n) {
+                    return t(e, "i"), this._insertBefore(e, n)
+                }, s = function (e) {
+                    return t(e, "c"), this._appendChild(e);
+                }, c = o.getElementsByTagName("head")[0] || o.head;
+            if (!c._insertBefore) try {
+                c._insertBefore = c.insertBefore,
+                    c.insertBefore = l, c._appendChild = c.appendChild, c.appendChild = s
+            } catch (r) {
+            }
+        }
+    }
+
+    function scInit2() {
+        try {
+            var e = document, n = e.getElementsByTagName("head")[0] || e.head, t = e.body;
+            if (!n._insertBefore || t._insertBefore) return;
+            t._getElementsByTagName = t.getElementsByTagName, t.getElementsByTagName = e.getElementsByTagName,
+            t.querySelectorAll && (t._querySelectorAll = t.querySelectorAll, t.querySelectorAll = e.querySelectorAll),
+            t.insertBefore != n.insertBefore && (t._insertBefore = t.insertBefore, t.insertBefore = n.insertBefore,
+                t._appendChild = t.appendChild, t.appendChild = n.appendChild)
+        } catch (a) {
+        }
+    }
+
+    function pageNavPreInit() {
+        navHistoryUrlHashParse(), env.title = document.title, navigator.standalone && env.ios != env.BROWSER_NOT_FOUND && (env.ios < 9 || env.ios >= 9.2) && env.ios < 11 && (mainbarSizeAdd = 20),
+            mainbarBottom = mainbarBottomEnabled(), mainbarBottomCss();
+        var e = !1;
+        if (parent == window) e = !0; else try {
+            "undefined" == typeof parent.pagesLoaded && (e = !0)
+        } catch (n) {
+            e = !0
+        }
+        if (e) return env.frame ? (env.frame = 0,
+            window.onbeforeunload = null, void top.location.replace(pageFrameUrlFix(location.href, !0))) : (pageNavFirstPage = location.href,
+        env.historySupport && location.href.match(/[&\?]_nv[hs]/) && history.replaceState(history.state, document.title, pageFrameUrlFix(location.href, !0)),
+            Qtv.f("nav-scroll", function () {
+                navScrollPreInit()
+            }), Qtv.f("nav-state", function () {
+            navStatePreInit();
+        }), void(env.r.mobile && env.android != env.BROWSER_NOT_FOUND && cssStylesAdd("#chat_num { padding-top: 6px; }")));
+        if (env.frame = !0, parent.env.k = env.k, parent.env.mainMenuHide = env.mainMenuHide, parent.env.hideHeader = env.hideHeader,
+                parent.env.hideHeaderManual = env.hideHeaderManual, parent.env.notifDisable = env.notifDisable,
+                parent.env.title = document.title, parent.document.title = document.title, parent.act_n_c = 0,
+                parent.pageNavListSelected = void 0, window.addEventListener("unload", function () {
+                pageNavUnload();
+            }), env.ios >= 14 && addEventListenerX(window, "scroll", function () {
+                fireEvent(parent, "scroll");
+            }), parent.pageFrameOld && (parent.pageFrameOldRemove(parent.pageFrameOld), parent.pageFrameOld = 0),
+                cssStylesAdd("#mainbar,#mainbarBackLayer{display:none!important}#mainMenu{display:none!important}body{background-color:transparent!important;background-image:none!important;padding-left:" + (parent.document.body.style.paddingLeft || "0") + "}"),
+                env.historySupport) {
+            if (location.href.match(/[&\?]_ifx|_nv[hs]/)) {
+                var t = history.state || {};
+                location.href.match(/_ifx/) && (t._ifx = 1), history.replaceState(t, document.title, pageFrameUrlFix(location.href, !0));
+            }
+            if (env.mobile || !parent.pageNavSkipState) {
+                var t = parent.history.state || {};
+                t._ifx = 1,
+                    t._ils = 0, env.mobile ? parent.history.replaceState(t, document.title, pageFrameUrlFix(location.href, !0)) : parent.history.pushState(t, document.title, pageFrameUrlFix(location.href, !0));
+            }
+        }
+        pageNavScrollInit(), parent.pageNavSkipState || parent.pageNavPrevLoad || textInputSaveDelete(),
+        parent.env.r.u != env.r.u && (window.onbeforeunload = null, top.location.replace(pageFrameUrlFix(location.href)));
+    }
+
+    function pageNavContainerCheck() {
+        var e = $("container");
+        return e ? (removeElement(pageNavInitContainerOpacity),
+            pageNavInitContainerOpacity = null, void(e.style.opacity = 1)) : void setTimeout(pageNavContainerCheck, 50);
+    }
+
+    function pageNavInit() {
+        function e() {
+            var e = window_size();
+            if (e[1] < e[0]) {
+                if (env.orientation = "landscape",
+                        i) {
+                    i.style.display = "none", mainbarSizeAdd = mainbarSizeAdd2;
+                    var n = "div.pProfileContainer{margin-top:0px}span.cke_top{border-top:0}";
+                    n += mainbarBottom ? ".elementSlide,.fixedMenu,#chatc,#chl,#notif_list,#searchMenu,#containerLoading,div.ch_w,div.navHeaderContainer{top:0px!important}#container{padding-top:50px!important}" : ".elementSlide,.fixedMenu,#chatc,#chl,#notif_list,#searchMenu,#containerLoading,div.ch_w,div.navHeaderContainer{top:" + mainbarHeight + "px!important}#container{padding-top:" + (50 + mainbarHeight + mainbarSizeAdd) + "px!important}",
+                        cssStylesAdd(n, "iosHeaderHideStyle")
+                }
+            } else env.orientation = "portrait", i && (i.style.display = "block",
+                mainbarSizeAdd = 20 + mainbarSizeAdd2, removeElement($("iosHeaderHideStyle")))
+        }
+
+        if (env.frame) pageFrameInit(); else {
+            env.ios != env.BROWSER_NOT_FOUND && (pageWidthPortrait = window.screen.width, pageWidthLandscape = window.screen.height),
+            mainbarBottom && mainbarBottomRenderUpdate(), navigator.standalone && standaloneInit();
+            try {
+                if (pageNavScrollInit(), env.historySupport) {
+                    var n = location.href;
+                    navigator.standalone && !n.match(/[\?&]_slfl([&#]|$)/) && (n = urlAddParam(n, "_slfl"));
+                    var t = history.state || {};
+                    t._ifx = 1, t._ils = 0, history.replaceState(t, document.title, n);
+                }
+            } catch (a) {
+            }
+            if ((env.ios != env.BROWSER_NOT_FOUND || navigator.standalone) && Qtv.f("nav-load", function () {
+                    setTimeout(pageNavProgressInit)
+                }), env.mobile) {
+                var i = $("iosHeaderBar");
+                window.addEventListener && window.addEventListener("resize", e),
+                    e(), env.UCWeb ? cssStylesAdd("#mainbar{width:800px;background-color:#222;overflow:hidden}#mainMenuBtn *,#editorMenuButton *{padding:0 3px!important;margin:0!important;height:auto!important;border:0!important}#homeIcon,#quizIcon,#storyIcon,#activityIcon,#createIcon,#profileIcon,#settingsIcon,#logoutIcon,#recentIcon,#notif_i{background-size:48px;width:48px;height:48px}#menuSearchBtn{background:none!important;color:#888}.qbutton_small,.qbutton{width:100px!important}div.dlg_pop{position:static!important}div.profileHeader div.overlay{display:none!important}") : env.operaMini && cssStylesAdd('#mainbar{position:absolute}.select::after{display:none;content:""}div.activity .qbutton_small,.activity_comments .qbutton_small,div.user_comment_replies .qbutton_small,.quizComment .qbutton_small{position:absolute;right:3px}#quiz_questions_loading{visibility:hidden}div.profileBody>.sectionSelect .inner{white-space:normal!important}');
+            }
+            env.gTranslate && cssStylesAdd("#homeIcon,#quizIcon,#storyIcon,#activityIcon,#createIcon,#profileIcon,#settingsIcon,.loginBtn,#mainbarBackLayer{display:none}" + (env.fixedPositioning ? "" : "#mainbar{top:100px!important} #mainMenu{top:145px!important}"));
+        }
+        env.modern && env.ios >= 8 && env.mobile && (pageNavInitContainerOpacity = cssStylesAdd("#container { opacity: 0; }"),
+            setTimeout(pageNavContainerCheck, 50)), navigator.standalone && env.ios != env.BROWSER_NOT_FOUND && Qtv.f("element-selection", function () {
+            document.addEventListener("keydown", userAgentFocusActive)
+        }), Qtv.f("nav-keyboard", function () {
+            navKeyboardInit()
+        })
+    }
+
+    function navHistoryUrlHashParse() {
+        if (window.JSON) {
+            var e = location.search.match(/[\?&]_nvs=([^&#]+)([&#]|$)/);
+            if (e && (pageNavLoadScrollTo = parseInt(decodeURIComponent(e[1]))), env.r.nvh) try {
+                return void(navHistory = JSON.parse(env.r.nvh));
+            } catch (n) {
+            }
+            if (e = location.search.match(/[\?&]_nvh=([^&#]+)([&#]|$)/)) {
+                var t = decodeURIComponent(e[1]);
+                try {
+                    navHistory = JSON.parse(t)
+                } catch (n) {
+                }
+            }
+        }
+    }
+
+    function mainbarBottomCss() {
+        if (mainbarBottomCssElem && (removeElement(mainbarBottomCssElem),
+                mainbarBottomCssElem = null), !mainbarBottom) return removeClassName(document.documentElement, "mainbarBottom"),
+            void(env.ios != env.BROWSER_NOT_FOUND && (mainbarBottomCssElem = navigator.standalone ? cssStylesAdd("span.cke_top{border-top:22px solid #eee}.fixedMenu,#chatc,#chl,#notif_list,#searchMenu,#containerLoading,div.ch_w,div.navHeaderContainer{top:73px!important}#container{padding-top:" + (105 + mainbarSizeAdd) + "px}#mainbar{border-top:20px solid #222}") : cssStylesAdd("#footerPadding{height:50px}")));
+        addClassName(document.documentElement, "mainbarBottom");
+        var e = "#mainbar{top:auto;z-index:400000;bottom:0px!important}#mainbarBackLayer{top:inherit;bottom:0px!important}#footerPadding{height:" + mainbarHeight + 'px}div.drop_links::after{content:" ";display:block;height:' + mainbarHeight + "px;background:transparent!important;box-shadow:none!important}#searchMenu{padding-top:100px}#mainMenuFooter{padding-top:500px}.fixedMenu," + (env.r.mobile ? "#chatc,div.ch_w," : "") + "#chl,#notif_list,#searchMenu,#containerLoading,div.navHeaderContainer{top:" + mainbarSizeAdd + "px!important}#container{padding-top:" + (50 + mainbarSizeAdd) + "px!important}.fixedMenu{margin-bottom:" + (mainbarHeight + mainbarSizeAdd) + "px!important}#mainMenu>a:last-child,.infoMessage{margin-bottom:" + (mainbarHeight + mainbarSizeAdd + 5) + "px!important}#login_sh{margin-top:" + (mainbarSizeAdd + 5) + "px!important}div.pProfileContainer{margin-top:" + mainbarSizeAdd + "px!important;padding-bottom:" + mainbarHeight + "px!important}#container div.pProfileContainer{margin-top:" + -1 * mainbarHeight + "px!important}";
+        e += env.mobile ? "#notif_msg,#chatMsgNotif{bottom:" + (mainbarHeight + 20) + "px!important}div.profileHeaderInner{padding-top:48px}div.profileHeader div.overlay{height:480px!important}" : "#searchArea{bottom:10px}#menuSearchBtn2{margin-top:-24px;top:0}#notif_msg,#chatMsgNotif{top:8px!important}",
+        mainbarSizeAdd > 0 && (e += "span.cke_top{border-top:" + (mainbarSizeAdd + 2) + "px solid rgba(100,100,100,.4)!important}"),
+            mainbarBottomCssElem = cssStylesAdd(e)
+    }
+
+    function mainbarBottomRenderUpdate() {
+        var e = $("mainMenu");
+        e && (elementReverseChildren(e), e.style.top = mainbarBottom ? 0 : mainbarHeight + "px", e.scrollTop = mainbarBottom ? 1e4 : 0),
+            e = $("chl"), e && (e.style.top = mainbarBottom ? 0 : mainbarHeight + "px"), e = $("notif_list"),
+        e && (e.style.top = mainbarBottom ? 0 : mainbarHeight + "px")
+    }
+
+    function mainbarBottomEnabled() {
+        if (!env.fixedPositioning) return !1;
+        var e = settingsLocalGet(1) || 0;
+        return e & settingsLocalMainbarBottom || navigator.standalone && !(e & settingsLocalMainbarTop);
+    }
+
+    function pageFrameUrlFix(e, n, t, a) {
+        return a && (e = e.replace(/^https?:\/\/[^\/]+/, "")),
+        n && (e = e.replace(/^(.*[\?&])uk=[^&#]+(&|)/i, "$1").replace(/^(.*[\?&])nfrd=[^&#]+(&|)/i, "$1")),
+        (!navigator.standalone || t) && (e = e.replace(/^(.*[\?&])_slfl(=[^&#]+|)([&#]|$)/i, "$1$3"),
+            e = e.replace(/^(.*[\?&])hs(=[^&#]+|)([&#]|$)/i, "$1$3")), e.replace(/^(.*[\?&])_ifx(=[^&#]+|)([&#]|$)/gi, "$1$3").replace(/^(.*[\?&])_nvh(=[^&#]+|)([&#]|$)/gi, "$1$3").replace(/^(.*[\?&])_nvs(=[^&#]+|)([&#]|$)/gi, "$1$3").replace(/&+/, "&").replace(/\?&/, "?").replace(/[\?&]+(#|$)/, "$1");
+    }
+
+    function pageNavScrollGetStorage() {
+        try {
+            if (window.localStorage && window.localStorage.lus) return window.localStorage.lus;
+        } catch (e) {
+        }
+    }
+
+    function pageNavScrollInit() {
+        var e = env.frame ? parent : window, n = 0;
+        e.pageNavPrevLoad && navigator.standalone && env.ios != env.BROWSER_NOT_FOUND && (n = pageNavScrollGetStorage() || 0),
+            pageNavScrollHistory(e.history, n, !0)
+    }
+
+    function pageNavScrollHistory(e, n, t) {
+        if (!n && e && e.state && (n = parseInt(e.state._ils)),
+            !t || n || env.frame && !location.hash) for (var a = 0; 200 > a; a += 50) setTimeout(function () {
+            window.hideHeaderPrevent && hideHeaderPrevent(),
+                env.scrollTo(0, n)
+        }, a)
+    }
+
+    function textInputSaveDelete() {
+        try {
+            delete localStorage.ltan;
+        } catch (e) {
+        }
+    }
+
+    function pageNavOnUnload(e) {
+        return pageNavUnloadFuncId++, pageNavUnloadFunc[pageNavUnloadFuncId] = {
+            fn: e, profile: window.profileVisible
+        }, pageNavUnloadFuncId
+    }
+
+    function pageNavOnUnloadRemove(e) {
+        0 > e || e > pageNavUnloadFuncId || delete pageNavUnloadFunc[e]
+    }
+
+    function pageNavUnload() {
+        if (!pageNavUnloaded) {
+            pageNavUnloaded = !0;
+            for (var e in pageNavUnloadFunc) "function" == typeof pageNavUnloadFunc[e].fn && pageNavUnloadFunc[e].fn();
+            if (env.frame) {
+                document._getElementsByTagName && (document.getElementsByTagName = document._getElementsByTagName);
+                for (var n = document.getElementsByTagName("IFRAME"), t = 0; t < n.length; t++) removeElement(n[t]);
+                purgeAllEventListeners(window)
+            }
+            if (env.mobile) {
+                var a = document.activeElement;
+                a && a.blur && a.blur();
+            }
+        }
+    }
+
+    function pageNavContentWindow() {
+        try {
+            if (env.fr && env.fr.contentWindow && env.fr.contentWindow.document) return env.fr.contentWindow;
+        } catch (e) {
+        }
+        return window
+    }
+
+    function pageFrameInit() {
+        env.mobile && (document.body.style.width = window_size()[0] + "px");
+        var e = parent;
+        try {
+            if (!e.pageNavVersion || e.pageNavVersion < pageNavVersion) return void top.location.replace(location.href);
+            e.navHeaderRemove()
+        } catch (n) {
+        }
+        var t = e.env.fr;
+        t && (t.style.display = "block", env.msie < 8 && (t.contentDocument = document)),
+            setTimeout(function () {
+                e.pageLoadingReset && e.pageLoadingReset(), e.mainMenuPageLoad && e.mainMenuPageLoad(),
+                e.mainbarAutoHideInit && e.mainbarAutoHideInit(), e.mainbarShow && e.mainbarShow(), Qtv.f("nav-gesture", function () {
+                    navSwipeDetect()
+                }), e.notif_count_set && e.notif_count_set(env.notif), Qtv.f("nav-keyboard", function () {
+                    e.pageNavFocusStyled && pageNavFocusStyleSet()
+                })
+            }), document.body.style.setProperty("background-color", "transparent", "important"),
+            Qtv.f("nav-frame", function () {
+                pageFrameInitFocus()
+            })
+    }
+
+    function quizHeaderBg(e) {
+        if (!(env.operaMini || env.r.quizid && (env.mobile && env.webkit == env.BROWSER_NOT_FOUND && env.firefox == env.BROWSER_NOT_FOUND || !env.mobile && env.webkit == env.BROWSER_NOT_FOUND && env.firefox == env.BROWSER_NOT_FOUND && env.msie == env.BROWSER_NOT_FOUND || env.chrome < 21 || env.ios < 9 || env.webkit < 537 || env.firefox < 40 || env.msie < 13))) {
+            env.safari && !env.mobile && cssStylesAdd("#quizHeaderBgContainer>div{-webkit-filter:none;filter:none}#quizHeaderBgContainer{-webkit-filter:blur(8px) grayscale(50%);filter:blur(8px) grayscale(50%)}"),
+            env.mobile && (quizHeaderBgCss && removeElement(quizHeaderBgCss), quizHeaderBgCss = cssStylesAdd("#quizHeaderBgContainer>div{padding-bottom:" + ((mainbarBottom ? 0 : mainbarHeight) + mainbarSizeAdd) + "px}")),
+                pageNavOnUnload(function () {
+                    removeElement($("quizHeaderBgContainer")), removeElement(quizHeaderBgCss);
+                }), removeElement($("quizHeaderBgContainer"));
+            var n = crel("div", {
+                id: "quizHeaderBgContainer"
+            }), t = crel("div");
+            "#" == e[0] ? setStyleProperty(t, "background-color", e, "important") : e && (t.style.backgroundColor = "",
+                t.style.backgroundImage = "url(" + e + ")"), n.appendChild(t);
+            var a = $("container") || document.body;
+            a.insertBefore(n, a.firstChild), window.pageNavHeader && pageNavHeader[0] && (pageNavHeader[0].opt.trans = 1,
+                navHeaderUpdateDisplay(pageNavHeader[0]))
+        }
+    }
+
+    function navHeaderSet(e, n) {
+        return env.frame && parent != self ? parent.navHeaderSet(e, n) : void Qtv.f("nav-header", function () {
+            navHeaderSetInternal(e, n)
+        })
+    }
+
+    function mainMenuDisplay(e) {
+        return env.frame && parent != window ? parent.mainMenuDisplay(e) : void(mainMenuVisible != e && mainMenuToggle(!0));
+    }
+
+    function mainMenuInit() {
+        var e = $("mainMenu");
+        if (mainMenuVisible = "block" == getStyle($("mainMenu"), "display"),
+            env.fixedPositioning || e && (e.style.height = "auto"), env.UCWeb) {
+            var n = $("mainMenuBtn");
+            n && (n.innerHTML = "Menu", n.style.color = "#eee", n.style.paddingLeft = "8px", n.style.marginRight = "8px");
+        }
+        var t = "140px";
+        e && !env.mobile && env.msie != env.BROWSER_NOT_FOUND && (e.style.width = t),
+            Qtv.f("slide", function () {
+                elementSlideInit(e, t, !1, .15, !0, !0), elementSlideInit($("searchMenu"), !1, !0, .3),
+                env.r.u && elementSlideInit($("chl"), !0, !1)
+            }), mainbarBottom && !env.mobile && (e.scrollTop = 1e4),
+            addEventListenerX(window, "resize", mainMenuFooterPosition), mainMenuFooterPosition(),
+            mainMenuPageLoad(), Qtv.f("mainmenu", function () {
+            mainMenuInitExtra()
+        })
+    }
+
+    function mainMenuPageLoad() {
+        var e = $("mainMenu"), n = settingsLocalGet(1), t = !0;
+        if (!env.mobile && env.r.u) {
+            var a = window_size()[0];
+            a > 1260 ? env.mainMenuHide || n & settingsLocalMenuHidden || (t = !1) : env.r.u && chat_close()
+        } else env.r.u && chat_close();
+        t ? (pageBodyPadding(!1), env.fr ? mainMenuDisplay(!1) : e && (e.style.display = "none")) : (pageBodyPadding(!0),
+            mainMenuDisplay(!0));
+        var i = env.fr;
+        !env.mobile && i && i.contentDocument && i.contentDocument.body && (mainbarWidthListener || (mainbarWidthListener = addEventListenerX(window, "resize", setWidthScrollbar)),
+            setWidthScrollbar(), setTimeout(function () {
+            env.fr.contentWindow.mainMenuTransitionInit();
+        }))
+    }
+
+    function setWidthScrollbar() {
+        var e = env.fr;
+        if (e && e.contentDocument && e.contentDocument.body) {
+            var n = document.body.scrollWidth, t = e.contentDocument.body.scrollWidth;
+            if (!(50 > n || 50 > t || n - t > 50)) {
+                var a = n - t, i = window_size()[0] - a;
+                mainbarMarginRight = a, setStyleProperty($("mainbar"), "width", i + "px"),
+                    setStyleProperty($("notif_list"), "right", a + "px"), setStyleProperty($("chl"), "right", a + "px");
+                var o = $(".navHeaderContainer");
+                for (var r in o) setStyleProperty(o[r], "width", i + "px");
+            }
+        }
+    }
+
+    function mainMenuTransitionInit() {
+        setTimeout(function () {
+            document.body.style["-webkit-transition"] = "all .2s",
+                document.body.style.transition = "all .2s ease-in"
+        }, 120)
+    }
+
+    function mainMenuToggle(e) {
+        if (env.frame && parent != window) return parent.mainMenuToggle(e);
+        var n = !1;
+        searchMenuVisible() && (n = !0),
+        env.mobile && env.r.u && (env.r.tablet ? chatVisible() && ch_actw && chat_win_hide(ch_actw) : (notif_visible || chatVisible()) && (n = !0),
+            setTimeout(function () {
+                blurActive()
+            }));
+        var t = $("mainMenu"), a = $("mainbar"), i = mainMenuVisible;
+        t && (n || !i ? (!e && env.r.u && settingsLocalSave(1, (settingsLocalGet(1) | settingsLocalMenuVisible) & ~settingsLocalMenuHidden),
+            mainMenuVisible = !0, elementSlideOpen(t, function () {
+            e || env.mobile && !pageNavFocusStyled || (mainbarBottom ? t.lastChild : t.firstChild).focus(),
+                mainMenuFooterPosition()
+        }), window.menubarHideAll && menubarHideAll(), window.mainMenuScrollWithPage && mainMenuScrollWithPage(!1),
+            mainbarWasHidden = a && "none" == a.style.display, mainbarWasHidden && mainbarShow(), setTimeout(mainMenuFooterPosition),
+        mainbarBottom && 0 == t.scrollTop && (t.scrollTop = 1e4), e || env.mobile || (setTimeout(function () {
+            pageBodyPadding(!0)
+        }), env.r.u && setTimeout(function () {
+            chat_resize(null, !0)
+        }, 100))) : (!e && env.r.u && settingsLocalSave(1, (settingsLocalGet(1) | settingsLocalMenuHidden) & ~settingsLocalMenuVisible),
+            mainMenuVisible = !1, elementSlideClose(t, function () {
+            window.menubarHideAll && menubarHideAll();
+        }), mainbarWasHidden && (mainbarHide(), mainbarWasHidden = !1), window.mainMenuScrollWithPage && mainMenuScrollWithPage(!0),
+        e || env.mobile || (setTimeout(function () {
+            pageBodyPadding(!1)
+        }), env.r.u && chat_resize(null, !1))));
+    }
+
+    function mainMenuFooterPosition() {
+        var e = $("mainMenuFooter");
+        if (e) {
+            if (mainbarBottom) return e.style.marginBottom = "0",
+                void(e.style.marginTop = "0");
+            var n = window_size()[1], t = parseInt(e.style.marginTop) || 0,
+                a = e.offsetTop + mainbarHeight + mainbarSizeAdd + e.clientHeight;
+            n > a ? (e.style.marginTop = n - a + "px", e.style.marginBottom = "0") : t > 0 ? (t -= a - n, 0 > t && (t = 0),
+                e.style.marginTop = t + "px", e.style.marginBottom = "0") : e.style.marginBottom = "50px"
+        }
+    }
+
+    function pageBodyPadding(e) {
+        if (!env.mobile && env.r.u) {
+            void 0 == e && (e = mainMenuVisible);
+            var n = settingsLocalGet(1), t = "0", a = document.body.style, i = env.fr, o = window_size()[0];
+            1260 >= o ? e = !1 : n & settingsLocalChatVisible && (t = "180px"), a.paddingLeft = e ? "140px" : "0",
+                a.paddingRight = t;
+            try {
+                if (i) {
+                    var r = i.contentDocument;
+                    if (r && r.body) {
+                        var d = r.body.style;
+                        d.paddingLeft = e ? "140px" : "0", d.paddingRight = t
+                    }
+                }
+            } catch (l) {
+            }
+            Qtv.m["nav-header"] && navHeaderPadding(e, t);
+        }
+    }
+
+    function searchMenuVisible() {
+        if (env.frame && parent != window) return parent.searchMenuVisible();
+        var e = $("searchMenu");
+        return e ? "block" == e.style.display : !1
+    }
+
+    function q_init() {
+        if (standaloneLoaderInit) return void document.write("<!-- ");
+        var e = settingsLocalGet(1);
+        e & settingsLocalNightMode && !hasClassName(document.body, "nightMode") && nightModeToggle(!0),
+            pageNavInit(), env.frame || (mainMenuInit(), env.r.u && (env.ch.l && (chat_init(), setTimeout(streamMainLoad)),
+            notif_init())), Qtv.f("lazyload", function () {
+            setTimeout(function () {
+                imgLazyLoad()
+            }, 20);
+        }), Qtv.f("html", function () {
+            setTimeout(htmlUpdateLoad, 100)
+        }), env.operaMini || (Qtv.f("fastclick", function () {
+            setTimeout(function () {
+                FastClickInit()
+            }, 20)
+        }), scInit2())
+    }
+
+    function q_init2() {
+        standaloneLoaderInit || (env.domReady = !0,
+            Qtv.f("html", function () {
+                setTimeout(function () {
+                    html_update()
+                })
+            }), env.operaMini || (Qtv.f("textarea", function () {
+            setTimeout(function () {
+                textareaExtendAll()
+            })
+        }), Qtv.f("time", function () {
+            setTimeout(function () {
+                time_update_locale()
+            }), env.msie >= 8 && setInterval(update_q_time, 15e3)
+        }), Qtv.f("nav-load", function () {
+            pageNavLoadScrollCheck()
+        })))
+    }
+
+    !function () {
+        function e(e) {
+            var n = t.indexOf(e);
+            if (-1 != n) {
+                var a = t.slice(n + e.length).match(/^(\d+[\._]?\d*)/);
+                if (a) return parseFloat(a[1])
+            }
+            return env.BROWSER_NOT_FOUND;
+        }
+
+        function n() {
+            var e = window;
+            try {
+                env.frame && parent != window && (e = parent)
+            } catch (n) {
+            }
+            return e;
+        }
+
+        window.env = window.env || {r: {}}, env.BROWSER_NOT_FOUND = 999999, env.gTranslate = "translate.googleusercontent.com" == location.hostname;
+        var t = navigator.userAgent;
+        if (env.UCWeb = t.match(/UCWEB|zh-CN; rv:1\.2\.3/), env.webLight = t.match(/googleweblight/),
+                env.operaMini = env.UCWeb || env.webLight || "[object OperaMini]" === Object.prototype.toString.call(window.operamini) || t.match(/Opera Mini/),
+                env.bb10 = -1 != t.indexOf("BB10"), env.nintendo = -1 != t.indexOf("NintendoBrowser"), env.chrome = e("Chrome/"),
+                env.ios = env.BROWSER_NOT_FOUND, env.safari = !1, env.webkit = e(" AppleWebKit/"), env.webkit != env.BROWSER_NOT_FOUND) {
+            if (env.firefox = env.BROWSER_NOT_FOUND, env.chrome == env.BROWSER_NOT_FOUND) {
+                var a = t.match(/(?:iPhone|iPod|iPad).*? OS ([0-9]+)_*([0-9]*)/);
+                a && (env.ios = parseFloat(a[1] + (a[2] ? "." + a[2] : ""))), env.safari = -1 != t.indexOf("Safari/") && -1 != t.indexOf("Mac OS X");
+            }
+        } else env.webkit = e("AppleWebKit"), env.firefox = e(" Firefox/");
+        if (env.android = e(" Android "),
+            env.android == env.BROWSER_NOT_FOUND && (env.android = e(" Android/")), env.android == env.BROWSER_NOT_FOUND && env.ios == env.BROWSER_NOT_FOUND) if (t.match(/Silk-Accelerated/)) env.android = 4; else if (t.match(/ Silk\//) && !t.match(/PlayStation/i)) env.android = 4.4; else if (env.safari && "ontouchstart" in window) {
+            env.safari = !1;
+            var i = t.match(/^Mozilla\/5\.0 \(Macintosh; (U; |)Intel Mac OS X 10_([0-9_]+)(; en-us|)\) AppleWebKit\/([0-9\.]+) \(KHTML, like Gecko\) Version\/([0-9\.]+) Safari\/([A-Z0-9\.]+)$/);
+            if (i) {
+                var o = i[2], r = i[4], d = i[5], l = i[6];
+                "12" != o || "602.1.50" != r && "602.4.6" != r || "10.0" != d || "602.1.31" != l ? "11" == o && "601.1.46" == r && "9.0" == d && "601.1.42" == l ? env.ios = 9 : "10" == o && "538.44" == r && "8.0" == d && "538.44" == l ? env.ios = 8 : "9_3" == o && "537.75.14" == r && "7.0.3" == d && "7046A194A" == l ? env.ios = 7 : i[1] && i[3] && "6_3" == o && "533.16" == r && "5.0" == d && "533.16" == l ? env.android = 2.2 : "10" == o && "537.16" == r && "8.0" == d && "537.16" == l ? env.android = 4.4 : "9_5" == o && "700.1.17" == r && "7.1" == d && "537.85.10" == l ? env.mobile = !0 : (env.mobile = !0,
+                    window.onerror("iDtp " + t)) : env.ios = 10
+            } else env.mobile = !0, window.onerror("iDtp " + t);
+        } else if (env.chrome != env.BROWSER_NOT_FOUND && (t.match("X11; Linux x86_64") && !navigator.platform.match("x86_64") || env.chrome < 22 && "ontouchstart" in window)) {
+            if (env.android = 4, env.chrome >= 43 && (env.android = 4.4), !cookieGet("crmb")) {
+                var s = new Date;
+                s.setDate(s.getDate() + 1), document.cookie = "crmb=1; path=/; expires=" + s.toGMTString(),
+                    setTimeout(function () {
+                        location.replace(location.href)
+                    }, 500), cssStylesAdd("#container { display: none !important; }");
+            }
+        } else env.firefox < 41 && t.match("Android") ? env.android = 4 : env.mobile && env.chrome != env.BROWSER_NOT_FOUND && env.chrome > 20 && (env.android = 4.4);
+        if (env.msie = e(" Trident/"), env.msie != env.BROWSER_NOT_FOUND ? env.msie += 4 : (env.msie = e(" Edge/"),
+            env.msie == env.BROWSER_NOT_FOUND && (env.msie = e(" MSIE "))), env.iemobile = env.BROWSER_NOT_FOUND,
+                env.msie != env.BROWSER_NOT_FOUND ? (env.iemobile = e(" IEMobile/"), env.iemobile == env.BROWSER_NOT_FOUND && t.match(/ WPDesktop;/) && (env.iemobile = env.msie),
+                    env.chrome = env.BROWSER_NOT_FOUND, env.webkit = env.BROWSER_NOT_FOUND, env.safari = !1, env.android = env.BROWSER_NOT_FOUND,
+                    env.ios = env.BROWSER_NOT_FOUND) : env.android != env.BROWSER_NOT_FOUND && ((env.android < 4 || env.chrome < 18 || env.webkit < 535.19) && (env.chrome = env.BROWSER_NOT_FOUND),
+                    env.safari = !1, env.ios = env.BROWSER_NOT_FOUND), env.chromeView = env.chrome != env.BROWSER_NOT_FOUND && t.match(/Version\/|SamsungBrowser|OPR\/|UCBrowser|Puffin|Dolphin|Dolfin|YaBrowser/),
+                env.mobile = env.mobile || env.r.mobile || env.android != env.BROWSER_NOT_FOUND || env.ios != env.BROWSER_NOT_FOUND || env.iemobile != env.BROWSER_NOT_FOUND || env.operaMini || env.bb10,
+                env.mac = !env.mobile && -1 != t.indexOf("Macintosh"), env.scrollSupport = function () {
+                return env.operaMini ? !1 : env.mobile ? env.ios >= 7 && env.android >= 4 && (env.chrome != env.BROWSER_NOT_FOUND || env.android >= 4.4) && env.webkit >= 537.36 && "ontouchstart" in window ? !0 : env.iemobile != env.BROWSER_NOT_FOUND && env.iemobile >= 7 ? !0 : env.firefox != env.BROWSER_NOT_FOUND ? !0 : !1 : !0;
+            }(), env.scrollSupportInFrame = env.scrollSupport && env.android == env.BROWSER_NOT_FOUND,
+                env.fixedPositioning = !(env.operaMini || env.msie < 7 || env.android < 2.2 || env.iemobile < 10 || env.ios < 5 || env.mobile && env.android == env.BROWSER_NOT_FOUND && env.webkit < 534),
+                env.historySupport = !env.operaMini && env.msie >= 10 && env.iemobile >= 15 && (env.android >= 4.4 || env.chrome != env.BROWSER_NOT_FOUND) && env.ios >= 6 && env.webkit >= 535 && "undefined" != typeof window.history && "undefined" != typeof history.pushState && "undefined" != typeof history.replaceState,
+                env.modern = !env.operaMini && !env.r.b && env.android >= 4.3 && env.ios >= 6 && env.webkit >= 535 && env.firefox >= 11 && env.msie >= 10 && env.iemobile >= 15 && env.historySupport && env.fixedPositioning,
+            env.chrome != env.BROWSER_NOT_FOUND && !navigator.standalone && window.matchMedia) {
+            var a = window.matchMedia("all and (display-mode: standalone)");
+            a && a.matches && (navigator.standalone = !0)
+        }
+        env.scrollBy = function (e, n) {
+            return env.ios != env.BROWSER_NOT_FOUND ? (env.frame ? parent : window).scrollBy(e, n) : env.fr && env.fr.contentWindow ? env.fr.contentWindow.scrollBy(e, n) : window.scrollBy(e, n);
+        }, env.scrollTo = function (e, n) {
+            return env.ios != env.BROWSER_NOT_FOUND ? (env.frame ? parent : window).scrollTo(e, n) : env.fr && env.fr.contentWindow ? env.fr.contentWindow.scrollTo(e, n) : window.scrollTo(e, n);
+        }, env.history = {
+            target: n, pushState: function (e, t, a) {
+                env.historySupport && n().history.pushState(e, t, a);
+            }, replaceState: function (e, t, a) {
+                env.historySupport && n().history.pushState(e, t, a)
+            }
+        },
+            env.setTitle = function (e) {
+                document.title = e;
+                try {
+                    env.frame && parent != window && (parent.document.title = e);
+                } catch (n) {
+                }
+            }
+    }();
+    var localStorageError = !1, pageNavVersion = 235, pagesLoaded = 0, pageNavLoading = 0, pageNavSkipState = !1,
+        pageNavPrevLoad = !1, pageFrameOld = null, pageNavLoadScrollTo = 0, pageNavFirstPage = "", pageWidthPortrait,
+        pageWidthLandscape, pageNavFocusStyled = !1, menuVisible = !1, mainbarHidden = !1, mainbarHeight = 55,
+        mainbarSizeAdd = 0, mainbarSizeAdd2 = 0, standaloneLoaderVersion = 27, standaloneLoaderInit,
+        pageNavInitContainerOpacity = null, navHistory = [], navHistorySkip = !1, pageNavLoadScrollTo = 0,
+        mainbarBottomCssElem = null, mainbarBottom = !1, pageNavUnloadFunc = {}, pageNavUnloadFuncId = 0,
+        pageNavUnloaded, quizHeaderBgCss = null, mainbarWidthListener, mainbarMarginRight = 0, mainbarWasHidden,
+        mainMenuVisible = !1;
+    !function () {
+        try {
+            pageNavPreInit(), scInit()
+        } catch (e) {
+        }
+    }();
+    </script>
+    <script async src="/js/extra.js/24435.js"></script>
+</head>
+<body>
+<script>(function () {
+    var c = crel('link', {rel: 'stylesheet', href: '/css/extra.css/22284.css', media: 'none'});
+    c.onload = function () {
+        this.media = 'all'
+    };
+    (document.getElementsByTagName('head')[0] || document.head).appendChild(c);
+    setTimeout(function () {
+        c.media = 'all'
+    }, 1000);
+})()</script>
+<noscript>
+    <link rel="stylesheet" href="/css/extra.css/22284.css">
+</noscript>
+<div class="mainbar" id="mainbar" role="menubar" tabindex="-1">
+    <div id="mainMenuBtn" title="Menu (Or press M) [Press ? to show all shortcuts]"
+         aria-label="Site menu, press Backslash to skip to main content, or Shift+Backslash for more shortcuts"
+         onclick="mainMenuToggle();return false" tabindex="0">
+        <div>
+            <div>
+                <div>&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <a id="menuLogo" href="/" title="Home (Or press H)" aria-label="Home"></a><span id="menuSearchBtn2" title="Search"
+                                                                                    aria-haspopup="true" tabindex="0"
+                                                                                    onclick="searchMenuToggle()"></span>
+    <div id="searchArea" role="search" style="display:none">
+        <form method="get" action="/search"
+              onsubmit="return pageNavigate('/search?s=' + encodeURIComponent($('searchAreaInput').value))"><input
+                id="searchAreaInput" title="Search (Or press /)" area-label="Search query or @username" class="input"
+                autocomplete="off" name="s" maxlength="80"
+                onkeydown="return qv_ac_key(this, event, {fixed:true,single:true,noPrefix:true})" onblur="qv_ac_hide()"><span
+                id="menuSearchBtn" title="Search"
+                onclick="if(this.parentNode.onsubmit())this.parentNode.submit()"></span></form>
+    </div>
+    <div style="position:absolute;right:10px;z-index:10"><a class="qbutton_small" href="/user/register"
+                                                            onclick="return login_sh(true)">Sign up</a> &nbsp; <a
+            class="qbutton_small" href="/user/login" onclick="return login_sh()">Log in</a></div>
+</div>
+<div id="mainMenu" class="fixedMenu" role="navigation menu" style="height:100%;"><a href="/"><span id="homeIcon"></span>Home</a><a
+        href="/fiction"><span id="storyIcon"></span>Stories</a><a href="/quizzes"><span id="quizIcon"></span>Quizzes</a><a
+        href="/create"><span id="createIcon"></span>Create</a><a href="/profile" onclick="return login_sh()"><span
+        id="profileIcon"></span>Profile</a><a href="javascript:;" onclick="pageNavDisplaySettings();return false"><span
+        id="settingsIcon"></span>Settings</a><a id="mainMenuCopyLink" href="javascript:;"
+                                                onclick="pageUrlDialog();return false"><span id="logoutIcon"
+                                                                                             style="background:none"></span>Go
+    to page</a>
+    <div id="mainMenuFooter">
+        <div><a href="/help">Help</a><a href="/help/terms">Terms</a><a href="/help/privacy">Privacy</a></div>
+    </div>
+</div>
+<div id="searchMenu" style="display:none">
+    <form method="get" action="/search"
+          onsubmit="return pageNavigate('/search?t='+encodeURIComponent($('searchMenuType').value)+'&s='+encodeURIComponent($('searchMenuInput').value))">
+        <span class="select"><select name="t" id="searchMenuType"><option value="">Quizzes & stories</option><option
+                value="story">Stories</option><option value="quiz">Quizzes</option><option
+                value="people">People</option></select></span><br><br><input id="searchMenuInput" name="s" required
+                                                                             maxlength="80" class="input"
+                                                                             autocomplete="off"
+                                                                             onkeydown="return qv_ac_key(this,event,{fixed:true,single:true,noPrefix:true})"
+                                                                             onblur="qv_ac_hide()">
+        <div style="height:15px">&nbsp;</div>
+        <input type="submit" class="qbutton_small" value="Search">
+        <div onclick="searchMenuCancel();return false" id="searchMenuCancel" tabindex="0">Cancel</div>
+        <div style="color:#555;font-size:0.9em;margin-top:30px">Type @username to go to a profile</div>
+    </form>
+</div>
+<script>q_init()</script>
+<div id="container" style="max-width:100%">
+    <div id="wcontent" style="max-width:none;margin:0;">
+        <div id="wcontentTop" class="nosel" tabindex="-1">&nbsp;</div>
+
+        <script>quizHeaderBg("https://i.quotev.com/q/b/a3.jpg")</script>
+        <style>#quizHeaderBgContainer {
+            height: auto;
+            padding-bottom: 24px
+        }
+
+        #quizHeaderBgContainer > div {
+            margin: 0;
+            width: auto;
+            box-shadow: 0 2px 8px rgba(50, 50, 50, 0.3);
+            background-color: transparent !important;
+            background-position: inherit;
+            margin-top: -125px;
+            padding-top: 125px;
+            margin-left: -12px;
+        }
+
+        #quizHeaderBgContainer > div {
+            height: 240px;
+        }</style>
+        <div class="mainc p_browse">
+            <script>navHeaderSet('\x3cdiv class=\"sectionNavButton\" id=\"browseSectionNavButton\" onclick=\"pageNavContentWindow().browseSectionNavToggle()\" tabindex=\"0\"\x3eChoose section...\x3cspan\x3e&#9660;\x3c/span\x3e\x3c/div\x3e\x3cdiv class=\"largeDisplay noTrans\"\x3eHome\x3c/div\x3e', {btn: '\x3cimg class=\"noTrans\" Src=\"https://i.quotev.com/q/ms/filter.png\" style=\"margin:12px 0;width:25px;height:25px;cursor:pointer\" title=\"Filter\" onclick=\"pageNavContentWindow().browseFilterToggle()\"\x3e'})</script>
+            <div class="sectionNavContainer" id="browseSectionNavContainer">
+                <div class="sectionNav" id="browseSectionNav"><a href="http://localhost:63342/Fanfic/Html/index.html" class="selected"><img
+                        Src="https://i.quotev.com/q/mg/home.png"
+                        style="width:24px;height:24px;margin-right:6px;margin-bottom:-6px;opacity:0.8"> Home</a><a
+                        href="http://localhost:63342/Fanfic/Html/fiction.html"><img Src="https://i.quotev.com/q/mg/story.png"
+                                             style="width:24px;height:24px;margin-right:6px;margin-bottom:-6px;opacity:0.8">
+                    Fiction</a><a href="http://localhost:63342/Fanfic/Html/fanfiction.html" rel="nofollow"><img Src="https://i.quotev.com/q/mg/ficf.png"
+                                                                     style="width:24px;height:24px;margin-right:6px;margin-bottom:-6px;opacity:0.8">
+                    Fanfiction</a><a href="http://localhost:63342/Fanfic/Html/notification.html" rel="nofollow"><img Src="https://i.quotev.com/q/mg/ficn.png"
+                                                                            style="width:24px;height:24px;margin-right:6px;margin-bottom:-6px;opacity:0.8">
+                    Nonfiction</a><a href="/quizzes" style="border-bottom: 1px solid #eee"><img
+                        Src="https://i.quotev.com/q/mg/quizzes.png"
+                        style="width:24px;height:24px;margin-right:6px;margin-bottom:-6px;opacity:0.8"> Quizzes</a>
+                    <div class="sectionNavList" style="margin-top:18px;font-size:0.9em">
+                        <div style="opacity:.5;margin-bottom:5px;margin-left:5px">Fiction</div>
+                        <a href="/fiction/c/Romance">Romance</a><a href="/fiction/c/Fantasy">Fantasy</a><a
+                            href="/fiction/c/Mystery">Mystery</a><a href="/fiction/c/Science-Fiction">Science
+                        Fiction</a><a href="/fiction/c/Adventure">Adventure</a><a
+                            href="/fiction/c/Realistic">Realistic</a></div>
+                    <div class="sectionNavList" style="margin-top:18px;font-size:0.9em">
+                        <div style="opacity:.5;margin-bottom:5px;margin-left:5px">Quizzes</div>
+                        <a href="/quizzes/c/Personality">Personality</a><a href="/quizzes/c/TV">TV</a><a
+                            href="/quizzes/c/Movies">Movies</a><a href="/quizzes/c/Food-and-Drinks">Food & Drinks</a><a
+                            href="/quizzes/c/Animals">Animals</a><a href="/quizzes/c/Science-and-Tech">Science &
+                        Tech</a><a href="/quizzes/c/School-and-Academics">School & Academics</a><a
+                            href="/quizzes/c/Video-Games">Video Games</a><a href="/quizzes/c/Beauty">Beauty</a><a
+                            href="/quizzes/c/Fantasy-and-Mythology">Fantasy & Mythology</a></div>
+                    <a href="javascript:;" onclick="browseSectionNavToggle()" class="sectionNavCloseItem">Close</a>
+                </div>
+            </div>
+            <div>
+                <div style="margin-top:10px;text-align:center;background-color: transparent !important">
+                    <form method="post" action="/search?rd=1" style="display:inline" data-historyadd="true"><span
+                            style="white-space:nowrap"><input placeholder="Search..." value="" id="browseSearchInput"
+                                                              name="s" maxlength="80" autocomplete="off"
+                                                              onkeydown="return browseSearchKeydown(this,event)"
+                                                              onblur="qv_ac_hide()"><span id="browseSearchCancel"
+                                                                                          onmousedown="browseSearchCancelClick()">X</span></span>
+                    </form>
+                </div>
+                <div id="browseOptionsButtons"><span style="float:left"><span id="browseSortMenu"
+                                                                              style="position:relative"><span
+                        id="browseSortMenuButton" tabindex="0"
+                        onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('browseSortMenu',null,{show:1})"><img
+                        Src="https://i.quotev.com/q/mg/sort.png"
+                        style="width:16px;height:16px;margin-right:6px;margin-bottom:-3px;opacity:0.8"> Sort</span><div
+                        id="browseSortMenus" class="drop_links drop_links_l"><div><a href="/search" class="selected">Default</a><a
+                        href="/search?v=created">Recent</a></div></div></span></span>&nbsp;<span><span
+                        id="browseFilterLabel"></span> <span
+                        style="position:relative;display:inline-block;z-index:5;background-color:transparent !important"><span
+                        id="browseFilterButton" tabindex="0" onclick="browseFilterToggle()"><img
+                        Src="https://i.quotev.com/q/mg/filter.png"
+                        style="width:16px;height:16px;margin-right:6px;margin-bottom:-3px;opacity:0.8"> Filter</span></span></span>
+                    <script>Qtv.f('browser', function () {
+                        new BrowseFilter({
+                            "filter": {
+                                "cat": -1,
+                                "cat2": -1,
+                                "lid": -1,
+                                "minLen": 0,
+                                "s": "",
+                                "t": "all",
+                                "t2": "all",
+                                "v": "recommend",
+                                "xcat": -1,
+                                "xcat2": -1,
+                                "xs": ""
+                            },
+                            "lang": [[0, "English"], [36, "العربية"], [58, "Azərbaycan"], [38, "বাংলা"], [43, "Bosanski"], [33, "Български"], [5, "Català"], [6, "Čeština"], [7, "Cymraeg"], [8, "Dansk"], [9, "Deutsch"], [44, "Eesti"], [61, "Español"], [45, "Esperanto"], [46, "Euskara"], [55, "فارسی"], [10, "Filipino"], [11, "Français"], [12, "한국어"], [37, "हिन्दी"], [13, "Hrvatski"], [3, "Indonesia"], [49, "Íslenska"], [14, "Italiano"], [35, "עברית"], [59, "ქართული"], [51, "Latviešu"], [15, "Lietuvių"], [53, "Македонски"], [16, "Magyar"], [67, "Malagasy"], [4, "Melayu"], [17, "Nederlands"], [18, "日本語"], [19, "Norsk"], [20, "Polski"], [21, "Português"], [22, "Română"], [23, "Русский"], [52, "Shqip"], [24, "Slovenčina"], [25, "Slovenščina"], [34, "Srpski"], [26, "Suomi"], [27, "Svenska"], [28, "ภาษาไทย"], [29, "Tiếng Việt"], [30, "Türkçe"], [31, "中文"], [1, "Other"]],
+                            "quizCat": [[32768, "Animals"], [67108864, "Anime \u0026 Manga"], [1024, "Beauty"], [4, "Books"], [262144, "Career \u0026 Goals"], [16384, "Cars \u0026 Vehicles"], [512, "Celebrities \u0026 Fame"], [2048, "Fantasy \u0026 Mythology"], [131072, "Food \u0026 Drinks"], [134217728, "Government \u0026 Politics"], [268435456, "Health \u0026 Nutrition"], [32, "Humor"], [128, "Just For Fun"], [256, "Love \u0026 Friendship"], [16, "Movies"], [2, "Music"], [1048576, "Online Media"], [1, "Personality"], [64, "Scary"], [65536, "School \u0026 Academics"], [536870912, "Science \u0026 Tech"], [8192, "Sports"], [8, "TV"], [4096, "Video Games"]],
+                            "storyCat": [[2, "Action"], [4, "Adventure"], [67108864, "Anime/Manga"], [2147483648, "Biography"], [8, "Fanfiction"], [16, "Fantasy"], [2097152, "Historical"], [32, "Horror"], [1048576, "Humor"], [128, "Mystery"], [536870912, "Nonfiction"], [524288, "Poetry"], [256, "Realistic"], [64, "Romance"], [4194304, "Science Fiction"], [33554432, "Short Stories"], [512, "Thriller"]]
+                        })
+                    })</script>
+                </div>
+                <div class="browseInfoBox" id="browseInfoSection"
+                     style="padding:15px;white-space:nowrap;overflow:hidden"><a href="/fiction"><img
+                        Src="https://i.quotev.com/q/mg/story.png"
+                        style="width:24px;height:24px;margin-right:6px;margin-bottom:-6px;opacity:0.8"> Fiction</a><a
+                        style="margin-left:20px" href="/fanfic"><img Src="https://i.quotev.com/q/mg/ficf.png"
+                                                                     style="width:24px;height:24px;margin-right:6px;margin-bottom:-6px;opacity:0.8">
+                    Fanfiction</a><a style="margin-left:20px" href="/quizzes"><img
+                        Src="https://i.quotev.com/q/mg/quizzes.png"
+                        style="width:24px;height:24px;margin-right:6px;margin-bottom:-6px;opacity:0.8"> Quizzes</a><a
+                        style="margin-left:20px" href="/tests"><img Src="https://i.quotev.com/q/mg/test.png"
+                                                                    style="width:24px;height:24px;margin-right:6px;margin-bottom:-6px;opacity:0.8">
+                    Tests</a></div>
+                <script>Qtv.f('element', function () {
+                    elementTouchScroll($('browseInfoSection'), true)
+                });</script>
+                <div class="main_content" id="main_content" role="main">
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox0Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox0Opt',null,{show:1});quizBoxOptUpdate(10544522, 'quizBox0Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox0Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10544522,this)"><span
+                                        id="quizBox0OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">11</span></a><a
+                                        href="https://www.quotev.com/quiz/10544522/Are-you-college-material/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">75</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=65536" rel="nofollow">School & Academics</a><a
+                                        href="/quizzes?cat=262144" rel="nofollow">Career & Goals</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10544522/Are-you-college-material')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10544522/Are-you-college-material')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10544522/Are-you-college-material"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/29/olnbq5v3sx.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/quiz/10544522/Are-you-college-material">Are you
+                                        college material?</a></h1>
+                                    <div class="link"><span>School &amp; Academics</span> &nbsp; <span>Career &amp; Goals</span>
+                                        &nbsp; <span title="10:09:38 AM EST Monday January 29, 2018" ts="1517238578"
+                                                     class="q_time">1 week ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Take it!</div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox1Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox1Opt',null,{show:1});quizBoxOptUpdate(10351097, 'quizBox1Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox1Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10351097,this)"><span
+                                        id="quizBox1OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">55</span></a><a
+                                        href="https://www.quotev.com/story/10351097/To-Find-All-Lose-All/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">6</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=64" rel="nofollow">Romance</a><a href="/fiction?cat=16"
+                                                                                            rel="nofollow">Fantasy</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10351097/To-Find-All-Lose-All')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10351097/To-Find-All-Lose-All')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10351097/To-Find-All-Lose-All"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/12/3/uozvwzuirw.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10351097/To-Find-All-Lose-All">To Find
+                                        All, Lose All</a></h1>
+                                    <div class="link"><span>24 pages</span> &nbsp; <span>Romance</span> &nbsp; <span>Fantasy</span>
+                                        &nbsp; <span title="7:22:33 PM EST Tuesday February  6, 2018" ts="1517962953"
+                                                     class="q_time">15 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Soleia Anson had nearly everything she
+                                        needed- and nearly everything she had always wanted. She was a delta in her
+                                        pack. She was the daughter of the beta, and was expected to become the next one.
+                                        Adored by all of those in her pack, sought after by the young unmated Alpha,
+                                        Soleia was very fortunate. ...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox2Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox2Opt',null,{show:1});quizBoxOptUpdate(10429902, 'quizBox2Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox2Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10429902,this)"><span
+                                        id="quizBox2OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">369</span></a><a
+                                        href="https://www.quotev.com/quiz/10429902/How-Ugly-Are-You/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">1,443</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=1" rel="nofollow">Personality</a><a href="/quizzes?cat=128"
+                                                                                               rel="nofollow">Just For
+                                    Fun</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10429902/How-Ugly-Are-You')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10429902/How-Ugly-Are-You')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10429902/How-Ugly-Are-You"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/12/25/2vay5422ek.jpg"
+                                            class="logo" alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/quiz/10429902/How-Ugly-Are-You">How Ugly are
+                                        you?</a></h1>
+                                    <div class="link"><span>Just For Fun</span> &nbsp; <span>Personality</span> &nbsp;
+                                        <span title="4:10:51 PM EST Monday December 25, 2017" ts="1514236251"
+                                              class="q_time">6 weeks ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Have you ever wondered if you were
+                                        beautiful, ugly, or somewhere in-between? Find out here!
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox3Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox3Opt',null,{show:1});quizBoxOptUpdate(10581578, 'quizBox3Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox3Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10581578,this)"><span
+                                        id="quizBox3OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">6</span></a><a
+                                        href="https://www.quotev.com/story/10581578/Love-Triangles/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">1</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=64" rel="nofollow">Romance</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10581578/Love-Triangles')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10581578/Love-Triangles')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10581578/Love-Triangles"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/4/rn3p6plwvg.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10581578/Love-Triangles">Love &amp;
+                                        Triangles</a></h1>
+                                    <div class="link"><span>54 pages</span> &nbsp; <span>Romance</span> &nbsp; <span
+                                            title="7:14:19 PM EST Tuesday February  6, 2018" ts="1517962459"
+                                            class="q_time">15 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Crushes can be tough to handle,
+                                        especially when they stay within your high school friend group.
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox4Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox4Opt',null,{show:1});quizBoxOptUpdate(9298602, 'quizBox4Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox4Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(9298602,this)"><span
+                                        id="quizBox4OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">1,399</span></a><a
+                                        href="https://www.quotev.com/quiz/9298602/Are-you-human/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">2,582</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=2048" rel="nofollow">Fantasy & Mythology</a><a
+                                        href="/quizzes?cat=32" rel="nofollow">Humor</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/9298602/Are-you-human')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/9298602/Are-you-human')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/9298602/Are-you-human"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/3/17/cifq32ypw7.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/quiz/9298602/Are-you-human">Are you human?</a>
+                                    </h1>
+                                    <div class="link"><span>Humor</span> &nbsp; <span>Fantasy &amp; Mythology</span>
+                                        &nbsp; <span title="2:40:15 PM EDT Saturday March 18, 2017" ts="1489862415"
+                                                     class="q_time">11 months ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Find out if your a supernatural creature!
+                                        By a bunch of random and weird questions! YAYA
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox5Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox5Opt',null,{show:1});quizBoxOptUpdate(10531964, 'quizBox5Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox5Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10531964,this)"><span
+                                        id="quizBox5OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">29</span></a><a
+                                        href="https://www.quotev.com/story/10531964/The-Entertainer/discussion"
+                                        rel="nofollow">Discussion</a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=64" rel="nofollow">Romance</a><a href="/fiction?cat=4"
+                                                                                            rel="nofollow">Adventure</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10531964/The-Entertainer')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10531964/The-Entertainer')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10531964/The-Entertainer"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/30/bpgnv7imel.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10531964/The-Entertainer">The
+                                        Entertainer</a></h1>
+                                    <div class="link"><span>19 pages</span> &nbsp; <span>Romance</span> &nbsp; <span>Adventure</span>
+                                        &nbsp; <span title="7:14:17 PM EST Tuesday February  6, 2018" ts="1517962457"
+                                                     class="q_time">15 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">BxB // A lot of people see him as a
+                                        person to look up to, especially children and younger audiences who have seen
+                                        him. He&#39;s kissed many women yet he&#39;s never felt any affection for any of
+                                        them. The man known as Isamu Akemi doesn&#39;t know why. He continues to date
+                                        girls and he doesn&#39;t kn...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox6Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox6Opt',null,{show:1});quizBoxOptUpdate(10585394, 'quizBox6Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox6Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10585394,this)"><span
+                                        id="quizBox6OptFav">Add to library</span></a><a
+                                        href="https://www.quotev.com/story/10585394/Nothing-of-Fate-Heroes-of-Olympus/discussion"
+                                        rel="nofollow">Discussion</a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/stories?cat=4" rel="nofollow">Adventure</a><a href="/stories?cat=8"
+                                                                                             rel="nofollow">Fanfiction</a><a
+                                        href="/stories?cat=1048576" rel="nofollow">Humor</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10585394/Nothing-of-Fate-Heroes-of-Olympus')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10585394/Nothing-of-Fate-Heroes-of-Olympus')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10585394/Nothing-of-Fate-Heroes-of-Olympus"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/6/neewmc3h4d.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1>
+                                        <a href="https://www.quotev.com/story/10585394/Nothing-of-Fate-Heroes-of-Olympus">Nothing
+                                            of Fate- Heroes of Olympus</a></h1>
+                                    <div class="link"><span>2 pages</span> &nbsp; <span>Humor</span> &nbsp; <span>Adventure</span>
+                                        &nbsp; <span>Fanfiction</span> &nbsp; <span
+                                                title="9:21:39 AM EST Wednesday February  7, 2018" ts="1518013299"
+                                                class="q_time">42 minutes ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">What does one do when they have betrayed
+                                        everyone dear to them? Well, fifteen-year-old Kit Jones has been through that
+                                        dilemma many times. Sadly though, she ropes Jackson (Jax) West into one of her
+                                        plans. When her past catches up with her, fingers will be pointed and Kit will
+                                        be forced to justify he...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox7Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox7Opt',null,{show:1});quizBoxOptUpdate(10505282, 'quizBox7Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox7Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10505282,this)"><span
+                                        id="quizBox7OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">39</span></a><a
+                                        href="https://www.quotev.com/quiz/10505282/Your-future-career/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">134</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=65536" rel="nofollow">School & Academics</a><a
+                                        href="/quizzes?cat=262144" rel="nofollow">Career & Goals</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10505282/Your-future-career')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10505282/Your-future-career')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10505282/Your-future-career"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/13/lmndokc7bi.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/quiz/10505282/Your-future-career">Your future
+                                        career</a></h1>
+                                    <div class="link"><span>Career &amp; Goals</span> &nbsp; <span>School &amp; Academics</span>
+                                        &nbsp; <span title="4:57:36 PM EST Saturday January 13, 2018" ts="1515880656"
+                                                     class="q_time">4 weeks ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">This quiz is to see what job might fit
+                                        you best in the future
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox8Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox8Opt',null,{show:1});quizBoxOptUpdate(10573370, 'quizBox8Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox8Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10573370,this)"><span
+                                        id="quizBox8OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">9</span></a><a
+                                        href="https://www.quotev.com/story/10573370/When-things-dont-fit-in-your-bookbag-anymore/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">9</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=64" rel="nofollow">Romance</a><a href="/fiction?cat=4"
+                                                                                            rel="nofollow">Adventure</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10573370/When-things-dont-fit-in-your-bookbag-anymore')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10573370/When-things-dont-fit-in-your-bookbag-anymore')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10573370/When-things-dont-fit-in-your-bookbag-anymore"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/1/zmoel5gfie.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1>
+                                        <a href="https://www.quotev.com/story/10573370/When-things-dont-fit-in-your-bookbag-anymore">When
+                                            things don&#39;t fit in your bookbag anymore</a></h1>
+                                    <div class="link"><span>12 pages</span> &nbsp; <span>Romance</span> &nbsp; <span>Adventure</span>
+                                        &nbsp; <span title="7:11:42 PM EST Tuesday February  6, 2018" ts="1517962302"
+                                                     class="q_time">15 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">It&#39;s hard for a dorky girl named
+                                        Caramel, growing up in the cruel Tandora High, with nothing but a hefty secret
+                                        and a witty best friend to keep her company. Like every other girl in the
+                                        school, securing a spot as an actual &#39;somebody&#39; on the social pyramid is
+                                        tough; especially when Carame...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox9Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox9Opt',null,{show:1});quizBoxOptUpdate(10206651, 'quizBox9Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox9Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10206651,this)"><span
+                                        id="quizBox9OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">29</span></a><a
+                                        href="https://www.quotev.com/story/10206651/So-what-Harry-Potter-George-Weasley-LS-/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">35</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/stories?cat=2048" rel="nofollow">Harry Potter</a><a
+                                        href="/stories?cat=64" rel="nofollow">Romance</a><a href="/stories?cat=16"
+                                                                                            rel="nofollow">Fantasy</a><a
+                                        href="/stories?cat=8" rel="nofollow">Fanfiction</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10206651/So-what-Harry-Potter-George-Weasley-LS-')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10206651/So-what-Harry-Potter-George-Weasley-LS-')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10206651/So-what-Harry-Potter-George-Weasley-LS-"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/12/16/oq46xk2mqa.jpg"
+                                            class="logo" alt=""></a></div>
+                                    <h1>
+                                        <a href="https://www.quotev.com/story/10206651/So-what-Harry-Potter-George-Weasley-LS-">So
+                                            what? (Harry Potter) -George Weasley LS-</a></h1>
+                                    <div class="link"><span>59 pages</span> &nbsp; <span>Romance</span> &nbsp; <span>Fantasy</span>
+                                        &nbsp; <span>Fanfiction</span> &nbsp; <span
+                                                title="9:15:41 AM EST Wednesday February  7, 2018" ts="1518012941"
+                                                class="q_time">48 minutes ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Being the daughter of two death-eaters is
+                                        not easy at all. Trying to protect them from the wizarding world might come off
+                                        as crazy, but not for Cassie. Soon enough, the great life she has built up for
+                                        herself is falling apart.
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox10Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox10Opt',null,{show:1});quizBoxOptUpdate(10568752, 'quizBox10Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox10Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10568752,this)"><span
+                                        id="quizBox10OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">4</span></a><a
+                                        href="https://www.quotev.com/quiz/10568752/Can-you-name-these-15-states/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">51</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10568752/Can-you-name-these-15-states')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10568752/Can-you-name-these-15-states')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10568752/Can-you-name-these-15-states"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/31/vco4njsmc2.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/quiz/10568752/Can-you-name-these-15-states">Can
+                                        you name these 15 states?</a></h1>
+                                    <div class="link"><span title="2:58:56 PM EST Wednesday January 31, 2018"
+                                                            ts="1517428736" class="q_time">1 week ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Name the fifteen states.</div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox11Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox11Opt',null,{show:1});quizBoxOptUpdate(10591409, 'quizBox11Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox11Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10591409,this)"><span
+                                        id="quizBox11OptFav">Add to library</span></a><a
+                                        href="https://www.quotev.com/story/10591409/The-Insanity-Of-Family-Reunions/discussion"
+                                        rel="nofollow">Discussion</a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=1048576" rel="nofollow">Humor</a><a
+                                        href="/fiction?cat=33554432" rel="nofollow">Short Stories</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10591409/The-Insanity-Of-Family-Reunions')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10591409/The-Insanity-Of-Family-Reunions')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10591409/The-Insanity-Of-Family-Reunions"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/6/44m34h2n46.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10591409/The-Insanity-Of-Family-Reunions">The
+                                        Insanity Of Family Reunions</a></h1>
+                                    <div class="link"><span>2 pages</span> &nbsp; <span>Short Stories</span> &nbsp;
+                                        <span>Humor</span> &nbsp; <span title="6:58:17 PM EST Tuesday February  6, 2018"
+                                                                        ts="1517961497"
+                                                                        class="q_time">15 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Just a short story for some
+                                        entertainment.
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox12Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox12Opt',null,{show:1});quizBoxOptUpdate(10558490, 'quizBox12Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox12Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10558490,this)"><span
+                                        id="quizBox12OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">39</span></a><a
+                                        href="https://www.quotev.com/quiz/10558490/What-is-your-Harry-Potter-wand-wood/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">111</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=4" rel="nofollow">Books</a><a href="/quizzes?cat=1"
+                                                                                         rel="nofollow">Personality</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10558490/What-is-your-Harry-Potter-wand-wood')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10558490/What-is-your-Harry-Potter-wand-wood')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10558490/What-is-your-Harry-Potter-wand-wood"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/28/ohrwhavefo.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1>
+                                        <a href="https://www.quotev.com/quiz/10558490/What-is-your-Harry-Potter-wand-wood">What
+                                            is your Harry Potter wand wood?</a></h1>
+                                    <div class="link"><span>Books</span> &nbsp; <span>Personality</span> &nbsp; <span
+                                            title="9:12:36 PM EST Monday January 29, 2018" ts="1517278356"
+                                            class="q_time">1 week ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">All credits go to &#34;Wand woods&#34; on
+                                        Pottermore by J.K. Rowling for making this quiz possible:
+                                        www.pottermore.com/writing-by-jk-rowling/wand-wood
+                                        s
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox13Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox13Opt',null,{show:1});quizBoxOptUpdate(10428142, 'quizBox13Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox13Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10428142,this)"><span
+                                        id="quizBox13OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">13</span></a><a
+                                        href="https://www.quotev.com/story/10428142/Chains/discussion" rel="nofollow">Discussion
+                                    <span style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">2</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=64" rel="nofollow">Romance</a><a href="/fiction?cat=4"
+                                                                                            rel="nofollow">Adventure</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10428142/Chains')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10428142/Chains')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10428142/Chains"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/10/xg5y2hmziz.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10428142/Chains">Chains</a></h1>
+                                    <div class="link"><span>31 pages</span> &nbsp; <span>Romance</span> &nbsp; <span>Adventure</span>
+                                        &nbsp; <span title="6:51:54 PM EST Tuesday February  6, 2018" ts="1517961114"
+                                                     class="q_time">15 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">A wolf, born alone, living alone, his
+                                        life is changed at a young age, as his only friend, Azrael, is lost to the
+                                        darkness of what may seem to never be. Months later, when both are grown tall,
+                                        he is running out of life force, but Azrael&#39;s wish is granted by Spiritus
+                                        and his children. All of them ...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox14Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox14Opt',null,{show:1});quizBoxOptUpdate(10487159, 'quizBox14Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox14Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10487159,this)"><span
+                                        id="quizBox14OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">37</span></a><a
+                                        href="https://www.quotev.com/story/10487159/Klance-One-Shot/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">14</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/stories?cat=8" rel="nofollow">Fanfiction</a><a
+                                        href="/stories?cat=1048576" rel="nofollow">Humor</a><a href="/stories?cat=64"
+                                                                                               rel="nofollow">Romance</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10487159/Klance-One-Shot')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10487159/Klance-One-Shot')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10487159/Klance-One-Shot"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/21/l5n3aftmin.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10487159/Klance-One-Shot">Klance
+                                        One-Shot</a></h1>
+                                    <div class="link"><span>48 pages</span> &nbsp; <span>Humor</span> &nbsp; <span>Romance</span>
+                                        &nbsp; <span>Fanfiction</span> &nbsp; <span
+                                                title="8:55:43 AM EST Wednesday February  7, 2018" ts="1518011743"
+                                                class="q_time">1 hour ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">In another Universe, in another world,
+                                        Keith and Lance are strangers to each other every time but in the end they are
+                                        always meant to be together
+                                        (Basically a Klance one-shot)
+                                        {Request are being taken}
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox15Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox15Opt',null,{show:1});quizBoxOptUpdate(9569202, 'quizBox15Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox15Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(9569202,this)"><span
+                                        id="quizBox15OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">150</span></a><a
+                                        href="https://www.quotev.com/quiz/9569202/Are-you-a-Koreaboo/discussion"
+                                        rel="nofollow">Discussion</a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=128" rel="nofollow">Just For Fun</a><a href="/quizzes?cat=2"
+                                                                                                  rel="nofollow">Music</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/9569202/Are-you-a-Koreaboo')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/9569202/Are-you-a-Koreaboo')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/9569202/Are-you-a-Koreaboo"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/5/21/reojt2q23e.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/quiz/9569202/Are-you-a-Koreaboo">Are you a
+                                        Koreaboo?</a></h1>
+                                    <div class="link"><span>Just For Fun</span> &nbsp; <span>Music</span> &nbsp; <span
+                                            title="6:05:08 PM EDT Sunday May 21, 2017" ts="1495404308" class="q_time">9 months ago</span>
+                                        &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Don&#39;t get offended over this. A
+                                        Koreaboo is a non-Korean trying to act Korean- this is achieved through changing
+                                        their features (editing, surgery, makeup) and Koreaboos will also appropriate
+                                        Korean culture. Being into Korean culture does not automatically make you a
+                                        Koreaboo.
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox16Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox16Opt',null,{show:1});quizBoxOptUpdate(10591289, 'quizBox16Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox16Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10591289,this)"><span
+                                        id="quizBox16OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">1</span></a><a
+                                        href="https://www.quotev.com/quiz/10591289/Melanie-Martinez-Lyric-Quiz/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">6</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=2" rel="nofollow">Music</a><a href="/quizzes?cat=128"
+                                                                                         rel="nofollow">Just For Fun</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10591289/Melanie-Martinez-Lyric-Quiz')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10591289/Melanie-Martinez-Lyric-Quiz')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10591289/Melanie-Martinez-Lyric-Quiz"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/6/deltfxsc7v.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/quiz/10591289/Melanie-Martinez-Lyric-Quiz">Melanie
+                                        Martinez Lyric Quiz</a></h1>
+                                    <div class="link"><span>Music</span> &nbsp; <span>Just For Fun</span> &nbsp; <span
+                                            title="6:43:07 PM EST Tuesday February  6, 2018" ts="1517960587"
+                                            class="q_time">15 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">&hearts; I hope you enjoy &hearts;</div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox17Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox17Opt',null,{show:1});quizBoxOptUpdate(9371818, 'quizBox17Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox17Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(9371818,this)"><span
+                                        id="quizBox17OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">3,773</span></a><a
+                                        href="https://www.quotev.com/story/9371818/Not-Like-Other-Girls/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">2,520</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=1048576" rel="nofollow">Humor</a><a href="/fiction?cat=64"
+                                                                                               rel="nofollow">Romance</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/9371818/Not-Like-Other-Girls')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/9371818/Not-Like-Other-Girls')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/9371818/Not-Like-Other-Girls"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/4/5/waapnnzrhj.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/9371818/Not-Like-Other-Girls">Not Like
+                                        Other Girls</a></h1>
+                                    <div class="link"><span>462 pages</span> &nbsp; <span>Humor</span> &nbsp; <span>Romance</span>
+                                        &nbsp; <span title="3:53:44 AM EST Friday January 19, 2018" ts="1516352024"
+                                                     class="q_time">3 weeks ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Jess is not like other girls. She didn&#39;t
+                                        really have a female role model growing up. She grew up in a house full of boys
+                                        such as her father and four older brothers. Now that they&#39;re moving to a new
+                                        town, Jess is nervous about being the new kid. In her home town she was always
+                                        the strange one...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox18Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox18Opt',null,{show:1});quizBoxOptUpdate(10588123, 'quizBox18Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox18Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10588123,this)"><span
+                                        id="quizBox18OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">4</span></a><a
+                                        href="https://www.quotev.com/story/10588123/My-horrible-depressing-life/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">8</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=536870912" rel="nofollow">Nonfiction</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10588123/My-horrible-depressing-life')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10588123/My-horrible-depressing-life')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10588123/My-horrible-depressing-life"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/5/l7eoqcnmje.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10588123/My-horrible-depressing-life">My
+                                        horrible depressing life</a></h1>
+                                    <div class="link"><span>4 pages</span> &nbsp; <span>Nonfiction</span> &nbsp; <span
+                                            title="6:36:32 PM EST Tuesday February  6, 2018" ts="1517960192"
+                                            class="q_time">15 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Just writing about my life everyday,
+                                        nothing to see here.
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox19Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox19Opt',null,{show:1});quizBoxOptUpdate(10437052, 'quizBox19Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox19Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10437052,this)"><span
+                                        id="quizBox19OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">76</span></a><a
+                                        href="https://www.quotev.com/story/10437052/Antithesis/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">28</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/stories?cat=8" rel="nofollow">Fanfiction</a><a href="/stories?cat=2048"
+                                                                                              rel="nofollow">Harry
+                                    Potter</a><a href="/stories?cat=64" rel="nofollow">Romance</a><a
+                                        href="/stories?cat=16" rel="nofollow">Fantasy</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10437052/Antithesis')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10437052/Antithesis')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10437052/Antithesis"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/2/2bvs4dnmss.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10437052/Antithesis">Antithesis</a></h1>
+                                    <div class="link"><span>26 pages</span> &nbsp; <span>Fantasy</span> &nbsp; <span>Fanfiction</span>
+                                        &nbsp; <span>Romance</span> &nbsp; <span
+                                                title="8:54:04 AM EST Wednesday February  7, 2018" ts="1518011644"
+                                                class="q_time">1 hour ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Arizona Archer was not impressed when the
+                                        Ministry passed the Marriage Law - hadn&#39;t the Ministry put them through
+                                        enough?
+                                        When her match comes through, she just knows that this isn&#39;t going to go
+                                        well.
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox20Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox20Opt',null,{show:1});quizBoxOptUpdate(10584416, 'quizBox20Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox20Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10584416,this)"><span
+                                        id="quizBox20OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">1</span></a><a
+                                        href="https://www.quotev.com/quiz/10584416/Could-You-Do-Gymnastics/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">48</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=512" rel="nofollow">Celebrities & Fame</a><a
+                                        href="/quizzes?cat=8192" rel="nofollow">Sports</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10584416/Could-You-Do-Gymnastics')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10584416/Could-You-Do-Gymnastics')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10584416/Could-You-Do-Gymnastics"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/4/dte25mmtoz.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/quiz/10584416/Could-You-Do-Gymnastics">Could You
+                                        Do Gymnastics?</a></h1>
+                                    <div class="link"><span>Celebrities &amp; Fame</span> &nbsp; <span>Sports</span>
+                                        &nbsp; <span title="5:11:56 PM EST Sunday February  4, 2018" ts="1517782316"
+                                                     class="q_time">3 days ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Could you be a competing gymnast? Sorry
+                                        if you don&#39;t like your result.
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox21Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox21Opt',null,{show:1});quizBoxOptUpdate(10279945, 'quizBox21Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox21Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10279945,this)"><span
+                                        id="quizBox21OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">3</span></a><a
+                                        href="https://www.quotev.com/story/10279945/Rain-Nine/discussion"
+                                        rel="nofollow">Discussion</a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=64" rel="nofollow">Romance</a><a href="/fiction?cat=4"
+                                                                                            rel="nofollow">Adventure</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10279945/Rain-Nine')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10279945/Rain-Nine')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10279945/Rain-Nine"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/11/19/moahiqwse6.jpg"
+                                            class="logo" alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10279945/Rain-Nine">Rain Nine</a></h1>
+                                    <div class="link"><span>8 pages</span> &nbsp; <span>Romance</span> &nbsp; <span>Adventure</span>
+                                        &nbsp; <span title="6:33:43 PM EST Tuesday February  6, 2018" ts="1517960023"
+                                                     class="q_time">15 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Michelle Clave. Cohcoa Pinnian. Rain
+                                        Nine. Three names. All the same person.
+                                        Rain Nine is the last living member of the ancient Sukao clan. This puts her in
+                                        grave danger. So many people would kill her if they knew about her past. So many
+                                        people are looking for her so that they can kill her. And Rai...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox22Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox22Opt',null,{show:1});quizBoxOptUpdate(10274995, 'quizBox22Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox22Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10274995,this)"><span
+                                        id="quizBox22OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">17</span></a><a
+                                        href="https://www.quotev.com/story/10274995/Forbidden-Nitra/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">13</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/stories?cat=16" rel="nofollow">Fantasy</a><a href="/stories?cat=8"
+                                                                                            rel="nofollow">Fanfiction</a><a
+                                        href="/stories?cat=64" rel="nofollow">Romance</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10274995/Forbidden-Nitra')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10274995/Forbidden-Nitra')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10274995/Forbidden-Nitra"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/11/25/fzy6burxrb.jpg"
+                                            class="logo" alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10274995/Forbidden-Nitra">Forbidden
+                                        Nitra</a></h1>
+                                    <div class="link"><span>28 pages</span> &nbsp; <span>Romance</span> &nbsp; <span>Fantasy</span>
+                                        &nbsp; <span>Fanfiction</span> &nbsp; <span
+                                                title="8:50:12 AM EST Wednesday February  7, 2018" ts="1518011412"
+                                                class="q_time">1 hour ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">A girl who lived an ordinary geric life,
+                                        but until she&#39;s something out of the blue. She sees things that others can&#39;t
+                                        see, then people called Nitra&#39;s help Valentina train and learn about who she
+                                        is. But when romance forms in this, Valentina&#39;s heart is always being
+                                        shattered.
+                                        How can ...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox23Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox23Opt',null,{show:1});quizBoxOptUpdate(10135991, 'quizBox23Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox23Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10135991,this)"><span
+                                        id="quizBox23OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">325</span></a><a
+                                        href="https://www.quotev.com/quiz/10135991/Hogwarts-life-long-results/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">388</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=128" rel="nofollow">Just For Fun</a><a href="/quizzes?cat=16"
+                                                                                                  rel="nofollow">Movies</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10135991/Hogwarts-life-long-results')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10135991/Hogwarts-life-long-results')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10135991/Hogwarts-life-long-results"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/10/6/a5khnob4b7.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/quiz/10135991/Hogwarts-life-long-results">Hogwarts
+                                        life (long results)</a></h1>
+                                    <div class="link"><span>Just For Fun</span> &nbsp; <span>Movies</span> &nbsp; <span
+                                            title="10:20:17 AM EDT Friday October  6, 2017" ts="1507299617"
+                                            class="q_time">4 months ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Ever wanted to discover your Hogwarts
+                                        life? ever wanted to know how you got with your crush? I&#39;m sorry if you didn&#39;t
+                                        get what you wanted but hey i tried...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox24Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox24Opt',null,{show:1});quizBoxOptUpdate(9336235, 'quizBox24Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox24Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(9336235,this)"><span
+                                        id="quizBox24OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">352</span></a><a
+                                        href="https://www.quotev.com/story/9336235/Alec-Editing-Ish/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">118</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=64" rel="nofollow">Romance</a><a href="/fiction?cat=16"
+                                                                                            rel="nofollow">Fantasy</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/9336235/Alec-Editing-Ish')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/9336235/Alec-Editing-Ish')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/9336235/Alec-Editing-Ish"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/17/9/30/mpbw6k4ydw.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/9336235/Alec-Editing-Ish">Alec (Editing
+                                        Ish)</a></h1>
+                                    <div class="link"><span>201 pages</span> &nbsp; <span>Romance</span> &nbsp; <span>Fantasy</span>
+                                        &nbsp; <span title="6:26:05 PM EST Tuesday February  6, 2018" ts="1517959565"
+                                                     class="q_time">16 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Nicola Durbon has had life hit her upside
+                                        down with demons of her past surfacing every chapter of her life, trying to take
+                                        her with them but one thing is stopping it, her so-called &#34;mate&#34;. Nicola
+                                        Durbon&#39;s past has made her forgotten everything she had known about herself,
+                                        and with a jour...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox25Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox25Opt',null,{show:1});quizBoxOptUpdate(10581297, 'quizBox25Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox25Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10581297,this)"><span
+                                        id="quizBox25OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">6</span></a><a
+                                        href="https://www.quotev.com/quiz/10581297/Which-Harry-Potter-Character-are-you/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">19</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=16" rel="nofollow">Movies</a><a href="/quizzes?cat=4"
+                                                                                           rel="nofollow">Books</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10581297/Which-Harry-Potter-Character-are-you')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10581297/Which-Harry-Potter-Character-are-you')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10581297/Which-Harry-Potter-Character-are-you"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/3/3sluhpdexj.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1>
+                                        <a href="https://www.quotev.com/quiz/10581297/Which-Harry-Potter-Character-are-you">Which
+                                            Harry Potter Character are you?</a></h1>
+                                    <div class="link"><span>Movies</span> &nbsp; <span>Books</span> &nbsp; <span
+                                            title="2:10:01 AM EST Sunday February  4, 2018" ts="1517728201"
+                                            class="q_time">3 days ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Have you ever wondered which character
+                                        from Harry Potter you are? Take this quiz to find out!
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox26Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox26Opt',null,{show:1});quizBoxOptUpdate(10532095, 'quizBox26Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox26Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10532095,this)"><span
+                                        id="quizBox26OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">4</span></a><a
+                                        href="https://www.quotev.com/story/10532095/Beneath-the-Surface/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">10</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=64" rel="nofollow">Romance</a><a href="/fiction?cat=128"
+                                                                                            rel="nofollow">Mystery</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10532095/Beneath-the-Surface')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10532095/Beneath-the-Surface')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10532095/Beneath-the-Surface"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/20/y7f6vdi2dg.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10532095/Beneath-the-Surface">Beneath the
+                                        Surface</a></h1>
+                                    <div class="link"><span>9 pages</span> &nbsp; <span>Mystery</span> &nbsp; <span>Romance</span>
+                                        &nbsp; <span title="6:18:50 PM EST Tuesday February  6, 2018" ts="1517959130"
+                                                     class="q_time">16 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">(WIP) A enigmatic, dark stranger is
+                                        driven by his musical inclination to the archiac, forgotten piano at Corner
+                                        Cafè, sending shivers through the primitive building with the hypnotic peals.
+                                        Intrigued by his genuis for pianoforte and his dramatic exit, the young Cafè
+                                        owner writes him a letter raptu...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox27Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox27Opt',null,{show:1});quizBoxOptUpdate(10520616, 'quizBox27Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox27Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10520616,this)"><span
+                                        id="quizBox27OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">9</span></a><a
+                                        href="https://www.quotev.com/story/10520616/Beautiful-ChangeDivergent-fanfictionEric-x-OC/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">4</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/stories?cat=64" rel="nofollow">Romance</a><a href="/stories?cat=4194304"
+                                                                                            rel="nofollow">Science
+                                    Fiction</a><a href="/stories?cat=8" rel="nofollow">Fanfiction</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10520616/Beautiful-ChangeDivergent-fanfictionEric-x-OC')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10520616/Beautiful-ChangeDivergent-fanfictionEric-x-OC')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10520616/Beautiful-ChangeDivergent-fanfictionEric-x-OC"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/1/dowupqxqe5.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1>
+                                        <a href="https://www.quotev.com/story/10520616/Beautiful-ChangeDivergent-fanfictionEric-x-OC">Beautiful
+                                            Change:Divergent fanfiction(Eric x OC)</a></h1>
+                                    <div class="link"><span>5 pages</span> &nbsp; <span>Science Fiction</span> &nbsp;
+                                        <span>Romance</span> &nbsp; <span>Fanfiction</span> &nbsp; <span
+                                                title="8:38:54 AM EST Wednesday February  7, 2018" ts="1518010734"
+                                                class="q_time">1 hour ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Graciana was born Erudite with parents
+                                        who always wanted her to be perfect. She always knew she didn’t belong but her
+                                        parents were still a bit shocked by her choosing Dauntless. What happens when
+                                        she catches the eye of a certain Dauntless leader, who is said to be heartless?
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox28Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox28Opt',null,{show:1});quizBoxOptUpdate(10575505, 'quizBox28Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox28Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10575505,this)"><span
+                                        id="quizBox28OptFav">Add to library</span></a><a
+                                        href="https://www.quotev.com/quiz/10575505/Którym-nauczycielem-z-VILO-jesteś/discussion"
+                                        rel="nofollow">Discussion</a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/quizzes?cat=1" rel="nofollow">Personality</a><a href="/quizzes?cat=65536"
+                                                                                               rel="nofollow">School &
+                                    Academics</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/quiz/10575505/Którym-nauczycielem-z-VILO-jesteś')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/quiz/10575505/Którym-nauczycielem-z-VILO-jesteś')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:76px;height:76px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/quiz/10575505/Którym-nauczycielem-z-VILO-jesteś"><img
+                                            style="height:100px;width:100px;margin:0;margin-top:-12px;margin-left:-12px"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/2/2/oz5g4u6kgi.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1>
+                                        <a href="https://www.quotev.com/quiz/10575505/Którym-nauczycielem-z-VILO-jesteś">Którym
+                                            nauczycielem z VILO jesteś?</a></h1>
+                                    <div class="link"><span>School &amp; Academics</span> &nbsp;
+                                        <span>Personality</span> &nbsp; <span
+                                                title="2:48:19 PM EST Friday February  2, 2018" ts="1517600899"
+                                                class="q_time">5 days ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Bożena Arendt, czy Justyna Wieczorek?
+                                        Przekonaj się!
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBox" style="position:relative;padding:0">
+                        <div id="quizBox29Opt" style="position:absolute;right:4px"><img
+                                Src="https://i.quotev.com/q/da.png"
+                                style="height:15px;width:15px;opacity:0.3;padding:8px;cursor:pointer"
+                                onmouseover="if(!this.qtvMenu)this.qtvMenu=new DropMenu('quizBox29Opt',null,{show:1});quizBoxOptUpdate(10562212, 'quizBox29Opt')"
+                                tabindex="0">
+                            <div class="drop_links" id="quizBox29Opts" style="margin-left:-90px">
+                                <div><a href="javascript:;" onclick="quizFavoriteAdd(10562212,this)"><span
+                                        id="quizBox29OptFav">Add to library</span> <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">18</span></a><a
+                                        href="https://www.quotev.com/story/10562212/The-Hunter/discussion"
+                                        rel="nofollow">Discussion <span
+                                        style="margin-left:4px;font-size:.8em!important;font-weight:bold;opacity:.4">15</span></a><span
+                                        style="display:block;padding:5px;font-size:11px;background:#e5e5e5;color:#888">Browse more</span><a
+                                        href="/fiction?cat=2097152" rel="nofollow">Historical</a><a
+                                        href="/fiction?cat=32" rel="nofollow">Horror</a></div>
+                            </div>
+                        </div>
+                        <div class="quiz" tabindex="-1" data-listnav="1"
+                             data-onenter="pageNavigate('https://www.quotev.com/story/10562212/The-Hunter')">
+                            <div class="innerquiz">
+                                <div onclick="pageNavigate('https://www.quotev.com/story/10562212/The-Hunter')"
+                                     style="cursor:pointer">
+                                    <div style="box-shadow:2px 2px 4px rgba(80,80,80,.2);float:left;overflow:hidden;margin-right:10px;margin-bottom:6px;border-radius:2px;width:83px;height:125px;"
+                                         aria-hidden="true"><a style="" tabindex="-1"
+                                                               href="https://www.quotev.com/story/10562212/The-Hunter"><img
+                                            style="margin:0;margin-left:-21px;height:125px;width:125px;"
+                                            src="https://i.quotev.com/t.gif"
+                                            data-lsrc="https://i.quotev.com/img/q/u/18/1/29/t5xsroixjg.jpg" class="logo"
+                                            alt=""></a></div>
+                                    <h1><a href="https://www.quotev.com/story/10562212/The-Hunter">The Hunter</a></h1>
+                                    <div class="link"><span>10 pages</span> &nbsp; <span>Historical</span> &nbsp; <span>Horror</span>
+                                        &nbsp; <span title="6:13:07 PM EST Tuesday February  6, 2018" ts="1517958787"
+                                                     class="q_time">16 hours ago</span> &nbsp;
+                                    </div>
+                                    <div class="descr" style="font-size:1.1em">Evelina Dart is a vampire hunter, and
+                                        there is a vampire she has been hunting down. He hides as a nobleman during the
+                                        day, but lures and kills young girls at night. Tonight, Evelina has found him,
+                                        but soon she realizes that he is someone she knew before, and that she has truly
+                                        been hunting him for a...
+                                    </div>
+                                </div>
+                                <div style="clear:left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <script></script>
+                    <div style="text-align:center;margin-bottom:25px;margin-top:25px"><span
+                            style="background-color:#eee;padding:1px;border-radius:2px;display;font-size:0.9em;font-weight:bold">&nbsp;1&nbsp;</span>
+                        &nbsp; <a class="qbutton" href="/browse?page=2" data-listnav="7">Next page &raquo;</a></div>
+                    <div style="padding-top:15px">
+                        <div style="text-align:center;margin:15px 0"><a href="/help">Help</a><span
+                                style="color:#999;padding:0 2px"> &middot; </span><a href="/help/terms">Terms</a><span
+                                style="color:#999;padding:0 2px"> &middot; </span><a
+                                href="/help/privacy">Privacy</a><span id="footerAppLink"><span
+                                style="color:#999;padding:0 2px"> &middot; </span><a href="/app">App</a></span></div>
+                        <script>if (navigator.standalone) $('footerAppLink').style.display = 'none'</script>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+    </div>
+    <div id="footerPadding" tabindex="-1"></div>
+    <script>setTimeout(q_init2, 50);</script>
+</body>
+</html>

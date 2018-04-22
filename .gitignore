@@ -1,0 +1,38 @@
+/Java/Web/Spring/Laba7netbeans/nbproject/private/
+/Netbeans/Java/Laba7netbeans/nbproject/private/
+/Netbeans/Java/Laba7netbeans/build/
+/Netbeans/ex/Draw/target/
+/Netbeans/Ruby/Ruby On Rails/Itransition/nbproject/private/
+/Netbeans/Java/Task2/nbproject/private/
+/Netbeans/Java/Task2/build/
+/Netbeans/Laba8/LabWithGui/nbproject/private/
+/Netbeans/Laba8/LabWithGui/build/
+/Netbeans/Java/Laba8/nbproject/private/
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+
+JavaScript/ItNewsBot/config/default.json5
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

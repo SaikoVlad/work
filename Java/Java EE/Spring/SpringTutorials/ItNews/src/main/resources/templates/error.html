@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <title>Error Page</title>
+    <style>
+        body{
+            background-color: #5a5a5a;
+        }
+        .outer-box {
+            padding-top: 20px;
+        }
+        .contact-clean {
+            padding: 20px;
+            width: 25%;
+            background-color: #ffffff;
+            border-radius: 40px;
+            color: #505e6c;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Belarus It News</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/programming">Programming</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/startup">StartUps</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/science">Science</a>
+            </li>
+        </ul>
+
+        <!--<label th:text="${user.username}"></label>-->
+        <!--th:with="searchString=${T(java.lang.String).create()}" th:object="${searchString}"-->
+        <!--<form method="post" th:action="@{/articles/search}" th:object="${searchArticle}" >-->
+        <input class="form-control mr-sm-2" type="search" style="background-color: #aeaeae" placeholder="Search"
+               aria-label="Search"/>
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        <!--</form>-->
+    </div>
+    <br/><br/>
+</nav>
+<!--NAVBAR-->
+
+
+
+<div class="outer-box">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="contact-clean" style="">
+                <h2 align="center">Oh, error page</h2>
+                <label style="align-content: center" th:text="${text}" id="title"></label>
+                <form action="/">
+                    <button class="btn btn-primary" type="submit">Go to main page</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
