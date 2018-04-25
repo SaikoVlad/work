@@ -10,10 +10,12 @@ import by.bntu.fitr.povt.cng.model.entity.container.SmartTree;
 import by.bntu.fitr.povt.cng.model.entity.container.ToyType;
 import by.bntu.fitr.povt.cng.model.entity.container.Tree;
 import by.bntu.fitr.povt.cng.model.logic.JSFLogic.ComparableSort;
+import by.bntu.fitr.povt.cng.model.logic.JSFLogic.Search;
 import by.bntu.fitr.povt.cng.model.logic.Sort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -23,13 +25,12 @@ public class Main {
         StuffedToys stuffedToys = new StuffedToys(2,3,3,"3","man",3);
         Lights lights = new Lights(6,2,2,2,2,2);
 
-        ArrayList<Toy> toys = new ArrayList<>();
+        List<Toy> toys = new ArrayList<>();
         toys.addAll(Arrays.asList(lights,garland,stuffedToys));
 
-        ComparableSort.sort(toys,ComparableSort.SortType.PRICE_TO_LOWER);
-        for (Toy toy : toys){
-            System.out.println(toy);
-        }
+
+        Search.search(toys,Search.SearchType.PRICE_TO_GREATER, 1.1);
+
 
     }
 
