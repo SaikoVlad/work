@@ -5,7 +5,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <title th:text="${article.title}"></title>
     <style>
         body {
@@ -53,30 +53,24 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 column ui-sortable" th:object="${article}"
-             style="width: 25% ;border-radius: 10px;color: whitesmoke;box-shadow: 2px 2px 5px lightgray;">
-            <h2 align="center" class="fadeInDown" th:text="${article.title}"></h2>
-            <h6 align="center" th:text="${article.type}"></h6>
-            <img th:src="@{${article.pathToFile}}"/>
-            <div class="form-group">
-                <label th:text="${article.content}"></label>
+        <div class="card text-white bg-dark">
+            <div class="card-body">
+                <h2 class="card-title" th:text="${article.title}"></h2>
+                <h5 class="card-text" th:text="${article.content}"
+                    style="text-overflow: ellipsis;overflow: hidden;"></h5>
+                <a href="/"><input type="button" class="btn btn-secondary" value="Back"/></a>
             </div>
-            <form th:action="@{/}" method="get">
-                <button class="btn btn-default" type="submit">Return</button>
-            </form>
         </div>
     </div>
 </div>
 <br/>
 
 
-
-
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         var body = $("body");
         body.fadeIn(400);
-        $(document).on("click", "a:not([href^='#']):not([href^='tel']):not([href^='mailto'])", function(e) {
+        $(document).on("click", "a:not([href^='#']):not([href^='tel']):not([href^='mailto'])", function (e) {
             e.preventDefault();
             $("body").fadeOut(400);
             var self = this;

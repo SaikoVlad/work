@@ -26,7 +26,7 @@ public class MainController {
     UserRoles userRoles = UserRoles.initUser(Role.ANON);
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String getTest(){
+    public String getTest() {
         return "ViewTest";
     }
 
@@ -34,14 +34,15 @@ public class MainController {
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView getLatest(){
+    public ModelAndView getLatest() {
         List<Article> articles = ArticleProcess.getLatestNews();
-//        for (Article article : articles) {
-//            article.getPathToFile();
-//
-//        }
+        for (int i = 0; i < articles.size(); i++) {
+            if (articles.get(i).getContent().toCharArray().length > 15){
+                articles.get(i).setContent(articles.get(i).getContent().substring(0,15) + "...");
+            }
+        }
         ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("pic",new File(articles.get(0).getPathToFile()));
+        modelAndView.addObject("pic", new File(articles.get(0).getPathToFile()));
         modelAndView.addObject("titleOfPage", "Belarus IT News");
         modelAndView.addObject("articles", articles);
         modelAndView.addObject("searchArticle", new Article());
@@ -49,28 +50,26 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/createArticle",method = RequestMethod.GET)
-    public ModelAndView getCreatePage(){
-        return new ModelAndView("createArticle","article", new Article());
+    @RequestMapping(value = "/createArticle", method = RequestMethod.GET)
+    public ModelAndView getCreatePage() {
+        return new ModelAndView("createArticle", "article", new Article());
     }
 
     @RequestMapping(value = "/createArticle", method = RequestMethod.POST)
     @ResponseBody
-    public String getPostPage(@RequestParam("file") MultipartFile file, Article article){
-        if (article.getType().equals("NO")){
+    public String getPostPage(@RequestParam("file") MultipartFile file, Article article) {
+        if (article.getType().equals("NO")) {
             return "No type selected!";
         }
-        if (ArticleProcess.savePic(file, article)){
+        if (ArticleProcess.savePic(file, article)) {
             article.setType(article.getType().toLowerCase());
             DataBaseWork.addToDataBase(article);
             return "All fine, check out your new article!";
-        }else{
+        } else {
             return "HM, something went wrong!";
         }
 
     }
-
-
 
 
 }

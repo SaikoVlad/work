@@ -30,7 +30,8 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home </a>
+                <!--<span class="sr-only">(current)</span>-->
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/programming">Programming</a>
@@ -65,10 +66,10 @@
                 <div class="card-body">
                     <h5 class="card-title" th:text="${article.title}" ></h5>
                     <p class="card-text" th:text="${article.content}" style="text-overflow: ellipsis;overflow: hidden;"></p>
+                    <a th:href="|/${article.type}/${article.id}|"><input type="button" class="btn btn-secondary" value="Read All"/></a>
                 </div>
                 <br/>
                 <br/>
-
             </div>
             <!--<div class="col-md-12 column ui-sortable" th:each="article : ${articles}" style="width: 25% ;border-radius: 10px;color: whitesmoke;box-shadow: 2px 2px 5px lightgray;">-->
                 <!--<h2 align="center" class="fadeInDown" th:text="${article.title}"></h2>-->
