@@ -8,7 +8,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
     <title th:text="${titleOfPage}"></title>
     <style>
         body {
@@ -49,7 +53,6 @@
         <!--<form method="post" th:action="@{/articles/search}" th:object="${searchArticle}" >-->
         <input class="form-control mr-sm-2" type="search" style="background-color: #aeaeae" placeholder="Search" aria-label="Search"/>
         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-        <!--</form>-->
     </div>
     <br/><br/>
 </nav>
@@ -61,7 +64,7 @@
     <div class="container">
         <div class="row">
 
-            <div th:each="article : ${articles}" class="card text-white bg-dark mb-4" style="max-width: 18rem;">
+            <div th:each="article : ${articles}" class="card text-white bg-dark mb-4" style="max-width: 18rem;" >
                 <a th:href="|/${article.type}|"><div class="card-header" th:text="${article.type}"></div></a>
                 <div class="card-body">
                     <h5 class="card-title" th:text="${article.title}" ></h5>
