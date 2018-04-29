@@ -19,10 +19,15 @@ public class TypeController {
     @RequestMapping(value = "/{titleOfType}",method = RequestMethod.GET)
     public ModelAndView getProgrammingNews(@PathVariable String titleOfType){
         ModelAndView modelAndView = new ModelAndView("index");
-        List articles;
+        List<Article> articles;
         if (titleOfType.equals("programming") ||titleOfType.equals("startup") || titleOfType.equals("science") || titleOfType.equals("other")){
             articles = ArticleProcess.getArticlesByType(titleOfType);
             Collections.reverse(articles);
+            for (int i = 0; i < articles.size(); i++) {
+                if (articles.get(i).getContent().toCharArray().length > 15){
+                    articles.get(i).setContent(articles.get(i).getContent().substring(0,15) + "...");
+                }
+            }
         }else{
             return new ModelAndView("error", "text", "Incorrect link!");
         }
