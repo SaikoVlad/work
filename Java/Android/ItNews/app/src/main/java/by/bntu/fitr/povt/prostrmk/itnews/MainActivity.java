@@ -8,11 +8,16 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import by.bntu.fitr.povt.prostrmk.itnews.controller.MainController;
+import by.bntu.fitr.povt.prostrmk.itnews.model.util.JsonWork;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView mainTextView;
+    JSONObject jsonObject;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        try {
+            jsonObject = JsonWork.getJsonFromUrl("url");
+            mainTextView.setText(jsonObject.toString());
+        } catch (Exception e) {
+            mainTextView.setText(e.toString());
+        }
         return super.onCreateOptionsMenu(menu);
     }
     
