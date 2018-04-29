@@ -1,18 +1,25 @@
 package prostmk.Controller;
 
 import prostmk.Model.IO.CheckStream;
+import prostmk.Model.Serializable.ObjectWork;
+import prostmk.Model.Serializable.Person;
+import prostmk.Model.Serializable.PersonChild;
 import prostmk.Model.Threads.ThreadCheck;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
+import java.util.ArrayList;
 
 public class MainClass {
 
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-//        CheckStream.writeToFile("azazazaGagLal", "stream.txt");
-//        System.out.println(CheckStream.readFromFile("stream.txt"));
+        Person father = new Person(34,"Roman","Medvedev");
+        Person kid = new PersonChild(14,"Mark",father);
+        ObjectWork.writeObject(kid, "kidFile");
+        PersonChild object = (PersonChild) ObjectWork.readObject("kidFile");
+        System.out.println(object);
+
     }
 
 }
