@@ -5,3 +5,5 @@
 #   content text,
 #   pathToFile VARCHAR(255)
 #  )
+
+DROP TABLE ItNews.Users

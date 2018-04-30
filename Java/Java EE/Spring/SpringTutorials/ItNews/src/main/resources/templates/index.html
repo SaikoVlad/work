@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" rel="stylesheet" id="animate-css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" rel="stylesheet"
+          id="animate-css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -16,6 +17,10 @@
     <style>
         body {
             background-color: #5a5a5a;
+        }
+        .darkbg{
+            background-color: #5a5a5a;
+            border-radius: 10px;
         }
     </style>
 
@@ -44,42 +49,59 @@
             <li class="nav-item">
                 <a class="nav-link" href="/science">Science</a>
             </li>
+            <li class="nav-item" >
+            </li>
         </ul>
 
-        <!--<label th:text="${user.username}"></label>-->
-        <!--th:with="searchString=${T(java.lang.String).create()}" th:object="${searchString}"-->
-        <!--<form method="post" th:action="@{/articles/search}" th:object="${searchArticle}" >-->
-        <input class="form-control mr-sm-2" type="search" style="background-color: #aeaeae" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" th:text="${user.getUsername()}" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu darkbg" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" style="color: white;" href="/auth">Auth</a>
+                <a class="dropdown-item" style="color: white;" href="/registration">Registration</a>
+            </div>
+        </div>
+
+
+        <form class="form-inline" method="post" style="margin-left: 20px" th:action="@{/articles/search}" th:object="${searchArticle}">
+            <input class="form-control mr-sm-2" th:field="*{title}" type="search" style="background-color: #aeaeae"
+                   placeholder="Search"
+                   aria-label="Search"/>
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
     <br/><br/>
 </nav>
 <!--NAVBAR-->
 
 
-
 <form>
     <div class="container">
         <div class="row">
 
-            <div th:each="article : ${articles}" class="card text-white bg-dark mb-4" style="max-width: 18rem;" >
-                <a th:href="|/${article.type}|"><div class="card-header" th:text="${article.type}"></div></a>
+            <div th:each="article : ${articles}" class="card text-white bg-dark mb-4" style="max-width: 18rem;">
+                <a th:href="|/${article.type}|">
+                    <div class="card-header" th:text="${article.type}"></div>
+                </a>
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${article.title}" ></h5>
-                    <p class="card-text" th:text="${article.content}" style="text-overflow: ellipsis;overflow: hidden;"></p>
-                    <a th:href="|/${article.type}/${article.id}|"><input type="button" class="btn btn-secondary" value="Read All"/></a>
+                    <h5 class="card-title" th:text="${article.title}"></h5>
+                    <p class="card-text" th:text="${article.content}"
+                       style="text-overflow: ellipsis;overflow: hidden;"></p>
+                    <a th:href="|/${article.type}/${article.id}|"><input type="button" class="btn btn-secondary"
+                                                                         value="Read All"/></a>
                 </div>
                 <br/>
                 <br/>
             </div>
             <!--<div class="col-md-12 column ui-sortable" th:each="article : ${articles}" style="width: 25% ;border-radius: 10px;color: whitesmoke;box-shadow: 2px 2px 5px lightgray;">-->
-                <!--<h2 align="center" class="fadeInDown" th:text="${article.title}"></h2>-->
-                <!--<h6 align="center" th:text="${article.type}"></h6>-->
-                <!--<img id="article-pic" th:src="${pic.getAbsoluteFile()}" th:class="${article.pathToFile}"/>-->
-                <!--<div class="form-group">-->
-                    <!--<label th:text="${article.content}"></label>-->
-                <!--</div>-->
-                <!--<form th:action="@{|${article.type}/${article.id}|}" method="get">-->
+            <!--<h2 align="center" class="fadeInDown" th:text="${article.title}"></h2>-->
+            <!--<h6 align="center" th:text="${article.type}"></h6>-->
+            <!--<img id="article-pic" th:src="${pic.getAbsoluteFile()}" th:class="${article.pathToFile}"/>-->
+            <!--<div class="form-group">-->
+            <!--<label th:text="${article.content}"></label>-->
+            <!--</div>-->
+            <!--<form th:action="@{|${article.type}/${article.id}|}" method="get">-->
             <!--<button class="btn btn-primary" type="submit">Go to page</button>-->
             <!--</form>-->
             <!--</div>-->
@@ -89,26 +111,22 @@
 </form>
 
 
-
-
-
-
 <script type="text/javascript">
     var el = $('.container'),
         pageHeight = document.documentElement.scrollHeight;
-        viewPrortHeight = document.documentElement.clientHeight;
+    viewPrortHeight = document.documentElement.clientHeight;
 
     $(window).on('scroll', function (e) {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            el.css('opacity', (scrollTop + viewPrortHeight) / pageHeight);
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        el.css('opacity', (scrollTop + viewPrortHeight) / pageHeight);
     })
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         var body = $("body");
         body.fadeIn(400);
-        $(document).on("click", "a:not([href^='#']):not([href^='tel']):not([href^='mailto'])", function(e) {
+        $(document).on("click", "a:not([href^='#']):not([href^='tel']):not([href^='mailto'])", function (e) {
             e.preventDefault();
             $("body").fadeOut(400);
             var self = this;

@@ -1,6 +1,7 @@
 package by.bntu.fitr.povt.prostrmk.ItNews.controller;
 
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.Article;
+import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.User;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.beans.Role;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.beans.UserRoles;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.util.ArticleProcess;
@@ -32,13 +33,15 @@ public class MainController {
 
 //    NAV BAR LINKS
 
+    @Autowired
+    User user;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView getLatest() {
         List<Article> articles = ArticleProcess.getLatestNews();
         for (int i = 0; i < articles.size(); i++) {
             if (articles.get(i).getContent().toCharArray().length > 15){
-                articles.get(i).setContent(articles.get(i).getContent().substring(0,15) + "...");
+                articles.get(i).setContent(articles.get(i).getContent().substring(0,80) + "...");
             }
         }
         ModelAndView modelAndView = new ModelAndView("index");
@@ -46,13 +49,16 @@ public class MainController {
         modelAndView.addObject("titleOfPage", "Belarus IT News");
         modelAndView.addObject("articles", articles);
         modelAndView.addObject("searchArticle", new Article());
-        modelAndView.addObject("user", userRoles);
+        modelAndView.addObject("user", user);
         return modelAndView;
     }
 
     @RequestMapping(value = "/createArticle", method = RequestMethod.GET)
     public ModelAndView getCreatePage() {
-        return new ModelAndView("createArticle", "article", new Article());
+        ModelAndView modelAndView = new ModelAndView("createArticle");
+        modelAndView.addObject("searchArticle", new Article());
+        modelAndView.addObject( "article", new Article());
+        return modelAndView;
     }
 
     @RequestMapping(value = "/createArticle", method = RequestMethod.POST)

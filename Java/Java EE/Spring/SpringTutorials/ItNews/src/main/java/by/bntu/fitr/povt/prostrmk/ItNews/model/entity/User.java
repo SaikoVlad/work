@@ -41,10 +41,15 @@ public class User {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        return obj.hashCode() == this.hashCode() && obj instanceof User;
+    }
+
+    @Override
     public int hashCode() {
         final int hashConst = 31;
         int result = 1;
-        result = (int) (hashConst * result + id);
+//        result = (int) (hashConst * result + id);
         result = hashConst * result + username.hashCode();
         result = hashConst * result + password.hashCode();
         return result;

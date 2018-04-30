@@ -33,6 +33,7 @@ public class TypeController {
         }
         modelAndView.addObject("titleOfPage", StringsWork.firstUpperCase(titleOfType));
         modelAndView.addObject("articles", articles);
+        modelAndView.addObject("searchArticle", new Article());
         return modelAndView;
     }
 

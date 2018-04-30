@@ -9,8 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.*;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/articles")
@@ -27,23 +26,11 @@ public class DataController {
 
     @RequestMapping(value = "/search",method = RequestMethod.POST)
     public ModelAndView getRequests(Article article){
-        List search = DataBaseWork.search(article.getTitle());
-        ModelAndView modelAndView = new ModelAndView("news");
+        List search = DataBaseWork.search("title", article.getTitle());
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("titleOfPage", "Search");
         modelAndView.addObject("articles", search);
         modelAndView.addObject("searchArticle", new Article());
-        return modelAndView;
-    }
-
-
-
-
-
-    @RequestMapping(value = "/saveNewArticle", method = RequestMethod.GET)
-    public ModelAndView getGetPage(){
-        ModelAndView modelAndView = new ModelAndView("picSaverInDB");
-
-        modelAndView.addObject("article", new Article());
-        modelAndView.addObject("file", new File(new Date().toString() + ".jpg"));
         return modelAndView;
     }
 
