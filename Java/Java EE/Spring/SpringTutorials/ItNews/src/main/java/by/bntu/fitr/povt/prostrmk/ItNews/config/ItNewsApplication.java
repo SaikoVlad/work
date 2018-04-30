@@ -20,12 +20,12 @@ public class ItNewsApplication {
 	}
 
 
-	@Bean
-	public User initUser(){
-		User user = new User();
-		user.setUsername("anon");
-		return user;
-	}
+//	@Bean
+//	public User initUser(){
+//		User user = new User();
+//		user.setUsername("anon");
+//		return user;
+//	}
 
 
 }

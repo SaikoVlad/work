@@ -7,6 +7,7 @@ import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.beans.UserRoles;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.util.ArticleProcess;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.util.DataBaseWork;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +36,13 @@ public class MainController {
 
     @Autowired
     User user;
+
+    @Bean
+    public User getUser(){
+        User user = new User();
+        user.setUsername("Anon");
+        return user;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView getLatest() {

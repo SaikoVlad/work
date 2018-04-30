@@ -47,7 +47,12 @@ public class DataBaseWork {
         Criteria criteria = session.createCriteria(User.class);
         criteria.add(Restrictions.eq("username",user.getUsername()));
         List list = criteria.list();
-        User inBaseUser = (User) list.get(0);
+        User inBaseUser;
+        try{
+            inBaseUser = (User) list.get(0);
+        }catch (Exception e){
+            return false;
+        }
         System.out.println(user);
         System.out.println(inBaseUser);
         return inBaseUser.equals(user);
