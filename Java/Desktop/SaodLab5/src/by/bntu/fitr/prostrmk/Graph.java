@@ -4,37 +4,55 @@ import java.util.*;
 
 public class Graph {
 
-    private HashMap<String, List<String>> vertexMap = new HashMap<String, List<String>>();
+    private final int VERTEX_MAX = 100;
+    private Top[] vertexList;
+    private int vertexCount;
+    private Queue<Integer> queue;
+    private int[][] matrix;
 
-    public void addVertex(String vertexName) {
-        if (!hasVertex(vertexName)) {
-            vertexMap.put(vertexName, new ArrayList<String>());
+    public Graph() {
+        queue = new ArrayDeque<>(100);
+        matrix = new int[VERTEX_MAX][VERTEX_MAX];
+        for (int i = 0; i < VERTEX_MAX; i++)
+            for (int j = 0; j < VERTEX_MAX; j++)
+                matrix[i][j] = 0;
+        vertexCount = 0;
+        vertexList = new Top[VERTEX_MAX];
+    }
+
+    public void addTop(String label) {
+        vertexList[vertexCount++] = new Top(label);
+    }
+
+    public void addEdge(int begin, int end) {
+        matrix[begin][end] = 1;
+        matrix[end][begin] = 0;
+    }
+
+    public void detour(int v) {
+        vertexList[v].setVisited(true);
+        queue.add(v);
+        int vertex;
+        System.out.println(vertexList[v].getLabel());
+        for (Integer integer : queue) {
+            int current = integer;
+            while ((vertex = getSuccessor(current)) != -1){
+                vertexList[vertex].setVisited(true);
+                queue.add(vertex);
+                System.out.println(vertexList[vertex].getLabel());
+            }
+        }
+        for (int i = 0; i < vertexCount; i++) {
+            vertexList[i].setVisited(false);
         }
     }
 
-    public boolean hasVertex(String vertexName) {
-        return vertexMap.containsKey(vertexName);
+    private int getSuccessor(int v) {
+        for (int j = 0; j < vertexCount; j++)
+            if (matrix[v][j] == 1 && !vertexList[j].isVisited())
+                return j; //возвращает первую найденную вершину
+        return -1; //таких вершин нет
     }
 
-    public boolean hasEdge(String vertexName1, String vertexName2) {
-        if (!hasVertex(vertexName1)) return false;
-        List<String> edges = vertexMap.get(vertexName1);
-        return Collections.binarySearch(edges, vertexName2) != -1;
-    }
-
-    public void addEdge(String vertexName1, String vertexName2) {
-        if (!hasVertex(vertexName1)) addVertex(vertexName1);
-        if (!hasVertex(vertexName2)) addVertex(vertexName2);
-        List<String> edges1 = vertexMap.get(vertexName1);
-        List<String> edges2 = vertexMap.get(vertexName2);
-        edges1.add(vertexName2);
-        edges2.add(vertexName1);
-        Collections.sort(edges1);
-        Collections.sort(edges2);
-    }
-
-    public Map<String, List<String>> getVertexMap() {
-        return vertexMap;
-    }
 
 }
