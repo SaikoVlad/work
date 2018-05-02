@@ -12,11 +12,8 @@ http://www.springframework.org/schema/beans ">
         <property name="maxUploadSize" value="10000"/>
     </bean>
 
-
-    <!--<mvc:annotation-driven/>-->
-    <!--<mvc:resources mapping="/css/" location="classpath*:/static/css/"/>-->
-    <!--<mvc:resources mapping="/js/" location="classpath*:/static/js/"/>-->
-    <!--<mvc:resources location="/" mapping="/resources/**"/>-->
-    <bean id="authUser" class="by.bntu.fitr.povt.prostrmk.ItNews.model.entity.User"/>
+    <bean id="logger" class="java.util.logging.Logger">
+        <constructor-arg value="log4jl"/>
+    </bean>
 
 </beans>

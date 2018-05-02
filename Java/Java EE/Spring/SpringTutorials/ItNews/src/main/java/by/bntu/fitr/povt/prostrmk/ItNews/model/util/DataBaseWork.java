@@ -1,6 +1,7 @@
 package by.bntu.fitr.povt.prostrmk.ItNews.model.util;
 
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.User;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,49 +13,53 @@ import java.util.List;
 
 public class DataBaseWork {
 
-    public static void addToDataBase(Object entity){
+    private static final Logger logger = Logger.getLogger(DataBaseWork.class);
+
+    public static void addToDataBase(Object entity) {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.save(entity);
             session.getTransaction().commit();
-        } catch (Exception ignored) {
-            ignored.printStackTrace();
+        } catch (Exception e) {
+            logger.error("Hibernate Connection Error");
+            e.printStackTrace();
         } finally {
-            if (session != null && session.isOpen()) {session.close(); }
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
         }
     }
 
-    public static List search(String column, String searchString){
+    public static List search(String column, String searchString) {
         Session session = null;
-        try{
+        try {
             session = HibernateUtil.getSessionFactory().openSession();
             String hql = new StringBuilder().append("FROM Article A WHERE ").append(column).append(" LIKE '%").append(searchString).append("%'").toString();//
             Query query = session.createQuery(hql);//
             return query.list();
-        }catch (Exception e){
+        } catch (Exception e) {
+            logger.error("Search Error");
             return new ArrayList();
-        }finally {
+        } finally {
             assert session != null;
             session.close();
         }
     }
 
-    public static boolean checkUser(User user){
+    public static boolean checkUser(User user) {
         user.setPassword(HibernateUtil.hashString(user.getPassword()));
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(User.class);
-        criteria.add(Restrictions.eq("username",user.getUsername()));
+        criteria.add(Restrictions.eq("username", user.getUsername()));
         List list = criteria.list();
         User inBaseUser;
-        try{
+        try {
             inBaseUser = (User) list.get(0);
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
-        System.out.println(user);
-        System.out.println(inBaseUser);
         return inBaseUser.equals(user);
     }
 

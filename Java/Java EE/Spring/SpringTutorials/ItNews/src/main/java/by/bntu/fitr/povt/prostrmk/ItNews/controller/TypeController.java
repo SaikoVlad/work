@@ -1,9 +1,11 @@
 package by.bntu.fitr.povt.prostrmk.ItNews.controller;
 
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.Article;
+import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.User;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.util.ArticleProcess;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.util.DataBaseWork;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.util.StringsWork;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,6 +17,9 @@ import java.util.List;
 @Controller
 public class TypeController {
 
+
+    @Autowired
+    User user;
 
     @RequestMapping(value = "/{titleOfType}",method = RequestMethod.GET)
     public ModelAndView getProgrammingNews(@PathVariable String titleOfType){
@@ -31,6 +36,7 @@ public class TypeController {
         }else{
             return new ModelAndView("error", "text", "Incorrect link!");
         }
+        modelAndView.addObject("user", user);
         modelAndView.addObject("titleOfPage", StringsWork.firstUpperCase(titleOfType));
         modelAndView.addObject("articles", articles);
         modelAndView.addObject("searchArticle", new Article());
