@@ -32,7 +32,7 @@ public class Search {
                 newList.add(toy);
             }
         }
-        System.out.println(newList);
+//        System.out.println(newList);
     }
 
 //    public static void addComparator(ComparableSort.SortType type, Comparator<Toy> comparator){
