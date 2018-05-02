@@ -8,7 +8,7 @@ public class UserServiceImpl implements UserService {
     public User getUser(String login) {
         User user = new User();
         user.setName(login);
-        user.setPassword("7110eda4d09e062aa5e4a390b0a572ac0d2c0220");
+        user.setPassword("$2a$10$qYnUJjdaKRZ6LrLnx/6JleVS1CA3hi8K1VCVunT3hsIqYjmNtJ2vO");
         return user;
     }
 }
