@@ -11,7 +11,7 @@ import javax.servlet.ServletContextEvent;
 import java.util.Properties;
 
 @SpringBootApplication
-@ComponentScan(value = "by.bntu.fitr.povt.prostrmk.ItNews.controller")
+@ComponentScan(value = {"by.bntu.fitr.povt.prostrmk.ItNews.controller", "by.bntu.fitr.povt.prostrmk.ItNews.config"})
 public class ItNewsApplication {
 
 	public static void main(String[] args) {
