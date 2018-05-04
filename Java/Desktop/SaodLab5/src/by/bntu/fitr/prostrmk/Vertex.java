@@ -1,13 +1,14 @@
 package by.bntu.fitr.prostrmk;
 
-public class Top {
+public class Vertex {
 
     private String label;
     private boolean isVisited;
 
-    public Top(String label) {
+    public Vertex(String label)
+    {
         this.label = label;
-        this.isVisited = false;
+        isVisited = false;
     }
 
     public String getLabel() {
@@ -22,8 +23,8 @@ public class Top {
         return isVisited;
     }
 
-    public void setVisited(boolean visited) {
-        isVisited = visited;
+    public void setVisited(boolean isVisited) {
+        this.isVisited = isVisited;
     }
 
 
