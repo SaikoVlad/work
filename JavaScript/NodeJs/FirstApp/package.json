@@ -1,0 +1,27 @@
+{
+  "name": "firstapp",
+  "version": "1.0.0",
+  "description": "first nodejs application ",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prostfk/nodeRepo.git"
+  },
+  "keywords": [
+    "firstapp"
+  ],
+  "author": "prostrmk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prostfk/nodeRepo/issues"
+  },
+  "homepage": "https://github.com/prostfk/nodeRepo#readme"
+}
