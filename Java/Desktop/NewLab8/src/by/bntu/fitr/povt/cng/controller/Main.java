@@ -1,10 +1,9 @@
 package by.bntu.fitr.povt.cng.controller;
 
 import by.bntu.fitr.povt.cng.model.util.FileUtil;
-import by.bntu.fitr.povt.cng.model.util.logging.CacheLogger;
-import by.bntu.fitr.povt.cng.model.util.logging.CombinedLogger;
-import by.bntu.fitr.povt.cng.model.util.logging.ConsoleLogger;
-import by.bntu.fitr.povt.cng.model.util.logging.FileLogger;
+import by.bntu.fitr.povt.cng.model.util.logging.*;
+import by.bntu.fitr.povt.cng.model.util.logging.Decorator.Lower;
+import by.bntu.fitr.povt.cng.model.util.logging.Decorator.Upper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,15 +16,8 @@ public class Main {
 //        StuffedToys stuffedToys = new StuffedToys(2,3,3,"3","man",3);
 //        Lights lights = new Lights(6,2,2,2,2,2);
 
-        var logger = new FileLogger("check1.txt");
-        var logger1 = new FileLogger("check.txt");
-        for (int i = 0; i < 10; i++) {
-            logger.logEvent(i + "\n");
-            logger1.logEvent(  "\n");
-        }
-
-        System.out.println(FileUtil.compareFiles("check1.txt", "check.txt"));
-
+        Logger logger = new ConsoleLogger(new Upper());
+        logger.logEvent("Check log");
 
     }
 
