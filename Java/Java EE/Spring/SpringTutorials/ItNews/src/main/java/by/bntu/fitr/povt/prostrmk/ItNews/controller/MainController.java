@@ -9,6 +9,10 @@ import by.bntu.fitr.povt.prostrmk.ItNews.model.util.DataBaseWork;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,15 +30,23 @@ public class MainController {
 
     private static final Logger logger = Logger.getLogger(MainController.class);
 
-
+    @RequestMapping("/test")
+    public String getPage(){
+        return "ViewTest";
+    }
 
     @Autowired
     User user;
 
     @Bean
     public User getUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = new User();
-        user.setUsername("Anon");
+        if (authentication != null && authentication.isAuthenticated()){
+            user.setUsername(authentication.getName());
+        }else{
+            user.setUsername("");
+        }
         return user;
     }
 
@@ -42,8 +54,8 @@ public class MainController {
     public ModelAndView getLatest() {
         List<Article> articles = ArticleProcess.getLatestNews();
         for (int i = 0; i < articles.size(); i++) {
-            if (articles.get(i).getContent().toCharArray().length > 15){
-                articles.get(i).setContent(articles.get(i).getContent().substring(0,80) + "...");
+            if (articles.get(i).getContent().toCharArray().length > 120){
+                articles.get(i).setContent(articles.get(i).getContent().substring(0,120) + "...");
             }
         }
         ModelAndView modelAndView = new ModelAndView("index");

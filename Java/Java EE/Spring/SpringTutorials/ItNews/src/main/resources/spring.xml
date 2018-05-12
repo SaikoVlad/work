@@ -9,17 +9,13 @@
 http://www.springframework.org/schema/beans ">
 
 
-    <security:global-method-security pre-post-annotations= "enabled" secured-annotations= "enabled" jsr250-annotations= "enabled"/>
-
-    <mvc:resources mapping="/resources/**" location="classpath:/resources/" />
+    <!--<security:global-method-security pre-post-annotations= "enabled" secured-annotations= "enabled" jsr250-annotations= "enabled"/>-->
     <mvc:annotation-driven />
+    <mvc:resources mapping="/resources/" location="/resources/"/>
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="10000"/>
     </bean>
 
-    <bean id="logger" class="java.util.logging.Logger">
-        <constructor-arg value="log4jl"/>
-    </bean>
 
 </beans>

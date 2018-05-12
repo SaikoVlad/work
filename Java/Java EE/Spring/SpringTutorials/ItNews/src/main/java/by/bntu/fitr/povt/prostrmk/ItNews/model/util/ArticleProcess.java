@@ -55,7 +55,7 @@ public class ArticleProcess {
                 byte []bytes = file.getBytes();
                 String name = file.getOriginalFilename();
                 String rootPath = System.getProperty("catalina.home");
-                File directory = new File( "tempFiles");
+                File directory = new File( "src/main/webapp/resources/pics/");
                 if (!directory.exists()){
                     directory.mkdirs();
                 }
@@ -63,6 +63,7 @@ public class ArticleProcess {
                 File uploadedFile = new File(pathName);
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(uploadedFile));
                 stream.write(bytes);
+                pathName = "resources/pics/" + name;
                 article.setPathToFile(pathName);
                 stream.flush();
                 stream.close();

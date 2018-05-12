@@ -6,7 +6,7 @@
 	<groupId>by.bntu.fitr.povt.prostrmk</groupId>
 	<artifactId>ItNews</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>ItNews</name>
 	<description>News project</description>
@@ -43,10 +43,25 @@
 		</dependency>
 
 		<!--SECURITY-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.0.5.RELEASE</version>
+        </dependency>
+
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.0.5.RELEASE</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.0.5.RELEASE</version>
+		</dependency>
+
+
 		<!--SECURITY-->
 
 		<!--SPRING-->
@@ -112,6 +127,21 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>by.bntu.fitr.povt.prostrmk.ItNews.config.ItNewsApplication</mainClass>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
@@ -132,6 +162,13 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+
+		<repository>
+			<id>maven-repository.dev.java.net</id>
+			<url>https://maven-repository.dev.java.net/nonav/repository/</url>
+			<layout>legacy</layout>
+		</repository>
+
 	</repositories>
 
 	<pluginRepositories>
@@ -152,6 +189,7 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+
 
 
 </project>

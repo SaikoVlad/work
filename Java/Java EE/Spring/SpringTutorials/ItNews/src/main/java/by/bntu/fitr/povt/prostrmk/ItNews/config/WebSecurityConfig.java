@@ -7,11 +7,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
 
 @Configuration
 @EnableWebSecurity
@@ -26,17 +24,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
-        auth.inMemoryAuthentication().withUser("authuser").password("authuser").roles("AUTHUSER");
-        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("roma").password("$2a$10$nh2vdhts0.xlZ.QBaCgFxupQhK2AH0FKpmtGZUrdVDs7Deukr6tru").roles("ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/private/**").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/protected/**").access("hasRole('ROLE_AUTHUSER')")
+                .antMatchers("/createArticle/**").access("hasRole('ROLE_ADMIN')")
                 .and().formLogin().defaultSuccessUrl("/", false);
+        http.formLogin().loginPage("/auth");
 
     }
 

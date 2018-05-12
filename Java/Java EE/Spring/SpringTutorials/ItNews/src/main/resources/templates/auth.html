@@ -3,28 +3,20 @@
 <head>
     <meta charset="UTF-8"/>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
-    <title>Auth</title>
+    <title>Log in</title>
     <style>
-        .outer-box{
-            padding-top: 20px;
+        body {
+            background-color: #5a5a5a;
         }
-        .contact-clean{
-            padding: 20px;
-            width: 25%;
-            background-color: #ffffff;
-            border-radius: 40px;
-            color: #505e6c;
-            box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-        }
+
     </style>
 </head>
 <body>
 
 
-
 <!--NAVBAR-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Belarus It News</a>
+    <a class="navbar-brand" href="/">Belarus It News</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,47 +24,78 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home </a>
+                <!--<span class="sr-only">(current)</span>-->
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/programming">Programming</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/startUp">StartUps</a>
+                <a class="nav-link" href="/startup">StartUps</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/science">Science</a>
             </li>
+            <li class="nav-item">
+            </li>
         </ul>
-        <!--th:with="searchString=${T(java.lang.String).create()}" th:object="${searchString}"-->
-        <!--<form method="post" th:action="@{/search}" >-->
-        <input class="form-control mr-sm-2" type="search" style="background-color: #aeaeae" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-        <!--</form>-->
+
+
     </div>
+    <br/><br/>
 </nav>
 <!--NAVBAR-->
 
 
-<div class="outer-box">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="contact-clean" style="">
-                <form  th:action="@{/auth}" th:object="${user}" method="post">
-                    <h2 align="center">Welcome to ItNews</h2>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="username" type="text" th:field="*{username}" id="username"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" placeholder="password" th:field="*{password}"  id="password"/>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Sign in</button>
-                </form>
+<div class="card text-white bg-dark" style="max-width: 35%;margin: 2% auto auto;border-radius: 7px;">
+    <div class="card-header"><h3 align="center">Please, login to visit this page</h3></div>
+    <div class="card-body">
+        <form th:action="@{/auth}" th:object="${user}" method="post">
+            <div class="form-group">
+                <input class="form-control" value="" placeholder="username" type="text" th:field="*{username}"
+                       id="username"/>
             </div>
-        </div>
+            <div class="form-group">
+                <input class="form-control" type="password" placeholder="password" th:field="*{password}"
+                       id="password"/>
+            </div>
+            <button class="btn btn-primary" type="submit">Sign in</button>
+        </form>
+
     </div>
+    <br/>
+    <br/>
 </div>
 
+
+<!--FOOTER-->
+<footer id="footer">
+    <div align="center">
+        <h6 style="color: #869791; opacity: 0.5">&commat;by Medvedev Roman 2018</h6>
+    </div>
+</footer>
+<!--FOOTER-->
+
+<!--<div class="outer-box">-->
+    <!--<div class="container">-->
+        <!--<div class="row justify-content-center">-->
+            <!--<div class="contact-clean" style="">-->
+                <!--<form th:action="@{/auth}" th:object="${user}" method="post">-->
+                    <!--<h2 align="center">Welcome to ItNews</h2>-->
+                    <!--<div class="form-group">-->
+                        <!--<input class="form-control" placeholder="username" type="text" th:field="*{username}"-->
+                               <!--id="username"/>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<input class="form-control" type="password" placeholder="password" th:field="*{password}"-->
+                               <!--id="password"/>-->
+                    <!--</div>-->
+                    <!--<button class="btn btn-primary" type="submit">Sign in</button>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
 
 </body>

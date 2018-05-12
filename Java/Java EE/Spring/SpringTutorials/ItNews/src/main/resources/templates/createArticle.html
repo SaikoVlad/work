@@ -8,10 +8,13 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+    <link href="/resources/css/custom.css" rel="stylesheet" type="text/css"/>
     <title>Index</title>
 
     <style>
+        body {
+            background-color: #5a5a5a;
+        }
         .outer-box{
             padding-top: 20px;
         }
@@ -58,35 +61,67 @@
 </nav>
 <!--NAVBAR-->
 
-<div class="outer-box">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="contact-clean" style="">
-                <form onsubmit="submitForm(this)" id="article-form"  th:action="@{/createArticle}" enctype="multipart/form-data" th:object="${article}" method="post">
-                    <!--/createArticle-->
-                    <h2 align="center">Add new article</h2>
-                    <div class="form-group">
-                        <select th:field="*{type}">
-                            <option th:value="NO">--Select Item--</option>
-                            <option th:value="PROGRAMMING">Programming</option>
-                            <option th:value="STARTUP">Start up</option>
-                            <option th:value="SCIENCE">Science</option>
-                            <option th:value="OTHER">Other news</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="title" type="text" th:field="*{title}" id="title"/><div id="mistake-title"></div>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" placeholder="content" th:field="*{content}"  id="content"></textarea><div id="mistake-content"></div>
-                    </div>
-                        <input type="file" name="file" formenctype="multipart/form-data"/>
-                    <button class="btn btn-primary" type="submit">Save</button>
-                </form>
+
+<div class="card text-white bg-dark" style="max-width: 35%;margin: 2% auto auto;border-radius: 7px;">
+    <div class="card-header"><h3 align="center">Add new article</h3></div>
+    <div class="card-body">
+        <form onsubmit="submitForm(this)" id="article-form"  th:action="@{/createArticle}" enctype="multipart/form-data" th:object="${article}" method="post">
+            <!--/createArticle-->
+            <h2 align="center"></h2>
+            <div class="form-group">
+                <select th:field="*{type}" style="margin: auto;" class="form-control">
+                    <option th:value="NO">--Select Type--</option>
+                    <option th:value="PROGRAMMING">Programming</option>
+                    <option th:value="STARTUP">Start up</option>
+                    <option th:value="SCIENCE">Science</option>
+                    <option th:value="OTHER">Other news</option>
+                </select>
             </div>
-        </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="title" type="text" th:field="*{title}" id="title"/><div id="mistake-title"></div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="content" th:field="*{content}"  id="content"></textarea><div id="mistake-content"></div>
+            </div>
+            <input type="file" name="file" formenctype="multipart/form-data" style="margin: auto;"/>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+
     </div>
+    <br/>
+    <br/>
 </div>
+
+
+<!--<div class="outer-box">-->
+    <!--<div class="container">-->
+        <!--<div class="row justify-content-center">-->
+            <!--<div class="contact-clean" style="">-->
+                <!--<form onsubmit="submitForm(this)" id="article-form"  th:action="@{/createArticle}" enctype="multipart/form-data" th:object="${article}" method="post">-->
+                    <!--&lt;!&ndash;/createArticle&ndash;&gt;-->
+                    <!--<h2 align="center">Add new article</h2>-->
+                    <!--<div class="form-group">-->
+                        <!--<select th:field="*{type}">-->
+                            <!--<option th:value="NO">&#45;&#45;Select Item&#45;&#45;</option>-->
+                            <!--<option th:value="PROGRAMMING">Programming</option>-->
+                            <!--<option th:value="STARTUP">Start up</option>-->
+                            <!--<option th:value="SCIENCE">Science</option>-->
+                            <!--<option th:value="OTHER">Other news</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<input class="form-control" placeholder="title" type="text" th:field="*{title}" id="title"/><div id="mistake-title"></div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<textarea class="form-control" placeholder="content" th:field="*{content}"  id="content"></textarea><div id="mistake-content"></div>-->
+                    <!--</div>-->
+                        <!--<input type="file" name="file" formenctype="multipart/form-data"/>-->
+                    <!--<button class="btn btn-primary" type="submit">Save</button>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
 
 

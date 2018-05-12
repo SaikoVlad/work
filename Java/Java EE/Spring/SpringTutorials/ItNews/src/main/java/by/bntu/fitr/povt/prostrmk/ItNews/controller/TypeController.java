@@ -29,8 +29,8 @@ public class TypeController {
             articles = ArticleProcess.getArticlesByType(titleOfType);
             Collections.reverse(articles);
             for (int i = 0; i < articles.size(); i++) {
-                if (articles.get(i).getContent().toCharArray().length > 15){
-                    articles.get(i).setContent(articles.get(i).getContent().substring(0,15) + "...");
+                if (articles.get(i).getContent().toCharArray().length > 120){
+                    articles.get(i).setContent(articles.get(i).getContent().substring(0,120) + "...");
                 }
             }
         }else{
@@ -61,7 +61,9 @@ public class TypeController {
             return new ModelAndView("error", "text", "Incorrect link!");
         }
         article.setTitle(StringsWork.firstUpperCase(article.getTitle()));
+        article.setPathToFile("../" + article.getPathToFile());
         modelAndView.addObject("article", article);
+        modelAndView.addObject("searchArticle", new Article());
         return modelAndView;
     }
 
