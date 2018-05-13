@@ -1,12 +1,9 @@
 fun main(args: Array<String>){
 
-    val objectJava = ObjectJava(5, "String")
-    val objectKotlin = ObjectKotlin(5, "String")
-    println(objectJava)
-    println(objectKotlin)
 
-    println(inte(1,2))
-    println(str("reversed"))
+    val objectKotlin = ObjectKotlin(4, "asd")
+    ObjectKotlin.static()
+    objectKotlin.nonstatic()
 
 }
 
