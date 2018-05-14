@@ -3,8 +3,8 @@ package by.bntu.fitr.povt.prostrmk.ItNews.model.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Articles")
-public class Article implements IArticles{
+@Table(name = "OfferArticles")
+public class TempArticle implements IArticles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,8 +19,22 @@ public class Article implements IArticles{
     @Column(name = "type")
     private String type;
 
+    @Column(name = "userName")
+    private String userName;
+
     @Column(name = "pathToFile")
     private String pathToFile;
+
+    public TempArticle() {
+    }
+
+    public TempArticle(String title, String content, String type, String userName, String pathToFile) {
+        this.title = title;
+        this.content = content;
+        this.type = type;
+        this.userName = userName;
+        this.pathToFile = pathToFile;
+    }
 
     public Long getId() {
         return id;
@@ -46,14 +60,6 @@ public class Article implements IArticles{
         this.content = content;
     }
 
-    public String getPathToFile() {
-        return pathToFile;
-    }
-
-    public void setPathToFile(String pathToFile) {
-        this.pathToFile = pathToFile;
-    }
-
     public String getType() {
         return type;
     }
@@ -62,19 +68,19 @@ public class Article implements IArticles{
         this.type = type;
     }
 
-    @Override
-    public int hashCode() {
-        final int hashConst = 31;
-        int result = 1;
-        result = (int) (hashConst * result + id);
-        result = hashConst * result + title.hashCode();
-        result = hashConst * result + content.hashCode();
-        result = hashConst * result + pathToFile.hashCode();
-        return result;
+    public String getUserName() {
+        return userName;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Id - %d,\n Title- %s,\n Content - %s,\nPath to file - %s,\nType - %s", id, title, content, pathToFile, type);
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPathToFile() {
+        return pathToFile;
+    }
+
+    public void setPathToFile(String pathToFile) {
+        this.pathToFile = pathToFile;
     }
 }

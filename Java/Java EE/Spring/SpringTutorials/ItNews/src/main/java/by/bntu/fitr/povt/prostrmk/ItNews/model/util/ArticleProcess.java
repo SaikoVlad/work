@@ -1,6 +1,7 @@
 package by.bntu.fitr.povt.prostrmk.ItNews.model.util;
 
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.Article;
+import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.IArticles;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
@@ -49,7 +50,7 @@ public class ArticleProcess {
         return (Article) criteria.uniqueResult();
     }
 
-    public static boolean savePic(MultipartFile file, Article article){
+    public static boolean savePic(MultipartFile file, IArticles article){
         if (!file.isEmpty()){
             try{
                 byte []bytes = file.getBytes();
