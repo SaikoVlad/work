@@ -14,5 +14,6 @@
         <mapping package="by.bntu.fitr.povt.prostrmk.ItNews.model.entity"/>
         <mapping class="by.bntu.fitr.povt.prostrmk.ItNews.model.entity.User"/>
         <mapping class="by.bntu.fitr.povt.prostrmk.ItNews.model.entity.Article"/>
+        <mapping class="by.bntu.fitr.povt.prostrmk.ItNews.model.entity.TempArticle"/>
     </session-factory>
 </hibernate-configuration>

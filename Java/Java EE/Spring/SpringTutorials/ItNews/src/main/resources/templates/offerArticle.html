@@ -53,7 +53,7 @@
 <div class="card text-white bg-dark" style="max-width: 35%;margin: 2% auto auto;border-radius: 7px;">
     <div class="card-header"><h3 align="center">Add new article</h3></div>
     <div class="card-body">
-        <form onsubmit="submitForm(this)" id="article-form"  th:action="@{/offer}" enctype="multipart/form-data" th:object="${article}" method="poscreateArticlet">
+        <form onsubmit="submitForm(this)" id="article-form"  th:action="@{/offer}" enctype="multipart/form-data" th:object="${article}" method="post">
             <!--/createArticle-->
             <h2 align="center"></h2>
             <div class="form-group">

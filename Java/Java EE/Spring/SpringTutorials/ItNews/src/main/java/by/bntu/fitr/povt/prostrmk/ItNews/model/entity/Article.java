@@ -62,6 +62,17 @@ public class Article implements IArticles{
         this.type = type;
     }
 
+
+    public Article() {
+    }
+
+    public Article(String title, String content, String type, String pathToFile) {
+        this.title = title;
+        this.content = content;
+        this.type = type;
+        this.pathToFile = pathToFile;
+    }
+
     @Override
     public int hashCode() {
         final int hashConst = 31;

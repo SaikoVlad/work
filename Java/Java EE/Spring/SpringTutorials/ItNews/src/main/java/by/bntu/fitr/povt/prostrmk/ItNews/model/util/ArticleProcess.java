@@ -2,6 +2,7 @@ package by.bntu.fitr.povt.prostrmk.ItNews.model.util;
 
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.Article;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.IArticles;
+import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.TempArticle;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
@@ -17,21 +18,31 @@ import java.util.List;
 
 public class ArticleProcess {
 
-    public static Article getArticleById(long id){
+    public static Object getArticleById(long id, Class clazz){
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Article.class);
+        Criteria criteria = session.createCriteria(clazz);
         criteria.add(Restrictions.eq("id",id));
-        return (Article) criteria.uniqueResult();
+        return criteria.uniqueResult();
     }
 
     public static List getLatestNews(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria articleCriteria = session.createCriteria(Article.class);
         Long rowCount = (Long.parseLong(session.createCriteria(Article.class).setProjection(Projections.rowCount()).uniqueResult().toString()));
-        System.err.println(rowCount);
         List<Article> list = articleCriteria.list();
         Collections.reverse(list);
         return list;
+    }
+
+    public static Long getCountOfArticles(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        return (Long.parseLong(session.createCriteria(Article.class).setProjection(Projections.rowCount()).uniqueResult().toString()));
+    }
+
+    public static List getOfferedNews(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(TempArticle.class);
+        return (List<TempArticle>) criteria.list();
     }
 
     public static Article getArticleByTitle(String title) {

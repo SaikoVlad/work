@@ -196,3 +196,72 @@
 2018-05-14 11:25:15 INFO  MainController:67 - Visit main page
 2018-05-14 16:13:31 INFO  MainController:67 - Visit main page
 2018-05-14 16:13:31 INFO  MainController:67 - Visit main page
+2018-05-14 18:24:30 INFO  MainController:67 - Visit main page
+2018-05-14 18:27:14 ERROR DataBaseWork:26 - Hibernate Connection Error
+2018-05-14 18:27:14 INFO  UserController:63 - New Article Offered
+2018-05-14 18:27:21 INFO  MainController:67 - Visit main page
+2018-05-14 18:28:19 INFO  MainController:67 - Visit main page
+2018-05-14 18:29:10 INFO  UserController:63 - New Article Offered
+2018-05-14 18:41:01 INFO  MainController:67 - Visit main page
+2018-05-14 18:41:05 INFO  UserController:101 - Someone Offered New Article
+2018-05-14 19:07:42 INFO  OfferController:72 - Someone Offered New Article
+2018-05-14 19:08:47 INFO  OfferController:72 - Someone Offered New Article
+2018-05-14 19:10:03 INFO  OfferController:72 - Someone Offered New Article
+2018-05-14 19:11:45 INFO  OfferController:72 - Someone Offered New Article
+2018-05-14 19:13:19 INFO  OfferController:69 - Someone Offered New Article
+2018-05-14 19:14:31 INFO  OfferController:69 - Someone Offered New Article
+2018-05-14 19:22:13 INFO  OfferController:69 - Someone Offered New Article
+2018-05-14 19:22:31 INFO  MainController:67 - Visit main page
+2018-05-14 19:23:41 INFO  OfferController:69 - Someone Offered New Article
+2018-05-14 19:23:48 INFO  MainController:67 - Visit main page
+2018-05-14 19:23:50 INFO  MainController:67 - Visit main page
+2018-05-14 19:24:18 INFO  MainController:67 - Visit main page
+2018-05-14 19:24:22 INFO  OfferController:69 - Someone Offered New Article
+2018-05-14 19:24:27 INFO  MainController:67 - Visit main page
+2018-05-14 19:30:08 INFO  MainController:67 - Visit main page
+2018-05-14 19:31:16 INFO  MainController:67 - Visit main page
+2018-05-14 19:32:20 INFO  MainController:67 - Visit main page
+2018-05-14 19:33:30 INFO  MainController:67 - Visit main page
+2018-05-14 19:34:20 INFO  MainController:67 - Visit main page
+2018-05-14 19:38:22 INFO  MainController:67 - Visit main page
+2018-05-14 19:40:24 INFO  MainController:67 - Visit main page
+2018-05-14 19:49:13 WARN  DataBaseWork:42 - Something Was Deleted From Database.
+2018-05-14 19:49:59 WARN  DataBaseWork:42 - Something Was Deleted From Database.
+2018-05-14 19:55:27 WARN  DataBaseWork:42 - Something Was Deleted From Database.
+2018-05-14 20:05:24 INFO  MainController:67 - Visit main page
+2018-05-14 20:06:09 INFO  MainController:67 - Visit main page
+2018-05-14 20:06:16 INFO  MainController:67 - Visit main page
+2018-05-14 20:06:23 INFO  MainController:67 - Visit main page
+2018-05-14 20:06:27 INFO  MainController:67 - Visit main page
+2018-05-14 21:17:05 INFO  MainController:88 - New Article Added
+2018-05-14 21:17:11 INFO  MainController:67 - Visit main page
+2018-05-14 21:18:47 INFO  OfferController:33 - Someone want to offer new article
+2018-05-14 21:19:44 INFO  OfferController:47 - New Article Offered
+2018-05-14 21:19:57 WARN  DataBaseWork:42 - Something Was Deleted From Database.
+2018-05-14 21:20:01 INFO  MainController:67 - Visit main page
+2018-05-14 21:21:13 INFO  OfferController:33 - Someone want to offer new article
+2018-05-14 21:21:52 INFO  OfferController:47 - New Article Offered
+2018-05-14 21:31:57 INFO  MainController:67 - Visit main page
+2018-05-14 21:32:01 INFO  OfferController:34 - Someone want to offer new article
+2018-05-14 21:32:14 WARN  DataBaseWork:42 - Something Was Deleted From Database.
+2018-05-14 21:32:18 INFO  MainController:67 - Visit main page
+2018-05-14 21:47:39 INFO  MainController:67 - Visit main page
+2018-05-14 21:47:43 INFO  OfferController:34 - Someone want to offer new article
+2018-05-14 21:49:30 INFO  OfferController:49 - New Article Offered
+2018-05-14 21:50:38 INFO  OfferController:34 - Someone want to offer new article
+2018-05-14 21:50:43 INFO  OfferController:50 - New Article Offered
+2018-05-14 21:51:47 INFO  OfferController:34 - Someone want to offer new article
+2018-05-14 21:51:50 INFO  OfferController:51 - New Article Offered
+2018-05-14 21:51:59 INFO  MainController:67 - Visit main page
+2018-05-14 21:52:08 INFO  OfferController:75 - Load Offered Articles: 3
+2018-05-14 21:52:34 INFO  OfferController:75 - Load Offered Articles: 3
+2018-05-14 21:52:38 INFO  OfferController:75 - Load Offered Articles: 3
+2018-05-14 21:52:44 WARN  DataBaseWork:42 - Something Was Deleted From Database.
+2018-05-14 21:52:44 INFO  OfferController:106 - Admin Denied Article
+2018-05-14 21:52:44 INFO  OfferController:75 - Load Offered Articles: 2
+2018-05-14 21:52:49 WARN  DataBaseWork:42 - Something Was Deleted From Database.
+2018-05-14 21:52:49 INFO  OfferController:106 - Admin Denied Article
+2018-05-14 21:52:49 INFO  OfferController:75 - Load Offered Articles: 1
+2018-05-14 21:52:55 INFO  OfferController:75 - Load Offered Articles: 1
+2018-05-14 21:52:59 INFO  MainController:67 - Visit main page
+2018-05-14 21:53:31 INFO  OfferController:75 - Load Offered Articles: 1

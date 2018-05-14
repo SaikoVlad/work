@@ -32,6 +32,23 @@ public class DataBaseWork {
         }
     }
 
+    public static void deleteFromDataBase(Object entity){
+        Session session = null;
+        try{
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.delete(entity);
+            session.getTransaction().commit();
+            logger.warn("Something Was Deleted From Database.");
+        }catch (Exception e){
+            logger.error(e);
+        }finally {
+            assert session != null;
+            session.close();
+        }
+
+    }
+
     public static List search(String column, String searchString) {
         Session session = null;
         try {

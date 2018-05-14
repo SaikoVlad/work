@@ -19,9 +19,10 @@ public class DataController {
 
 
 
+    @Deprecated
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public ModelAndView getPageById(@PathVariable Long id){
-        Article article = ArticleProcess.getArticleById(id);
+        Article article = (Article) ArticleProcess.getArticleById(id, Article.class);
         if (article == null){
             return new ModelAndView("error","text","Incorrect link");
         }

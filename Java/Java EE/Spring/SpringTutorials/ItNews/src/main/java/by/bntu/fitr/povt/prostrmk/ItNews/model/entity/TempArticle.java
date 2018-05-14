@@ -83,4 +83,9 @@ public class TempArticle implements IArticles {
     public void setPathToFile(String pathToFile) {
         this.pathToFile = pathToFile;
     }
+
+    @Override
+    public String toString() {
+        return new StringBuilder().append("TempArticle{" + "id=").append(id).append(", title='").append(title).append('\'').append(", content='").append(content).append('\'').append(", type='").append(type).append('\'').append(", userName='").append(userName).append('\'').append(", pathToFile='").append(pathToFile).append('\'').append('}').toString();
+    }
 }
