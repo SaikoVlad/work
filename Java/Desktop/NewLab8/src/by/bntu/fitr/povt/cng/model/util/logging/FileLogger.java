@@ -1,13 +1,21 @@
 package by.bntu.fitr.povt.cng.model.util.logging;
 
+import by.bntu.fitr.povt.cng.model.util.logging.Decorator.TextDecorator;
+
 import java.io.*;
 
 public class FileLogger extends AbstractLogger implements Logger {
 
     private String fileName;
+    private TextDecorator decorator;
 
     public FileLogger() {
         fileName = "fileLogger.txt";
+    }
+
+    public FileLogger(String fileName, TextDecorator decorator) {
+        this.fileName = fileName;
+        this.decorator = decorator;
     }
 
     public FileLogger(String fileName) {

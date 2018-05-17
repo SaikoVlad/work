@@ -2,18 +2,20 @@ package by.bntu.fitr.povt.cng.model.entity;
 
 import by.bntu.fitr.povt.cng.model.entity.abstracts.Toy;
 
-public class Garland extends Toy {
+import java.io.Serializable;
+
+public class Garland extends Toy implements Serializable {
     private double length;
-    private int countOfElemets;
+    private int countOfElements;
     private String element;
 
     public Garland() {
     }
 
-    public Garland(double price, double weight, double size, double length, int countOfElemets, String element) {
+    public Garland(double price, double weight, double size, double length, int countOfElements, String element) {
         super(price, weight, size);
         this.length = length;
-        this.countOfElemets = countOfElemets;
+        this.countOfElements = countOfElements;
         this.element = element;
     }
 
@@ -25,12 +27,12 @@ public class Garland extends Toy {
         this.length = length;
     }
 
-    public int getCountOfElemets() {
-        return countOfElemets;
+    public int getCountOfElements() {
+        return countOfElements;
     }
 
-    public void setCountOfElemets(int countOfElemets) {
-        this.countOfElemets = countOfElemets;
+    public void setCountOfElements(int countOfElements) {
+        this.countOfElements = countOfElements;
     }
 
     public String getElement() {
@@ -43,7 +45,7 @@ public class Garland extends Toy {
 
     @Override
     public String toString() {
-        return new StringBuilder().append("\nGarland " + super.toString()).toString();// + "\n\tLength: " + length + "\n\tCount of elements: " + countOfElemets + "\n\tElement: " + element).toString();//length,countofelem,elem
+        return new StringBuilder().append("\nGarland ").append(super.toString()).append("\n\tLength: ").append(length).append("\n\tCount of elements: ").append(countOfElements).append("\n\tElement: ").append(element).toString();//length,countofelem,elem
     }
 
 }

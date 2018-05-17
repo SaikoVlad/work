@@ -1,10 +1,12 @@
 package by.bntu.fitr.povt.cng.controller;
 
+import by.bntu.fitr.povt.cng.model.entity.abstracts.Toy;
 import by.bntu.fitr.povt.cng.model.util.FileUtil;
 import by.bntu.fitr.povt.cng.model.util.logging.*;
 import by.bntu.fitr.povt.cng.model.util.logging.Decorator.Lower;
 import by.bntu.fitr.povt.cng.model.util.logging.Decorator.Upper;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -16,8 +18,11 @@ public class Main {
 //        StuffedToys stuffedToys = new StuffedToys(2,3,3,"3","man",3);
 //        Lights lights = new Lights(6,2,2,2,2,2);
 
-        Logger logger = new ConsoleLogger(new Upper());
-        logger.logEvent("Check log");
+
+        var toy = new Toy(3.2,4.5,3.1);
+        FileUtil.serialize(toy,"file.serializable");
+        var o = (Toy)FileUtil.deSerialize("file.serializable");
+        System.out.println(o);
 
     }
 

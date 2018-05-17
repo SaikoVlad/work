@@ -2,7 +2,9 @@ package by.bntu.fitr.povt.cng.model.entity;
 
 import by.bntu.fitr.povt.cng.model.entity.abstracts.Toy;
 
-public class StuffedToys extends Toy {
+import java.io.Serializable;
+
+public class StuffedToys extends Toy implements Serializable {
     private String person;
     private String gender;
     private int ageLimit;
@@ -44,6 +46,6 @@ public class StuffedToys extends Toy {
 
     @Override
     public String toString() {
-        return new StringBuilder().append("\nStuffed Toys " + super.toString()).toString(); //+ "\n\tPerson: " + person + "\n\tGender: " + gender + "\n\tAge limit: " + ageLimit).toString();
+        return new StringBuilder().append("\nStuffed Toys ").append(super.toString()).append("\n\tPerson: ").append(person).append("\n\tGender: ").append(gender).append("\n\tAge limit: ").append(ageLimit).toString();
     }
 }

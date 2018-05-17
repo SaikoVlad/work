@@ -1,7 +1,9 @@
 package by.bntu.fitr.povt.cng.model.entity.abstracts;
 
 
-public class Toy implements Comparable<Toy> {
+import java.io.Serializable;
+
+public class Toy implements Comparable<Toy>, Serializable {
     private double price;
     private double weight;
     private double size;
@@ -60,7 +62,7 @@ public class Toy implements Comparable<Toy> {
 
     @Override
     public String toString() {
-        return new StringBuilder().append("\n\tPrice: ").append(price).toString();//.append("\n\tSize: ").append(size).append("\n\tWeight: ").append(weight).toString();//price,size,weight
+        return new StringBuilder().append("\n\tPrice: ").append(price).append("\n\tSize: ").append(size).append("\n\tWeight: ").append(weight).toString();//price,size,weight
     }
 
     @Override

@@ -2,7 +2,9 @@ package by.bntu.fitr.povt.cng.model.entity;
 
 import by.bntu.fitr.povt.cng.model.entity.abstracts.Toy;
 
-public class Lights extends Toy {
+import java.io.Serializable;
+
+public class Lights extends Toy implements Serializable {
     private int lifeTime;
     private int usualTemp;
     private int colorfulTemperature;
@@ -46,9 +48,6 @@ public class Lights extends Toy {
 
     @Override
     public String toString() {
-        return new StringBuilder().append("\nLights "+ super.toString()).toString(); //+
-//                "\n\tLife time: " + lifeTime +
-//                "\n\tUsual temp: " + usualTemp +
-//                "\n\tColorful temperature: " + colorfulTemperature).toString();
+        return new StringBuilder().append("\nLights ").append(super.toString()).append("\n\tLife time: ").append(lifeTime).append("\n\tUsual temp: ").append(usualTemp).append("\n\tColorful temperature: ").append(colorfulTemperature).toString();
     }
 }
