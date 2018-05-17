@@ -3,6 +3,7 @@ package by.bntu.fitr.povt.prostrmk.ItNews.model.util;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.Article;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.IArticles;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.TempArticle;
+import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.User;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
@@ -24,6 +25,8 @@ public class ArticleProcess {
         criteria.add(Restrictions.eq("id",id));
         return criteria.uniqueResult();
     }
+
+
 
     public static List getLatestNews(){
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -86,6 +89,8 @@ public class ArticleProcess {
         }
         return false;
     }
+
+
 
     public static List getArticlesByType(String type){
         Session session = HibernateUtil.getSessionFactory().openSession();

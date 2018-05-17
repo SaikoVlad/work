@@ -31,6 +31,7 @@ public class OfferController {
         ModelAndView modelAndView = new ModelAndView("offerArticle");
         modelAndView.addObject("searchArticle", new Article());
         modelAndView.addObject("article", new TempArticle());
+        modelAndView.addObject("user", user);
         logger.info("Someone want to offer new article");
         return modelAndView;
     }
@@ -84,6 +85,7 @@ public class OfferController {
         article.setTitle(StringsWork.firstUpperCase(article.getTitle()));
         modelAndView.addObject("article", article);
         modelAndView.addObject("searchArticle", new Article());
+        modelAndView.addObject("user", new User());
         return modelAndView;
     }
 

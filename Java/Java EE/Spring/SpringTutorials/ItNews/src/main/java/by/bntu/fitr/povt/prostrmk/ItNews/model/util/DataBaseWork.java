@@ -80,4 +80,10 @@ public class DataBaseWork {
         return inBaseUser.equals(user);
     }
 
+    public static List getUsers(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(User.class);
+        return (List<User>) criteria.list();
+    }
+
 }

@@ -61,6 +61,18 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public ModelAndView getAdminPanel(){
+        ModelAndView modelAndView = new ModelAndView("adminPanel");
+        List users = DataBaseWork.getUsers();
+        modelAndView.addObject("customers", users);
+        modelAndView.addObject("searchArticle", new Article());
+        modelAndView.addObject("user", new User("admin"));
+
+
+
+        return modelAndView;
+    }
 
 
 

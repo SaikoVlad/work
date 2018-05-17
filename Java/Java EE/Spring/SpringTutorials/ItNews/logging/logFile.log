@@ -265,3 +265,39 @@
 2018-05-14 21:52:55 INFO  OfferController:75 - Load Offered Articles: 1
 2018-05-14 21:52:59 INFO  MainController:67 - Visit main page
 2018-05-14 21:53:31 INFO  OfferController:75 - Load Offered Articles: 1
+2018-05-15 18:18:43 INFO  MainController:67 - Visit main page
+2018-05-15 18:18:44 INFO  MainController:67 - Visit main page
+2018-05-15 18:18:53 INFO  MainController:67 - Visit main page
+2018-05-15 18:23:32 INFO  MainController:67 - Visit main page
+2018-05-15 18:24:04 INFO  OfferController:34 - Someone want to offer new article
+2018-05-15 18:24:56 INFO  OfferController:35 - Someone want to offer new article
+2018-05-15 18:27:44 INFO  MainController:67 - Visit main page
+2018-05-15 18:27:54 INFO  OfferController:35 - Someone want to offer new article
+2018-05-16 09:31:08 INFO  MainController:67 - Visit main page
+2018-05-16 09:31:58 INFO  MainController:67 - Visit main page
+2018-05-16 09:33:24 INFO  MainController:67 - Visit main page
+2018-05-16 09:33:43 INFO  OfferController:35 - Someone want to offer new article
+2018-05-16 09:35:17 INFO  MainController:67 - Visit main page
+2018-05-16 09:35:26 INFO  OfferController:76 - Load Offered Articles: 1
+2018-05-16 09:35:32 INFO  MainController:67 - Visit main page
+2018-05-16 09:35:36 INFO  OfferController:76 - Load Offered Articles: 1
+2018-05-16 09:36:44 INFO  OfferController:76 - Load Offered Articles: 1
+2018-05-16 09:36:49 WARN  DataBaseWork:42 - Something Was Deleted From Database.
+2018-05-16 09:36:49 INFO  OfferController:108 - Admin Denied Article
+2018-05-16 09:36:49 INFO  OfferController:76 - Load Offered Articles: 0
+2018-05-16 09:36:53 INFO  MainController:67 - Visit main page
+2018-05-16 12:01:16 INFO  MainController:67 - Visit main page
+2018-05-16 12:01:18 INFO  MainController:67 - Visit main page
+2018-05-16 12:01:47 INFO  MainController:67 - Visit main page
+2018-05-16 12:04:44 INFO  MainController:67 - Visit main page
+2018-05-16 12:04:51 INFO  OfferController:35 - Someone want to offer new article
+2018-05-16 12:05:06 INFO  OfferController:76 - Load Offered Articles: 0
+2018-05-16 12:06:22 INFO  MainController:67 - Visit main page
+2018-05-16 12:06:38 INFO  MainController:67 - Visit main page
+2018-05-16 12:08:26 INFO  MainController:67 - Visit main page
+2018-05-16 12:08:33 INFO  OfferController:35 - Someone want to offer new article
+2018-05-16 12:11:36 INFO  MainController:67 - Visit main page
+2018-05-16 12:11:51 INFO  MainController:67 - Visit main page
+2018-05-16 12:17:58 INFO  MainController:67 - Visit main page
+2018-05-16 12:18:11 INFO  MainController:67 - Visit main page
+2018-05-16 12:38:31 INFO  MainController:67 - Visit main page

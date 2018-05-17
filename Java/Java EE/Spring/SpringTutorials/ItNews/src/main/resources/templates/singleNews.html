@@ -26,10 +26,11 @@
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div class="collapse navbar-collapse"  id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home </a>
+                <!--<span class="sr-only">(current)</span>-->
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/programming">Programming</a>
@@ -40,12 +41,30 @@
             <li class="nav-item">
                 <a class="nav-link" href="/science">Science</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/other">Other</a>
+            </li>
         </ul>
 
-        <form class="form-inline" method="post" th:action="@{/articles/search}" th:object="${searchArticle}">
-            <input class="form-control mr-sm-2" th:field="*{title}" type="search" style="background-color: #aeaeae" placeholder="Search"
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" th:text="${user.getUsername()}" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu darkbg" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" style="color: white;" href="/auth">Auth</a>
+                <a class="dropdown-item" style="color: white;" href="/registration">Registration</a>
+                <a class="dropdown-item" style="color: white;" href="/offer">Offer article</a>
+            </div>
+        </div>
+
+
+        <form class="form-inline" method="post" style="margin-left: 20px" th:action="@{/articles/search}"
+              th:object="${searchArticle}">
+            <input class="form-control mr-sm-2" th:field="*{title}" type="search" style="background-color: #aeaeae"
+                   placeholder="Search"
                    aria-label="Search"/>
-            <button class="btn btn-outline-info my-2 my-sm-0 " type="submit">Search</button>
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
     <br/><br/>
@@ -61,8 +80,8 @@
                 <img  class="rounded" th:src="${article.pathToFile}" style="display: block;margin: 0 auto; max-width: 100%;max-height: 100%;"/>
                 <br/>
                 <p class="card-text h5" th:text="${article.content}"
-                    style="text-overflow: ellipsis;overflow: hidden;"></p>
-                <a href="/"><input type="button" class="btn btn-secondary" value="Back"/></a>
+                    style="text-overflow: ellipsis;overflow: hidden;margin: 5%;"></p>
+                <a href="/"><input type="button" class="btn btn-secondary" style="margin-left: 5%;" value="Back"/></a>
             </div>
         </div>
     </div>

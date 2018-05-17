@@ -85,6 +85,11 @@ public class Article implements IArticles{
     }
 
     @Override
+    public boolean equals(Object obj) {
+        return true;
+    }
+
+    @Override
     public String toString() {
         return String.format("Id - %d,\n Title- %s,\n Content - %s,\nPath to file - %s,\nType - %s", id, title, content, pathToFile, type);
     }

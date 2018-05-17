@@ -64,6 +64,7 @@ public class TypeController {
         article.setPathToFile("../" + article.getPathToFile());
         modelAndView.addObject("article", article);
         modelAndView.addObject("searchArticle", new Article());
+        modelAndView.addObject("user", user);
         return modelAndView;
     }
 
