@@ -1,0 +1,26 @@
+Tue May 08 23:51:21 MSK 2018: Checking console logger
+Tue May 08 23:51:23 MSK 2018: Checking console logger
+Tue May 08 23:51:25 MSK 2018: Checking console logger
+Tue May 08 23:51:38 MSK 2018: Checking file logger
+Tue May 08 23:53:46 MSK 2018: Checking file logger
+Tue May 08 23:54:27 MSK 2018: Checking file logger
+Tue May 08 23:56:47 MSK 2018: Checking cache logger: 0
+Tue May 08 23:56:47 MSK 2018: Checking cache logger: 1
+Tue May 08 23:56:47 MSK 2018: Checking cache logger: 2
+Tue May 08 23:56:47 MSK 2018: Checking cache logger: 3
+Tue May 08 23:56:47 MSK 2018: Checking cache logger: 4
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 0
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 1
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 2
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 3
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 4
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 5
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 6
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 7
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 8
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 9
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 10
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 11
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 12
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 13
+Tue May 08 23:57:36 MSK 2018: Checking cache logger: 14
