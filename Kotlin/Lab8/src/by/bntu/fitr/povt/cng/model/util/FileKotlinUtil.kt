@@ -1,11 +1,16 @@
 package by.bntu.fitr.povt.cng.model.util
 
+import org.apache.log4j.Logger
 import java.io.File
 import java.io.InputStream
 
 class FileKotlinUtil {
 
+
     companion object {
+
+        val logger: Logger = Logger.getLogger(FileKotlinUtil.javaClass)
+
         fun compareFiles(firstFile: String, secondFile: String): Boolean {
 
             var inputStream: InputStream = File(firstFile).inputStream()
@@ -16,21 +21,26 @@ class FileKotlinUtil {
         }
 
         fun writeInFile(string: String,filename: String){
-            File(filename).printWriter().use {
-                out -> out.println(string)
+            try {
+                File(filename).printWriter().use {
+                    out -> out.println(string)
+                }
+            }catch (e: Exception){
+                logger.warn("No such file: $filename")
             }
+
         }
 
         fun readFromFile(filename: String) :String {
-            var stringBuilder: StringBuilder
-            File(filename).forEachLine {
-                stringBuilder.append(it)
+            val readLines = File(filename).readLines()
+            val s = StringBuilder()
+            for (readLine in readLines) {
+                s.append(readLine)
             }
+            return s.toString()
         }
 
-        private fun compareStrings(s1: String, s2:String) : Boolean{
-            return s1 == s2
-        }
+
     }
 
 }
