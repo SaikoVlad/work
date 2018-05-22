@@ -1,16 +1,13 @@
 package by.bntu.fitr.povt.prostrmk.ItNews.controller;
 
+import by.bntu.fitr.povt.prostrmk.ItNews.dao.ArticleDao;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.Article;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.User;
-import by.bntu.fitr.povt.prostrmk.ItNews.model.util.ArticleProcess;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.util.DataBaseWork;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.*;
 import java.util.*;
 
 @Controller
@@ -22,7 +19,7 @@ public class DataController {
     @Deprecated
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public ModelAndView getPageById(@PathVariable Long id){
-        Article article = (Article) ArticleProcess.getArticleById(id, Article.class);
+        Article article = (Article) ArticleDao.getArticleById(id, Article.class);
         if (article == null){
             return new ModelAndView("error","text","Incorrect link");
         }

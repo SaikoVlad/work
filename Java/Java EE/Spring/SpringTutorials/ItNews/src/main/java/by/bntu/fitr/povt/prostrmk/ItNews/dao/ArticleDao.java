@@ -1,9 +1,10 @@
-package by.bntu.fitr.povt.prostrmk.ItNews.model.util;
+package by.bntu.fitr.povt.prostrmk.ItNews.dao;
 
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.Article;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.IArticles;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.TempArticle;
 import by.bntu.fitr.povt.prostrmk.ItNews.model.entity.User;
+import by.bntu.fitr.povt.prostrmk.ItNews.model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ArticleProcess {
+public class ArticleDao {
 
     public static Object getArticleById(long id, Class clazz){
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -31,7 +32,6 @@ public class ArticleProcess {
     public static List getLatestNews(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria articleCriteria = session.createCriteria(Article.class);
-        Long rowCount = (Long.parseLong(session.createCriteria(Article.class).setProjection(Projections.rowCount()).uniqueResult().toString()));
         List<Article> list = articleCriteria.list();
         Collections.reverse(list);
         return list;

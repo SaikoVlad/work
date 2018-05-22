@@ -86,7 +86,7 @@ public class Article implements IArticles{
 
     @Override
     public boolean equals(Object obj) {
-        return true;
+        return obj == this && this.hashCode() == obj.hashCode();
     }
 
     @Override

@@ -39,7 +39,7 @@ public class DataBaseWork {
             session.beginTransaction();
             session.delete(entity);
             session.getTransaction().commit();
-            logger.warn("Something Was Deleted From Database.");
+            logger.debug("Something Was Deleted From Database.");
         }catch (Exception e){
             logger.error(e);
         }finally {
