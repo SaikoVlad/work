@@ -1,12 +1,16 @@
 package by.bntu.fitr.povt.cng.model.features;
 
 import by.bntu.fitr.povt.cng.model.entity.container.Tree;
+import org.apache.log4j.Logger;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileWorking {
+
+    private final static Logger LOGGER = Logger.getLogger(FileWorking.class);
 
     public static void writeInFile(String tree,String fileName){
         try{
@@ -28,8 +32,10 @@ public class FileWorking {
             }
             return sb.toString();
         } catch (FileNotFoundException e) {
+            LOGGER.warn("File " + fileName + " Not Found");
             return e.toString();
         } catch (Exception e) {
+            LOGGER.warn(e.toString());
             return e.toString();
         }
     }
@@ -42,7 +48,7 @@ public class FileWorking {
             String all = firstHalf + middle + secondHalf;
             writeInFile(all,"Example.html");
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
     }
 

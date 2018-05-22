@@ -1,0 +1,2 @@
+2018-05-22 17:11:10 WARN  FileUtil:50 - java.io.FileNotFoundException: notExistingFile.props (No such file or directory)
+2018-05-22 17:11:10 DEBUG FileUtil:53 - object was deSerialized

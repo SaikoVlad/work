@@ -26,7 +26,7 @@ public class Creator {
 
     public SmartTree getTreeObject(CustomCollections collection, ToyType... toyType) {
         if (collection == null) {
-            collection = new QueueMasImpl();
+            collection = (CustomCollections) new QueueMasImpl();
         }
         SmartTree instance = new SmartTree(collection);
         for (ToyType type : toyType) {
@@ -36,7 +36,7 @@ public class Creator {
     }
 
     public SmartTree getTreeObjectWithStandardCollection() {
-        return new SmartTree(new QueueMasImpl());
+        return new SmartTree((CustomCollections) new QueueMasImpl());
     }
 
     private Toy checkToyType(ToyType toyType) {
