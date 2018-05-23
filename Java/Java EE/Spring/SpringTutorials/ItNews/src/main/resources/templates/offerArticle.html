@@ -16,7 +16,7 @@
         }
     </style>
 </head>
-<body>
+<body style="">
 
 <!--NAVBAR-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,9 +27,8 @@
     </button>
     <div class="collapse navbar-collapse"  id="navbarText">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="/">Home </a>
-                <!--<span class="sr-only">(current)</span>-->
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/programming">Programming</a>
@@ -104,6 +103,23 @@
     <br/>
     <br/>
 </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var body = $("body");
+        body.fadeIn(400);
+        $(document).on("click", "a:not([href^='#']):not([href^='tel']):not([href^='mailto'])", function (e) {
+            e.preventDefault();
+            $("body").fadeOut(400);
+            var self = this;
+            setTimeout(function () {
+                window.location.href = $(self).attr("href");
+            }, 400);
+        });
+    });
+</script>
+
 
 
 

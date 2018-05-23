@@ -334,3 +334,37 @@
 2018-05-22 20:09:08 INFO  MainController:59 - Visit main page
 2018-05-22 20:10:50 INFO  MainController:59 - Visit main page
 2018-05-22 20:11:29 INFO  MainController:59 - Visit main page
+2018-05-23 12:28:51 INFO  MainController:59 - Visit main page
+2018-05-23 12:30:42 INFO  MainController:59 - Visit main page
+2018-05-23 12:31:12 INFO  OfferController:76 - Load Offered Articles: 0
+2018-05-23 12:31:16 INFO  MainController:59 - Visit main page
+2018-05-23 12:31:22 INFO  MainController:59 - Visit main page
+2018-05-23 12:33:16 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:33:55 INFO  MainController:59 - Visit main page
+2018-05-23 12:33:58 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:34:09 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:34:11 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:34:12 INFO  MainController:59 - Visit main page
+2018-05-23 12:34:13 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:34:15 INFO  MainController:59 - Visit main page
+2018-05-23 12:34:16 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:34:25 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:34:55 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:35:00 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:35:06 INFO  MainController:59 - Visit main page
+2018-05-23 12:35:08 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:35:40 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 12:35:45 INFO  MainController:59 - Visit main page
+2018-05-23 12:40:12 INFO  MainController:59 - Visit main page
+2018-05-23 12:40:39 INFO  MainController:59 - Visit main page
+2018-05-23 12:45:33 INFO  MainController:59 - Visit main page
+2018-05-23 12:47:59 INFO  MainController:59 - Visit main page
+2018-05-23 12:57:58 INFO  MainController:59 - Visit main page
+2018-05-23 12:58:44 INFO  MainController:59 - Visit main page
+2018-05-23 12:58:46 INFO  MainController:59 - Visit main page
+2018-05-23 13:00:42 INFO  MainController:59 - Visit main page
+2018-05-23 13:03:52 INFO  MainController:59 - Visit main page
+2018-05-23 13:06:14 INFO  MainController:59 - Visit main page
+2018-05-23 13:07:17 INFO  OfferController:35 - Someone want to offer new article
+2018-05-23 13:13:51 INFO  OfferController:52 - New Article Offered
+2018-05-23 13:13:59 INFO  OfferController:76 - Load Offered Articles: 1
