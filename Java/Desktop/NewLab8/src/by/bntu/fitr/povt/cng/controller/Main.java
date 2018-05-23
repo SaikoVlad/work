@@ -2,30 +2,88 @@ package by.bntu.fitr.povt.cng.controller;
 
 import by.bntu.fitr.povt.cng.model.entity.abstracts.Toy;
 import by.bntu.fitr.povt.cng.model.util.FileUtil;
+import org.apache.log4j.Logger;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
 
+
+
     public static void main(String[] args) throws Exception {
-
-//        Garland garland = new Garland(1,1,1,1,1,"123123");
-//        StuffedToys stuffedToys = new StuffedToys(2,3,3,"3","man",3);
-//        Lights lights = new Lights(6,2,2,2,2,2);
-
-
-        FileUtil.deSerialize("notExistingFile.props");
-
-//        var toy = new Toy(3.2,4.5,3.1);
-//        FileUtil.serialize(toy,"file.serializable");
-//        var o = (Toy)FileUtil.deSerialize("file.serializable");
-//        System.out.println(o);
+        String word = "java";
+        IoWorker.writeInFile("outfile.txt","\n\tThere are " + IoWorker.sumOfEntrance("newfile.txt", word) + " entrance of word " + word) ;
 
     }
 
 }
 
+
+class IoWorker{
+
+
+
+
+    static int sumOfEntrance(String filename, String word){
+        int counter = 0;
+        var text = readFromFile(filename);
+        String[] mas = text.split(" ");
+        for (String ma : mas) {
+            if (ma.equals(word)){
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    private static final Logger LOGGER = Logger.getLogger(IoWorker.class);
+
+    public static String readFromFile(String filename){
+        FileReader fr = null;
+        var sb = new StringBuilder();
+        try{
+            fr = new FileReader(filename);
+            int i;
+            while((i = fr.read())!=-1){
+                sb.append((char)i);
+            }
+        } catch (IOException e) {
+            LOGGER.warn("No such file!");
+        }
+        return sb.toString();
+    }
+
+    static void writeInFile(String fileName, String text){
+        FileWriter fileWriter =null;
+        try {
+            fileWriter = new FileWriter(fileName,true);
+            fileWriter.write(text);
+
+        } catch (IOException e) {
+            LOGGER.warn("No such file");
+        }finally {
+            if (fileWriter!=null){
+                try {
+                    fileWriter.flush();
+                    fileWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+}
+
+
 class NewList{
+
+
+
 
     static void split(ArrayList<Integer> one, ArrayList<Integer> two){
         var size = one.size() > two.size() ? one.size() : two.size();

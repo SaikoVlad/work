@@ -1,31 +1,42 @@
 package prostmk.Controller;
 
-import prostmk.Model.IO.CheckStream;
-import prostmk.Model.Serializable.ObjectWork;
-import prostmk.Model.Serializable.Person;
-import prostmk.Model.Serializable.PersonChild;
-import prostmk.Model.Threads.ThreadCheck;
+import prostmk.Model.Threads.FIleThreadsReader;
+import prostmk.Model.Threads.FileThreadsWriter;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class MainClass {
 
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException {
 
-//        Person father = new Person(34,"Roman","Medvedev");
-//        Person kid = new PersonChild(14,"Mark",father);
-//        ObjectWork.writeObject(kid, "kidFile");
-//        PersonChild object = (PersonChild) ObjectWork.readObject("kidFile");
-//        System.out.println(object);
 
-        File file = new File("src/webapp/resources/pics/android-p-features-100757396-large.jpg");
-        if (file.delete()){
-            System.out.println("fine");
-        }else{
-            System.err.println("not fine");
+        FileThreadsWriter writer = new FileThreadsWriter("threads.txt", "threadsthreadsthreadsthreadsthreadsthreadsthreadsthreads");
+        new Thread(writer).start();
+        FIleThreadsReader reader = new FIleThreadsReader("threads.txt");
+        new Thread(reader).start();
+
+    }
+
+}
+class CheckIO {
+
+    static void write(String text, String fileName) throws IOException {
+        FileWriter fw = new FileWriter(fileName,true);
+        fw.write(text);
+        fw.flush();
+        fw.close();
+    }
+
+    static String read(String fileName) throws IOException {
+        FileReader fs = new FileReader(fileName);
+        int i = 0;
+        StringBuilder sb = new StringBuilder();
+        while ((i = fs.read()) != -1){
+            sb.append((char)i);
         }
+        fs.close();
+        return sb.toString();
 
     }
 
